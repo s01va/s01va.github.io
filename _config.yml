@@ -24,7 +24,7 @@ subtitle                 : # site tagline that appears below site title in masth
 name                     : "s01va"
 description              : ""
 url                      : "https://s01va.github.io"
-baseurl                  : "/"
+#baseurl                  : "/"
 repository               : "s01va/s01va.github.io"
 baseurl                  : "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
