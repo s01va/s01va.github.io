@@ -30,7 +30,7 @@ repository               : "s01va/s01va.github.io"
 #baseurl                  : "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/Dominator4.png"
+logo                     : #"/assets/Dominator4.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -113,7 +113,7 @@ analytics:
 # Site Author
 author:
   name             : "s01va"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/bio/Dominator4.png"
   bio              : "start"
   location         : "Somewhere"
   email            :
