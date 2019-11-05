@@ -26,9 +26,8 @@ name                     : "s01va"
 description              : ""
 url                      : "https://s01va.github.io"
 baseurl                  : "/"
-repository               : "s01va/s01va.github.io"
 #baseurl                  : "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "s01va/s01va.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : #"/assets/Dominator4.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
@@ -289,7 +288,7 @@ compress_html:
 defaults:
    _posts
   - scope:
-      path: ""
+      path: "/_posts/"
       type: posts
     values:
       layout: single
