@@ -22,9 +22,14 @@ title_separator          : "---"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "s01va"
 description              : ""
-url                      : "https://s01va.github.io"
+url                      : "http://s01va.github.io"
+<<<<<<< HEAD
 baseurl                  : "/"
 repository               : "s01va/s01va.github.io"
+=======
+baseurl                  : "/blog"
+repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+>>>>>>> s01va
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
