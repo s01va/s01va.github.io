@@ -23,13 +23,10 @@ subtitle                 : # site tagline that appears below site title in masth
 name                     : "s01va"
 description              : ""
 url                      : "https://s01va.github.io"
-#<<<<<<< HEAD
 baseurl                  : "/"
 repository               : "s01va/s01va.github.io"
-=======
 baseurl                  : "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-#>>>>>>> s01va
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/Dominator4.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
