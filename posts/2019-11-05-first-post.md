@@ -1,7 +1,7 @@
 ---
 title: "Testing"
 date: 2019-11-05 14:39:00 -0400
-category: test
+categories: test
 ---
 
 Hello World!
