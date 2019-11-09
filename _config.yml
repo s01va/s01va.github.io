@@ -163,6 +163,7 @@ footer:
 include:
   - .htaccess
   - _pages
+  - _posts
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -303,4 +304,4 @@ defaults:
     values:
       layout: single
       author_profile: true
-      
+
