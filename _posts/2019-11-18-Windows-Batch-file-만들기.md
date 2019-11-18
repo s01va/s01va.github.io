@@ -76,9 +76,9 @@ move [원본] [변경후]
 set PREFIX=%DATE%
 move log.txt log%PREFIX%.txt
 ```
-![cmd batch 0](https://github.com/s01va/s01va.github.io/blob/master/_posts/2019-11-18-Windows-Batch-file/0.PNG)
+![cmd batch 0]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows-Batch-file/0.PNG)
 
-![logfile1](https://github.com/s01va/s01va.github.io/blob/master/_posts/2019-11-18-Windows-Batch-file/1.PNG)
+![logfile1]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows-Batch-file/1.PNG)
 
 :~[number]
 [number]~끝까지를 지정한다.
@@ -92,7 +92,7 @@ set PREFIX2=%PREFIX:~2%
 move log%PREFIX%.txt log%PREFIX2%.txt
 ```
 
-![logfile2](https://github.com/s01va/s01va.github.io/blob/master/_posts/2019-11-18-Windows-Batch-file/2.PNG)
+![logfile2]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows-Batch-file/2.PNG)
 
 "2019-11-18"이라는 문자열의 index가 2인 자리부터 끝까지 지정되어 19-11-18이 된 것을 볼 수 있다.
 
@@ -108,7 +108,7 @@ set PREFIX3=%PREFIX2:-=%
 move log%PREFIX2%.txt log%PREFIX3%.txt
 ```
 
-![logfile3](https://github.com/s01va/s01va.github.io/blob/master/_posts/2019-11-18-Windows-Batch-file/3.PNG)
+![logfile3]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows-Batch-file/3.PNG)
 
 "19-11-18"에서 -가 사라진 191118이 된 것을 볼 수 있다.
 
