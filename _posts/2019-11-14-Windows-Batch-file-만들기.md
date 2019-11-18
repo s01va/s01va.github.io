@@ -1,5 +1,5 @@
 ---
-#published: true
+published: true
 layout: single
 title: "Windows Batch file 만들기"
 description:
