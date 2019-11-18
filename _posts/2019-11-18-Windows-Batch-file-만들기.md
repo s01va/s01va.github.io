@@ -2,7 +2,7 @@
 layout: post
 title: "Windows Batch file 만들기"
 description:
-date: 2019-11-14 10:30:00 -0400
+date: 2019-11-18 10:30:00 -0400
 # modified: 
 tags: 
 - Windows
