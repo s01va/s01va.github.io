@@ -1,4 +1,3 @@
-
 ---
 layout: single
 title: "Windows 10에서 WebLogic 12c 설치하기"
@@ -6,9 +5,9 @@ description:
 date: 2019-10-23 16:00:00 -0400
 # modified: 
 tags: 
-	- WAS
-	- WebLogic
-	- Middleware
+- WAS
+- WebLogic
+- Middleware
 comments: true
 share: true
 ---
