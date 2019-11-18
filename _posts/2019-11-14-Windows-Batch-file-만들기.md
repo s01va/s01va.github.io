@@ -27,33 +27,50 @@ share: true
 
 
 ### @ECHO off
+
 명령어의 복창을 방지한다. 배치파일 내에 여러가지 명령어들을 저장해 두었을 시, 그 명령어들의 결과만을 출력한다.
 
+
 ### title
+
 배치파일이 실행되는 cmd 창의 제목을 지정한다.
 
+
 ### @REM
+
 주석 처리. C계열 언어의 '//'나 파이썬의 '#'에 준함
 
+
 ### set
+
 변수 설정.
 ex) set VAR=15
 
+
 ### %[SOMEVAR]%
+
 환경변수 또는 현재 batch파일 내에서 지정한 변수 불러오기
 
+
 ### 2>&1
+
 2는 stderr, 1은 stdout이다. standard error를 standard output으로 돌리는 것.
 
+
 ### start
+
 실행파일 실행.
 자주쓰는 옵션 \b: 새 Window에서 실행하지 않고 현재 Window에서 바로 실행
 
+
 ### move
+
 파일 이동 또는 파일이름 변경
 move [원본] [변경후]
 
+
 ### 각종 strip
+
 ```
 @ECHO OFF
 set PREFIX=%DATE%
@@ -98,6 +115,7 @@ move log%PREFIX2%.txt log%PREFIX3%.txt
 
 
 ### color
+
 color [1][2]
 [1]은 배경색, [2]는 글씨색이다.
 
@@ -122,6 +140,7 @@ color [1][2]
 
 
 ### mode con cols=[] lines=[]
+
 창 크기를 조절하는 명령어이다.
 mode con cols=[가로크기] lines=[세로크기]
 
