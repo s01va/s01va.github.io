@@ -27,14 +27,14 @@ Java HotSpot(TM) 1.8.0_221
 
 https://www.oracle.com/middleware/technologies/fusionmiddleware-downloads.html 에서 Generic Installer 다운로드
 
-![Oracle Weblogic]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/0.png)
+![Oracle Weblogic]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/0.PNG)
 
-![Oracle Weblogic]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/1.png)
+![Oracle Weblogic]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/1.PNG)
 
 
 다음과 같은 압축파일이 다운받아진다
 
-![Oracle Weblogic zipfile]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/2.png)
+![Oracle Weblogic zipfile]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/2.PNG)
 
 
 # WebLogic 설치
@@ -44,31 +44,31 @@ https://www.oracle.com/middleware/technologies/fusionmiddleware-downloads.html �
 
 ``` java -jar -d64 fmw_12.2.1.4.0_wls.jar ```
 
-![Oracle Weblogic java jar]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/3.png)
+![Oracle Weblogic java jar]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/3.PNG)
 
 아래는 설치 과정.
 
-![Oracle Weblogic install 1/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/4.png)
+![Oracle Weblogic install 1/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/4.PNG)
 
-![Oracle Weblogic install 2/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/5.png)
+![Oracle Weblogic install 2/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/5.PNG)
 
 
 D:\Oracle\Middleware\Oracle_Home 이었던 경로를 아래와 같이 바꾸었다.
 어차피 단일 디렉토리임
 
-![Oracle Weblogic install 3/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/6.png)
+![Oracle Weblogic install 3/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/6.PNG)
 
-![Oracle Weblogic install 4/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/7.png)
+![Oracle Weblogic install 4/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/7.PNG)
 
-![Oracle Weblogic install 5/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/8.png)
+![Oracle Weblogic install 5/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/8.PNG)
 
-![Oracle Weblogic install 6/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/9.png)
+![Oracle Weblogic install 6/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/9.PNG)
 
 그대로 설치
 
-![Oracle Weblogic install 7/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/10.png)
+![Oracle Weblogic install 7/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/10.PNG)
 
-![Oracle Weblogic install 8/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/11.png)
+![Oracle Weblogic install 8/8]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/11.PNG)
 
 
 # 도메인 생성 및 Admin Server 생성
@@ -78,27 +78,27 @@ D:\Oracle\Middleware\Oracle_Home 이었던 경로를 아래와 같이 바꾸었�
 용도별로 base_domain 이름을 바꿔주는 것이 좋다.
 나는 연습용이라 prac으로 명명함
 
-![Oracle Weblogic Domain install 1/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/12.png)
+![Oracle Weblogic Domain install 1/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/12.PNG)
 
-![Oracle Weblogic Domain install 2/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/13.png)
+![Oracle Weblogic Domain install 2/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/13.PNG)
 
-![Oracle Weblogic Domain install 3/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/14.png)
+![Oracle Weblogic Domain install 3/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/14.PNG)
 
-![Oracle Weblogic Domain install 4/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/15.png)
+![Oracle Weblogic Domain install 4/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/15.PNG)
 운영 목적이기 때문에 운영에 체크하였다. JDK가 다른 드라이브에 잡혀 있다면 새로 위치를 잡아주도록 한다.
 
-![Oracle Weblogic Domain install 5/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/16.png)
+![Oracle Weblogic Domain install 5/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/16.PNG)
 관리 서버에 체크.
 
-![Oracle Weblogic Domain install 6/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/17.png)
+![Oracle Weblogic Domain install 6/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/17.PNG)
 수신 포트는 회사마다 바꾸는 곳도 있을 것이니 유의. 나는 연습용이라 그대로
 
-![Oracle Weblogic Domain install 7/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/18.png)
+![Oracle Weblogic Domain install 7/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/18.PNG)
 그대로 생성한다
 
-![Oracle Weblogic Domain install 8/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/19.png)
+![Oracle Weblogic Domain install 8/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/19.PNG)
 
-![Oracle Weblogic Domain install 9/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/20.png)
+![Oracle Weblogic Domain install 9/9]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/20.PNG)
 설치가 완료되었다. 관리 서버 URL 잘 봐두기
 
 http://localhost:7001/console
@@ -107,18 +107,18 @@ http://[host]:[port]/console
 
 cmd 창에서 접근의 용이함을 위해 환경변수를 추가하였다.
 
-![Oracle Weblogic DOMAIN_HOME]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/21.png)
+![Oracle Weblogic DOMAIN_HOME]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/21.PNG)
 
-![Oracle Weblogic DOMAIN_HOME]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/22.png)
+![Oracle Weblogic DOMAIN_HOME]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/22.PNG)
 
 bin에도 명령어가 있지만 DOMAIN_HOME에도 있다. 웹로직 기동을 위해 이것을 실행시킨다.
-![Oracle Weblogic startWebLogic.cmd1]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/23.png)
+![Oracle Weblogic startWebLogic.cmd1]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/23.PNG)
 
-![Oracle Weblogic startWebLogic.cmd2]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/24.png)
+![Oracle Weblogic startWebLogic.cmd2]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/24.PNG)
 설치 시에 입력했던 username과 패스워드를 입력한다.
 
 이후 Running이 뜨면 잘 기동이 된 것이다.
-![Oracle Weblogic startWebLogic.cmd RUNNING]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/25.png)
+![Oracle Weblogic startWebLogic.cmd RUNNING]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/25.PNG)
 
 
 # Managed Server 생성
@@ -127,23 +127,23 @@ bin에도 명령어가 있지만 DOMAIN_HOME에도 있다. 웹로직 기동을 �
 http://[host]:[port]/console
 
 
-![Oracle Weblogic console]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/26.png)
+![Oracle Weblogic console]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/26.PNG)
 콘솔 창이 정상적으로 뜨면 문제없이 기동된 것. 아까 입력한 username과 패스워드로 로그인한다.
 
 
-![Oracle Weblogic console]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/27.png)
+![Oracle Weblogic console]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/27.PNG)
 환경 > 서버로 들어간다.
 
-![Oracle Weblogic console]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/28.png)
+![Oracle Weblogic console]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/28.PNG)
 잠금 및 편집으로 lock을 풀어준다.
 
-![Oracle Weblogic console]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/29.png)
+![Oracle Weblogic console]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/29.PNG)
 새로 만들기
 
-![Oracle Weblogic console]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/30.png)
+![Oracle Weblogic console]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/30.PNG)
 매니지드 서버를 이와 같은 조건으로 생성하였다.
 
-![Oracle Weblogic console]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/31.png)
+![Oracle Weblogic console]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/31.PNG)
 변경 내용 활성화를 눌러준다.
 
 매니지드 서버가 생성되었지만 기동되지 않은 상태이다.
@@ -151,16 +151,16 @@ http://[host]:[port]/console
 
 ``` startManagedWebLogic.cmd [Managed Server Name] t3://[AdminServer Host]:[AdminServer Port] ```
 
-![Oracle Weblogic startManagedWebLogic.cmd]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/32.png)
+![Oracle Weblogic startManagedWebLogic.cmd]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/32.PNG)
 
 startWebLogic.cmd때 처럼 username과 password를 입력해 준다.
 
-![Oracle Weblogic startManagedWebLogic.cmd Login]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/33.png)
+![Oracle Weblogic startManagedWebLogic.cmd Login]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/33.PNG)
 
-![Oracle Weblogic startManagedWebLogic.cmd RUNNING]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/34.png)
+![Oracle Weblogic startManagedWebLogic.cmd RUNNING]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/34.PNG)
 위와 같이 RUNNING이 뜨고
 
-![Oracle Weblogic console]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/35.png)
+![Oracle Weblogic console]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/35.PNG)
 Managed01 서버의 상태가 RUNNING으로 바뀐 것을 볼 수 있다.
 
 
@@ -171,7 +171,7 @@ startWebLogic.cmd로 웹로직을 실행시킬 때마다 일일히 로그인을 
 
 %DOMAIN_HOME%/servers/[adminserver]에 본애 security 디렉토리는 없다. 이를 만들어 준 후 boot.properties를 아래와 같이 작성한다.
 
-![boot.properties]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/36.png)
+![boot.properties]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/36.PNG)
 
 = 뒤에 본인이 설정했던 username과 패스워드를 입력한다. 일단 평문으로 저장해 주면, 이후에 웹로직을 기동할 때 암호화된다.
 boot.properties를 저장한 후 startWebLogic.cmd로 웹로직을 재기동시키면 username과 패스워드를 요구하지 않고 RUNNING이 뜨는 것을 볼 수 있다.
@@ -250,4 +250,4 @@ tail -f %LOG_DIR%\%SERVER_NAME%.out
 # 웹 어플리케이션 배포하기
 
 [테스트용 어플리케이션 만들기 포스트 링크]
-
+작성중
