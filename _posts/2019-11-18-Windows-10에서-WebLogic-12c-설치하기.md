@@ -245,9 +245,12 @@ start /B %DOMAIN_HOME%\bin\startManagedWebLogic.cmd %SERVER_NAME% %ADM_URL% > %L
 tail -f %LOG_DIR%\%SERVER_NAME%.out
 ```
 
+Windows tail 다운받는 곳
+https://sourceforge.net/projects/wintail/
 
 
 # 웹 어플리케이션 배포하기
 
 [테스트용 어플리케이션 만들기 포스트 링크]
+
 작성중
