@@ -71,7 +71,7 @@ move [원본] [변경후]
 
 ### 각종 strip
 
-```
+```batch
 @ECHO OFF
 set PREFIX=%DATE%
 move log.txt log%PREFIX%.txt
@@ -84,7 +84,7 @@ move log.txt log%PREFIX%.txt
 [number]~끝까지를 지정한다.
 이미 생성해 놓은 log.txt파일의 이름을 변경하는 것으로 실험하였다.
 
-```
+```batch
 @ECHO OFF
 set PREFIX=%DATE%
 @REM move log.txt log%PREFIX%.txt
@@ -98,7 +98,8 @@ move log%PREFIX%.txt log%PREFIX2%.txt
 
 :[]=
 []자리에 해당하는 문자열을 잘라낸다.
-```
+
+```batch
 @ECHO OFF
 set PREFIX=%DATE%
 @REM move log.txt log%PREFIX%.txt
