@@ -3,7 +3,7 @@ layout: single
 title: "Windows 10에서 WebLogic 12c 설치하기"
 description:
 date: 2019-10-23 16:00:00 -0400
-# modified: 
+modified: 2019-11-21 15:38:23 -0400
 tags: 
 - WAS
 - WebLogic
@@ -25,7 +25,7 @@ Java HotSpot(TM) 1.8.0_221
 
 # 설치파일 다운로드
 
-https://www.oracle.com/middleware/technologies/fusionmiddleware-downloads.html 에서 Generic Installer 다운로드
+[Oracle](https://www.oracle.com/middleware/technologies/fusionmiddleware-downloads.html)에서 Generic Installer 다운로드
 
 ![Oracle Weblogic]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/0.PNG)
 
@@ -259,6 +259,8 @@ Log_DIR에 추가적으로 생성해야 하는 폴더(AdminServer, Managed01)는
 tail은 로그를 모니터링할 때 편리한 프로그램이다. 파일에 로그가 쌓일 때마다 실시간으로 콘솔에 띄워준다.
 리눅스에서 기본적으로 제공되는 프로그램인데 윈도우에서는 기본제공이 되지 않는다.
 tail 프로그램은 종류도 다양하고 많으니 마음에 드는 것을 다운받아 %DOMAIN_HOME%으로 옮겨주면 위의 스크립트에서 사용할 수 있다.
+
+나는 Microsoft가 배포한 [Windows Server 2003 Resource Kit Tools](https://www.microsoft.com/en-us/download/confirmation.aspx?id=17657)에 포함된 [tail.exe](https://github.com/s01va/tail_for_windows)를 사용했다.
 
 ![runAdminServer.cmd]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/38.PNG)
 
