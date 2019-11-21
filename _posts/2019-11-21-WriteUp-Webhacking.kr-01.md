@@ -12,6 +12,8 @@ comments: true
 share: true
 ---
 
+리뉴얼 기념!
+
 ![gate-01]({{site.url}}{{site.baseurl}}/assets/images/2019-11-21-WriteUp-Webhacking.kr-01/0.PNG)
 
 
