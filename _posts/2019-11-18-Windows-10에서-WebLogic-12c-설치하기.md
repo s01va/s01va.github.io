@@ -179,6 +179,9 @@ boot.properties를 저장한 후 startWebLogic.cmd로 웹로직을 재기동시�
 
 ![encrypted boot.properties]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/37.PNG)
 
+%DOMAIN_HOME%/servers/[managedserver]에도 같은 식으로 생성해 준다.
+
+
 
 # 편의를 위한 실행 배치파일 생성 + 배치파일 기본 작성법 작성 후 링크걸기
 
@@ -248,11 +251,22 @@ start /B %DOMAIN_HOME%\bin\startManagedWebLogic.cmd %SERVER_NAME% %ADM_URL% > %L
 tail -f %LOG_DIR%\%SERVER_NAME%.out
 ```
 
-tail은 로그를 모니터링할 때 편리한 프로그램이다. 파일에 로그가 쌓일 때마다 실시간으로 콘솔에 띄워준다.
-리눅스에서 기본적으로 제공되는 프로그램인데 윈도우엔 제공되지 않는다.
-[Windows tail 다운로드](https://sourceforge.net/projects/wintail/)
+Log_DIR에 추가적으로 생성해야 하는 폴더(AdminServer, Managed01)는 직접 만들어 주어야 한다.
+위의 두 스크립트를 runAdminServer.cmd, runManaged01.cmd로 이름을 붙이고 %DOMAIN_HOME%에 위치시켰다.
 
-tail 명령어를 경로에 구애받지 않고 자유자재로 쓰려면 C:\Windows\System32에 해당 exe파일을 넣어준다.
+
+※
+tail은 로그를 모니터링할 때 편리한 프로그램이다. 파일에 로그가 쌓일 때마다 실시간으로 콘솔에 띄워준다.
+리눅스에서 기본적으로 제공되는 프로그램인데 윈도우에서는 기본제공이 되지 않는다.
+tail 프로그램은 종류도 다양하고 많으니 마음에 드는 것을 다운받아 %DOMAIN_HOME%으로 옮겨주면 위의 스크립트에서 사용할 수 있다.
+
+![runAdminServer.cmd]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/38.PNG)
+
+
+![runManaged01.cmd]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/39.PNG)
+
+
+두 스크립트가 잘 실행된 것을 볼 수 있다.
 
 
 
@@ -264,15 +278,24 @@ tail 명령어를 경로에 구애받지 않고 자유자재로 쓰려면 C:\Win
 
 내가 테스트용으로 만든 웹 어플리케이션 webtest의 내부는 이렇게 생겼다.
 
-![webtest]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/38.PNG)
+![webtest]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/40.PNG)
 
-![webtest-WebContent]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/39.PNG)
+![webtest-WebContent]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/41.PNG)
 
 WebContent 내부에는 META-INF, WEB-INF 등이 필히 존재하는데, 이 구조는 war파일 구조와 다르지 않다. 이 폴더를 배포할 때, war파일 형식이라고 지정해 주면 war파일로 인식시킬 수 있다.
 
-이 WebContent 폴더를 복사해서, WAS를 실행시키는 D드라이브로 옮겼다.
+이 WebContent 폴더를 WAS를 실행시키는 D드라이브로 복사하고 webtest로 폴더명을 바꾸었다.
 
-![webtest-WebContent]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/40.PNG)
+![webtest-WebContent]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/42.PNG)
 
 이제부터 이 폴더를 WebLogic에 배포해볼 것이다.
 
+웹로직 콘솔에 들어간다.
+
+![WebLogic Console - Domain Structure]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/43.PNG)
+
+잠금 및 편집을 누른 후 배치 - 설치를 누른다.
+
+![WebLogic Console - Deploy - Install]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/44.PNG)
+
+Deploy할 웹 어플리케이션을 폴더로 지정해 준다.
