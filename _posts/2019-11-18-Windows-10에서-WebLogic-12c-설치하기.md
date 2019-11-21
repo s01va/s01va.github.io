@@ -282,7 +282,7 @@ tail 프로그램은 종류도 다양하고 많으니 마음에 드는 것을 �
 
 ![webtest-WebContent]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/41.PNG)
 
-WebContent 내부에는 META-INF, WEB-INF 등이 필히 존재하는데, 이 구조는 war파일 구조와 다르지 않다. 이 폴더를 배포할 때, war파일 형식이라고 지정해 주면 war파일로 인식시킬 수 있다.
+WebContent 내부에는 META-INF, WEB-INF 등이 필히 존재하는데, 이 구조는 war파일 구조와 다르지 않다. 그리고 WEB-INF에 web.xml이 적절한 형태로 존재하면 배포시 war파일로 인식시킬 수 있다.
 
 이 WebContent 폴더를 WAS를 실행시키는 D드라이브로 복사하고 webtest로 폴더명을 바꾸었다.
 
@@ -299,3 +299,60 @@ WebContent 내부에는 META-INF, WEB-INF 등이 필히 존재하는데, 이 구
 ![WebLogic Console - Deploy - Install]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/44.PNG)
 
 Deploy할 웹 어플리케이션을 폴더로 지정해 준다.
+
+![WebLogic Console - Deploy - Install2]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/45.PNG)
+
+다음을 누른다.
+
+![WebLogic Console - Deploy - Install3]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/46.PNG)
+
+다음
+
+![WebLogic Console - Deploy - Install4]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/47.PNG)
+
+다음
+
+![WebLogic Console - Deploy - Install5]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/48.PNG)
+
+나머지 설정은 기본으로 두고 소스 접근성 설정만 위와 같이 바꾸었다.
+
+완료
+
+![WebLogic Console - Deploy Complete]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/49.PNG)
+
+성공적으로 Deploy했다. 변경 내용 활성화를 눌러준다.
+
+![WebLogic Console - application ready]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/50.PNG)
+
+배포한 어플리케이션의 상태가 "준비됨"으로 바뀌었다. 이를 실행시키려면 콘트롤 탭으로 가야한다.
+
+![WebLogic Console - application ready2]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/51.PNG)
+
+잠금 및 편집을 누르고 해당 어플리케이션을 선택 후 시작을 누른다.
+
+![WebLogic Console - application deploy]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/52.PNG)
+
+배치 관련 Summury가 뜬다. 예를 눌러준다.
+
+![WebLogic Console - application deploy complete]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/53.PNG)
+
+어플리케이션의 상태가 Running으로 바뀐 것을 볼 수 있다.
+
+아래와 같은 URL로 접속하여 배포 성공 여부를 확인한다.
+
+localhost:[ManagedServerPort]/[DeployedAppContextroot]
+
+ManagedServerPort는 좌측의 도메인 구조 - 환경 - 서버에서도 확인할 수 있다.
+
+![ManagedServerPort]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/54.PNG)
+
+DeployedAppContextroot는 도메인 구조 - 배치 - 배포항 어플리케이션을 선택하면 볼 수 있다.
+
+![DeployedAppContextroot]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/55.PNG)
+
+자동으로 어플리케이션 이름으로 컨텍스트 루트를 설정하는 것으로 보인다.
+(루트로 설정하는법 아시는분..)
+
+나의 경우엔 localhost:8001/webtest로 들어가면 서비스 성공 여부를 확인할 수 있다.
+
+![All Complete!]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/56.PNG)
