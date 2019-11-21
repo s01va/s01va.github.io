@@ -188,7 +188,7 @@ boot.properties를 저장한 후 startWebLogic.cmd로 웹로직을 재기동시�
 
 Admin Server 구동 스크립트
 
-```cmd
+```batch
 @ECHO OFF
 set SERVER_NAME=AdminServer
  
@@ -218,7 +218,7 @@ tail -f %LOG_DIR%\%SERVER_NAME%.out
 
 Managed Server 구동 스크립트
 
-```cmd
+```batch
 @ECHO OFF
  
 set SERVER_NAME=Managed01
