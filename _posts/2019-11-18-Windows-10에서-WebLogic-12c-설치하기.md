@@ -177,16 +177,18 @@ startWebLogic.cmd로 웹로직을 실행시킬 때마다 일일히 로그인을 
 boot.properties를 저장한 후 startWebLogic.cmd로 웹로직을 재기동시키면 username과 패스워드를 요구하지 않고 RUNNING이 뜨는 것을 볼 수 있다.
 재기동 후 boot.properties를 열어보면 암호화가 되어 저장되어진 것을 볼 수 있다.
 
+![encrypted boot.properties]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/37.PNG)
+
 
 # 편의를 위한 실행 배치파일 생성 + 배치파일 기본 작성법 작성 후 링크걸기
 
-배치파일 만들기 -> [링크]
+[배치파일 만들기](https://s01va.github.io/Windows-Batch-file-%EB%A7%8C%EB%93%A4%EA%B8%B0/)
 
 아래와 같이 두 스크립트를 만들었다.
 
 Admin Server 구동 스크립트
 
-```
+```cmd
 @ECHO OFF
 set SERVER_NAME=AdminServer
  
@@ -215,7 +217,8 @@ tail -f %LOG_DIR%\%SERVER_NAME%.out
 ```
 
 Managed Server 구동 스크립트
-```
+
+```cmd
 @ECHO OFF
  
 set SERVER_NAME=Managed01
@@ -245,12 +248,31 @@ start /B %DOMAIN_HOME%\bin\startManagedWebLogic.cmd %SERVER_NAME% %ADM_URL% > %L
 tail -f %LOG_DIR%\%SERVER_NAME%.out
 ```
 
-Windows tail 다운받는 곳
-https://sourceforge.net/projects/wintail/
+tail은 로그를 모니터링할 때 편리한 프로그램이다. 파일에 로그가 쌓일 때마다 실시간으로 콘솔에 띄워준다.
+리눅스에서 기본적으로 제공되는 프로그램인데 윈도우엔 제공되지 않는다.
+[Windows tail 다운로드](https://sourceforge.net/projects/wintail/)
+
+tail 명령어를 경로에 구애받지 않고 자유자재로 쓰려면 C:\Windows\System32에 해당 exe파일을 넣어준다.
 
 
-# 웹 어플리케이션 배포하기
 
-[테스트용 어플리케이션 만들기 포스트 링크]
+# 웹 어플리케이션 배포(Deploy)하기
 
-작성중
+[여기](https://s01va.github.io/WAS-%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%9A%A9-%EC%9B%B9-%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%A7%8C%EB%93%A4%EA%B8%B0/)에서 만든 테스트용 웹 어플리케이션을 배포하려 한다.
+
+.war파일을 배포할 수도 있고, 여러가지 방법이 있지만 폴더째로 배포하는 방법이 있다.
+
+내가 테스트용으로 만든 웹 어플리케이션 webtest의 내부는 이렇게 생겼다.
+
+![webtest]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/38.PNG)
+
+![webtest-WebContent]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/39.PNG)
+
+WebContent 내부에는 META-INF, WEB-INF 등이 필히 존재하는데, 이 구조는 war파일 구조와 다르지 않다. 이 폴더를 배포할 때, war파일 형식이라고 지정해 주면 war파일로 인식시킬 수 있다.
+
+이 WebContent 폴더를 복사해서, WAS를 실행시키는 D드라이브로 옮겼다.
+
+![webtest-WebContent]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/40.PNG)
+
+이제부터 이 폴더를 WebLogic에 배포해볼 것이다.
+
