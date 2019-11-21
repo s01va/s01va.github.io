@@ -42,7 +42,9 @@ Java HotSpot(TM) 1.8.0_221
 아래와 같은 명령어로 jar파일을 실행시킨다.
 관리자로 실행
 
-``` java -jar -d64 fmw_12.2.1.4.0_wls.jar ```
+```batch
+java -jar -d64 fmw_12.2.1.4.0_wls.jar
+```
 
 ![Oracle Weblogic java jar]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/3.PNG)
 
@@ -149,7 +151,9 @@ http://[host]:[port]/console
 매니지드 서버가 생성되었지만 기동되지 않은 상태이다.
 %DOMAIN_HOME%\bin에서 다음과 같은 명령어를 실행시켜 준다.
 
-``` startManagedWebLogic.cmd [Managed Server Name] t3://[AdminServer Host]:[AdminServer Port] ```
+```batch
+startManagedWebLogic.cmd [Managed Server Name] t3://[AdminServer Host]:[AdminServer Port]
+```
 
 ![Oracle Weblogic startManagedWebLogic.cmd]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/32.PNG)
 
