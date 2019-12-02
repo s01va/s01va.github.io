@@ -162,6 +162,7 @@ startWebLogic.cmd때 처럼 username과 password를 입력해 준다.
 ![Oracle Weblogic startManagedWebLogic.cmd Login]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/33.PNG)
 
 ![Oracle Weblogic startManagedWebLogic.cmd RUNNING]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/34.PNG)
+
 위와 같이 RUNNING이 뜨고
 
 ![Oracle Weblogic console]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/35.PNG)
