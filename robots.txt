@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://s01va.github.io/sitemap.xml
