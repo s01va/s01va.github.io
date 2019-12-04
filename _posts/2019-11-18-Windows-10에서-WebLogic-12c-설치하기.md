@@ -174,7 +174,7 @@ Managed01 서버의 상태가 RUNNING으로 바뀐 것을 볼 수 있다.
 startWebLogic.cmd로 웹로직을 실행시킬 때마다 일일히 로그인을 해야 한다.
 이를 %DOMAIN_HOME%/servers/[adminserver]/security/boot.properties를 생성하여 자동 로그인을 하게 할 수 있다.
 
-%DOMAIN_HOME%/servers/[adminserver]에 본애 security 디렉토리는 없다. 이를 만들어 준 후 boot.properties를 아래와 같이 작성한다.
+%DOMAIN_HOME%/servers/[adminserver]에 본래 security 디렉토리는 없다. 이를 만들어 준 후 boot.properties를 아래와 같이 작성한다.
 
 ![boot.properties]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/36.PNG)
 
