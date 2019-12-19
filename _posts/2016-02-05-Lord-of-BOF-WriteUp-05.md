@@ -46,7 +46,7 @@ source code:
 28                 printf("stack is still your friend.\n");
 29                 exit(0);
 30         }
-31         strcpy(buffer, argv[1]);
+31         strcpy(buffer, argv[1]); 
 32         printf("%s\n", buffer);
 33 
 34         // buffer hunter
