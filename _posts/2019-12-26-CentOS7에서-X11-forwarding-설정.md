@@ -31,7 +31,7 @@ yum install xorg-x11-server-Xorg.x86_64
 
 # 3. Xming install
 
-CentOS쪽으로 붙을 클라이언트 측(Windows)에서 [Xming을 설치]{https://sourceforge.net/projects/xming/} 해 준다.
+CentOS쪽으로 붙을 클라이언트 측(Windows)에서 [Xming을 설치](https://sourceforge.net/projects/xming/)해 준다.
 기본설정대로 설치해 준다.
 
 설치 이후 설정을 해 주어야 한다. Xming을 설치하면 XLaunch라는 것이 생긴다. 이걸 실행하면 아래같은 창이 뜬다.
