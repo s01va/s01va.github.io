@@ -50,7 +50,7 @@ Connection - SSH - X11에 들어가 Enable X11 forwarding에 체크해 준다.
 
 ![Enable X11]({{site.url}}{{site.baseurl}}/assets/images/2019-12-26-CentOS7-X11-forwarding/1.PNG)
 
-세션에 저장해두고 좋다.
+세션에 저장해두면 편하다.
 
 
 # 5. Test
