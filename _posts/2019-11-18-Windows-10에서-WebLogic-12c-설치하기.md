@@ -117,6 +117,7 @@ bin에도 명령어가 있지만 DOMAIN_HOME에도 있다. 웹로직 기동을 �
 ![Oracle Weblogic startWebLogic.cmd1]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/23.PNG)
 
 ![Oracle Weblogic startWebLogic.cmd2]({{site.url}}{{site.baseurl}}/assets/images/2019-11-18-Windows10-WebLogic12c/24.PNG)
+
 설치 시에 입력했던 username과 패스워드를 입력한다.
 
 이후 Running이 뜨면 잘 기동이 된 것이다.
