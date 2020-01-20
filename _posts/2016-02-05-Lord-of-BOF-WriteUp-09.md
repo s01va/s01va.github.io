@@ -5,9 +5,9 @@ title: "LOB troll -> vampire"
 date: 2016-02-05 12:00:00 -0400
 # modified: 
 tags: 
-- WarGame
-- WriteUp
-- Pwnable
+- wargame
+- writeup
+- pwnable
 comments: true
 share: true
 ---
