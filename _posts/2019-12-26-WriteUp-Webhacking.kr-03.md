@@ -4,11 +4,12 @@ title: "Webhacking.kr 3번"
 description: "리뉴얼 기념 정주행"
 date: 2019-12-26 12:37:00 -0400
 # modified: 
-tags: 
-- WebHaking
-- WarGame
-- WriteUp
-- SQL_injection
+tags:
+- webhaking
+- wargame
+- writeup
+- cookie
+- sql_injection
 comments: true
 share: true
 ---
