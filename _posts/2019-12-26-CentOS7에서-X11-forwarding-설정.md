@@ -5,9 +5,9 @@ title: "CentOS7에서 X11 forwarding 설정(X Window 설치)"
 date: 2019-12-26 12:37:00 -0400
 # modified: 
 tags: 
-- CentOS
-- Xwindow
-- X11
+- centos
+- xwindow
+- x11
 comments: true
 share: true
 ---
