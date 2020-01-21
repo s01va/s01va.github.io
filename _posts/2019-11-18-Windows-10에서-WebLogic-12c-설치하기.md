@@ -5,9 +5,9 @@ description:
 date: 2019-10-23 16:00:00 -0400
 modified: 2019-11-21 15:38:23 -0400
 tags: 
-- WAS
-- WebLogic
-- Middleware
+- was
+- weblogic
+- middleware
 comments: true
 share: true
 ---
