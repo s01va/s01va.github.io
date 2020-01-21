@@ -5,10 +5,10 @@ description:
 date: 2019-11-14 10:30:00 -0400
 # modified: 
 tags: 
-- Windows
+- windows
 - cmd
-- Batchfile
-- Script
+- batchfile
+- script
 comments: true
 share: true
 ---
