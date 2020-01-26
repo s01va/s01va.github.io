@@ -1,8 +1,7 @@
 ---
 title: "About"
 permalink: /about/
-layout: single
-author_profile: true
+date: 2020-01-26 21:00:00 -0400
 ---
 
 Test
