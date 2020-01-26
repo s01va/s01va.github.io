@@ -300,12 +300,19 @@ defaults:
       related: true
       sidebar:
         nav: "categorydocs"
-    #pages
+# home
   - scope:
-      path: "_pages"
-      type: pages
+      path: ""
+      type: home
     values:
-      layout: single
-      author_profile: true
       sidebar:
         nav: "categorydocs"
+    #pages
+#  - scope:
+#      path: "_pages"
+#      type: pages
+#    values:
+#      layout: single
+#      author_profile: true
+#      sidebar:
+#        nav: "categorydocs"
