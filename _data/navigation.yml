@@ -11,6 +11,6 @@ docs:
   - title: "WAS"
     children:
       - title: "JEUS"
-        url: /dd/dd
+        url: /tags/#jeus
       - title: "WebLogic"
-        url: /  /  
+        url: /tags/#weblogic
