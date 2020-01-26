@@ -312,7 +312,7 @@ defaults:
   # home
   - scope:
       path: ""
-      type: 
+      type: home
     values:
       author_profile: true
       sidebar:
