@@ -311,7 +311,7 @@ defaults:
         nav: "categorydocs"
   # home
   - scope:
-      path: ""
+      path: "_layouts"
       type: home
     values:
       layout: archive
