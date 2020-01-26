@@ -14,3 +14,8 @@ docs:
         url: /tags/#jeus
       - title: "WebLogic"
         url: /tags/#weblogic
+
+  - title: "Web Hacking"
+    children:
+      - title: "webhacking.kr"
+        url: /tags/#webhacking-kr
