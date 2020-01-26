@@ -287,6 +287,13 @@ compress_html:
 
 # Defaults
 defaults:
+  # _docs
+  - scope:
+      path: ""
+      type: docs
+    values:
+      sidebar:
+        nav: "docs"
   # _posts
   - scope:
       path: ""
@@ -305,10 +312,3 @@ defaults:
     values:
       layout: single
       author_profile: true
-  - scope:
-      path: ""
-      type: docs
-    values:
-      sidebar:
-        nav: "docs"
-
