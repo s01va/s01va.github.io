@@ -9,7 +9,7 @@ tags:
 - wargame
 - writeup
 - cookie
-- sql_injection
+- sql-injection
 comments: true
 share: true
 ---
