@@ -7,7 +7,7 @@ main:
   - title: "Categories"
     url: /categories/
 
-docs:
+categorydocs:
   - title: "WAS"
     children:
       - title: "JEUS"
