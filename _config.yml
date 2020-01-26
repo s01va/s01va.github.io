@@ -314,6 +314,7 @@ defaults:
       path: ""
       type: home
     values:
+      layout: archive
       author_profile: true
       sidebar:
         nav: "categorydocs"
