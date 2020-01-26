@@ -4,8 +4,8 @@ main:
     url: /about/
   - title: "Tags"
     url: /tags/
-  - title: "Categories"
-    url: /categories/
+#  - title: "Categories"
+#    url: /categories/
 
 categorydocs:
   - title: "WAS"
