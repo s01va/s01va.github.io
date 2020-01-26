@@ -287,8 +287,6 @@ compress_html:
 
 # Defaults
 defaults:
-  sidebar:
-    nav: "categorydocs"
   # _posts
   - scope:
       path: ""
