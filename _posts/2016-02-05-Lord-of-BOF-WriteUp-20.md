@@ -8,6 +8,7 @@ tags:
 - wargame
 - writeup
 - pwnable
+- lob
 comments: true
 share: true
 ---
