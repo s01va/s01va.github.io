@@ -19,3 +19,8 @@ categorydocs:
     children:
       - title: "webhacking.kr"
         url: /tags/#webhacking-kr
+
+  - title: "Pwnable"
+    children:
+      - title: "Lord of BOF"
+        url: /tags/#lob
