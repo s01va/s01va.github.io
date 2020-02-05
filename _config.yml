@@ -314,7 +314,7 @@ defaults:
       path: "_layouts"
       type: home
     values:
-      layout: single
+      layout: home
       author_profile: true
       sidebar:
         nav: "categorydocs"
