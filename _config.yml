@@ -311,7 +311,7 @@ defaults:
         nav: "categorydocs"
   # _layouts/home
   - scope:
-      path: ""
+      path: "_layouts"
       type: home
     values:
       layout: single
