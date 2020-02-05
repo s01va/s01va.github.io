@@ -309,3 +309,12 @@ defaults:
       author_profile: true
       sidebar:
         nav: "categorydocs"
+  # _layouts/home
+  - scope:
+      path: ""
+      type: home
+    values:
+      layout: single
+      author_profile: true
+      sidebar:
+        nav: "categorydocs"
