@@ -20,6 +20,11 @@ categorydocs:
       - title: "webhacking.kr"
         url: /tags/#webhacking-kr
 
+  - title: "Reversing"
+    children:
+      - title: "CodeEngn Basic"
+        url: /tags/#codeengn-basic
+
   - title: "Pwnable"
     children:
       - title: "Lord of BOF"
