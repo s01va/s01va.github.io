@@ -9,8 +9,8 @@ tags:
 - webhacking.kr
 - wargame
 - writeup
-- cookie
-- sql-injection
+- sha1
+- sha1-crack
 comments: true
 share: true
 ---
