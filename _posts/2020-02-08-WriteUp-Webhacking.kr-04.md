@@ -89,3 +89,52 @@ isset 함수는 해당 함수가 존재하는지를 확인하는 함수이다.
 2. 문제 페이지에 있는 값을 미리 생성해둔 사전에서 찾는다. (찾을 확률 10%)
 3. 미리 생성해둔 사전에서 key를 찾을 수 없으면 문제 페이지를 새로고침하고 2번으로 되돌아간다.
 
+
+이를 자동으로 찾기 위한 파이썬 스크립트를 작성하였다.
+
+
+1번 과정:
+
+```python
+
+import hashlib, csv
+
+
+chall4 = ""
+f = open('rainbow.csv', 'a', newline='')
+writer = csv.writer(f)
+
+for i in range(10000000, 20000000):
+  chall4 = str(i) + "salt_for_you"
+  hash = ""
+
+  for j in range(0, 500):
+    tmphash = hashlib.sha1(chall4.encode('utf-8'))
+    hash = tmphash.hexdigest()
+    
+  writer.writerow([chall4, hash])
+  print(chall4 + " : " + hash)
+
+f.close()
+
+```
+
+2번 과정:
+
+```python
+
+import hashlib, csv
+
+
+f = open('rainbow.csv', 'r', newline='')
+reader = csv.reader(f)
+hash = "" # 문제 페이지의 hash값을 여기에 입력한다.
+
+for line in reader:
+  if line[1] == hash:
+    print("I found the key! : " + line[0])
+
+f.close()
+
+```
+
