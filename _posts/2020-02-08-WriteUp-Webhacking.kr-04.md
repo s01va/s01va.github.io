@@ -106,11 +106,10 @@ writer = csv.writer(f)
 
 for i in range(10000000, 20000000):
   chall4 = str(i) + "salt_for_you"
-  hash = ""
+  hash = chall4
 
   for j in range(0, 500):
-    tmphash = hashlib.sha1(chall4.encode('utf-8'))
-    hash = tmphash.hexdigest()
+    hash = hashlib.sha1(hash.encode('utf-8')).hexdigest()
     
   writer.writerow([chall4, hash])
   print(chall4 + " : " + hash)
