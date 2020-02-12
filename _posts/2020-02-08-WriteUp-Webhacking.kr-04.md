@@ -138,3 +138,10 @@ f.close()
 
 ```
 
+위의 스크립트를 활용하다 보면 일정 확률로 문제를 풀 수 있다.
+
+![script]({{site.url}}{{site.baseurl}}/assets/images/2020-02-08-WriteUp-Webhacking.kr-04/1.PNG)
+
+![input key]({{site.url}}{{site.baseurl}}/assets/images/2020-02-08-WriteUp-Webhacking.kr-04/2.PNG)
+
+![pwned]({{site.url}}{{site.baseurl}}/assets/images/2020-02-08-WriteUp-Webhacking.kr-04/3.PNG)
