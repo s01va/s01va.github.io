@@ -312,7 +312,7 @@ defaults:
   # _layouts/home
   - scope:
       path: ""
-      type: index
+      type: 
     values:
       layout: home
       author_profile: true
