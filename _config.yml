@@ -311,8 +311,8 @@ defaults:
         nav: "categorydocs"
   # _layouts/home
   - scope:
-      path: "_layouts"
-      type: home
+      path: ""
+      type: index
     values:
       layout: home
       author_profile: true
