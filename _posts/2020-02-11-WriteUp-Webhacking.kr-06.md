@@ -15,7 +15,7 @@ share: true
 
 ![06]({{site.url}}{{site.baseurl}}/assets/images/2020-02-11-WriteUp-Webhacking.kr-06/0.PNG)
 
-view-source를 누르면 아래ㅗ아 같은 코드를 볼 수 있다.
+view-source를 누르면 아래와 같은 코드를 볼 수 있다.
 
 ```php
 <?php
