@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "LOB cobolt -> goblin"
+title: "LOB 3번 (cobolt -> goblin)"
 #description: ""
 date: 2016-02-05 12:00:00 -0400
 # modified: 

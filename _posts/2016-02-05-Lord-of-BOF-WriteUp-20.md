@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "LOB xavius -> death_night"
+title: "LOB 20번 (xavius -> death_night)"
 #description: ""
 date: 2016-02-05 12:00:00 -0400
 # modified: 

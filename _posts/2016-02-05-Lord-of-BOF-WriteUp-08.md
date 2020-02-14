@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "LOB orge -> troll"
+title: "LOB 8번 (orge -> troll)"
 #description: ""
 date: 2016-02-05 12:00:00 -0400
 # modified: 

@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "LOB darkknight -> bugbear"
+title: "LOB 13번 (darkknight -> bugbear)"
 #description: ""
 date: 2016-02-05 12:00:00 -0400
 # modified: 

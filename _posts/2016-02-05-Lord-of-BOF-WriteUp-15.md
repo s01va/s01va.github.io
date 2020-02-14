@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "LOB giant -> assassin"
+title: "LOB 15번 (giant -> assassin)"
 #description: ""
 date: 2016-02-05 12:00:00 -0400
 # modified: 

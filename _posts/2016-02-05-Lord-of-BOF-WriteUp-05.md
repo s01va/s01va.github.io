@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "LOB orc -> wolfman"
+title: "LOB 5번 (orc -> wolfman)"
 #description: ""
 date: 2016-02-05 12:00:00 -0400
 # modified: 

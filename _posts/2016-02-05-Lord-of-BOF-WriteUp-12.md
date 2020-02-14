@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "LOB golem -> darkknight"
+title: "LOB 12번 (golem -> darkknight)"
 #description: ""
 date: 2016-02-05 12:00:00 -0400
 # modified: 

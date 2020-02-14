@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "LOB skeleton -> golem"
+title: "LOB 11번 (skeleton -> golem)"
 #description: ""
 date: 2016-02-05 12:00:00 -0400
 # modified: 

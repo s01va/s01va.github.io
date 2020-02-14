@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "LOB succubus -> nightmare"
+title: "LOB 18번 (succubus -> nightmare)"
 #description: ""
 date: 2016-02-05 12:00:00 -0400
 # modified: 

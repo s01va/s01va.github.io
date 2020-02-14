@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "LOB gate -> gremlin"
+title: "LOB 1번 (gate -> gremlin)"
 #description: ""
 date: 2016-02-05 12:00:00 -0400
 # modified: 

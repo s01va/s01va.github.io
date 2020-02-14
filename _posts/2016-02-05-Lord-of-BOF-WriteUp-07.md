@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "LOB darkelf -> orge"
+title: "LOB 7번 (darkelf -> orge)"
 #description: ""
 date: 2016-02-05 12:00:00 -0400
 # modified: 

@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "LOB troll -> vampire"
+title: "LOB 9번 (troll -> vampire)"
 #description: ""
 date: 2016-02-05 12:00:00 -0400
 # modified: 

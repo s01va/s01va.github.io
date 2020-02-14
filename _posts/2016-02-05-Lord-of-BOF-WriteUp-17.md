@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "LOB zombie_assassin -> succubus"
+title: "LOB 17번 (zombie_assassin -> succubus)"
 #description: ""
 date: 2016-02-05 12:00:00 -0400
 # modified: 
