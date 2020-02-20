@@ -39,7 +39,7 @@ root로 진행해야 한다.
 참고로 위에서 사용한 rpm 명령어의 옵션값은 아래와 같은 의미를 가진다.
 
 | Option | 의미 |
-| -- | -- |
+| :----: | :--: |
 | -i | Install(설치) |
 | -v | Verbose(상세) |
 | -h | Header(헤더를 표시) |
@@ -191,9 +191,65 @@ oraInventory는 오라클 제품군 설치 시 필요한 파일들이 들어 있
 ![Install silent mode]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/14.PNG)
 
 
+위에서 지정해준 ORACLE_HOME 위치에 파일들이 생성된 것을 볼 수 있다.
+
+![ORACLE_HOME]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/15.PNG)
+
 ---------------------------------------------------------------------------------
 
-# 도메인 구성
+# 도메인 구성 & Admin server 생성
 
 
-[작성중]
+`$ORACLE_HOME/wlserver/common/bin`으로 진입한다.
+
+![common]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/16.PNG)
+
+
+wlst.sh를 발견할 수 있다.
+
+wlst는 WebLogic Scripting Tool이라고 한다.
+
+이 쉘파일을 실행시킨다.
+
+![wlst.sh]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/17.PNG)
+
+deprecated script라며 oracle_common/common/bin에 있는 wlst.sh를 실행하라고 하지만 현재의 스크립트로 설치를 진행한다.
+
+![read template]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/18.PNG)
+
+위의 명령어를 실행시킨다.
+(oracle_common/common/bin에 있는 wlst.sh로 이를 진행하면 템플릿을 찾지 못해 설치가 진행되지 않는다)
+
+명령어 라인에 base_domain이 생긴 것을 볼 수 있다.
+이렇게 기본 생성된 도메인 이름은 나중에 변경할 수 있다.
+
+이제 서버 기동 및 콘솔 접근에 필요한 관리자 계정을 생성해 준다.
+
+![make admin]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/19.PNG)
+
+이 weblogic을 운영모드로 운용하려면 다음과 같이 설정해 준다.
+
+![set Production mode]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/20.PNG)
+
+Admin server의 이름, 포트를 바꾸려면 아래와 같이 입력한다.
+
+```
+cd('Servers/AdminServer')
+set('Name', '[new name]')
+set('ListenPort', 7001)
+set('ListenAddress', 'All Local Addresses')
+```
+ListenAddress를 위의 설정대로 해주지 않으면 가능한 모든 IP를 사용하게 된다.
+
+이제 기본 적용된 도메인 이름 base_domain을 다른 이름으로 바꿔줄 것이다.
+
+![rename domain]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/21.PNG)
+
+설정을 마쳤으면 `closeTemplate()`, `exit()`으로 종료해준다.
+
+
+위에서 사용했던 wlst 내의 모든 명령어들을 모아 파이썬 스크립트 파일로 생성해서 한번에 설정할 수도 있다.
+생성한 스크립트 파일이 /tmp/setwl.py라면,
+
+`wlst.sh /tmp/setwl.py` 이런식으로 실행시키면 된다.
+
