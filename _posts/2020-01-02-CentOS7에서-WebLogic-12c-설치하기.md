@@ -253,3 +253,5 @@ ListenAddress를 위의 설정대로 해주지 않으면 가능한 모든 IP를 
 
 `wlst.sh /tmp/setwl.py` 이런식으로 실행시키면 된다.
 
+
+[추가중]
