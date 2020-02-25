@@ -17,7 +17,7 @@ share: true
 
 다음은 실행시킨 최초의 화면이다. 패스워드를 알아내는 프로그램임을 알 수 있다.
 
-![]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-12/0.png)
+![program]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-12/0.png)
 
 ![PEiD]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-12/1.png)
 
