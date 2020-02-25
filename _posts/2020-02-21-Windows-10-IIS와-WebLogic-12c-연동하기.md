@@ -14,7 +14,7 @@ comments: true
 share: true
 ---
 
-[WebLogic 설치 이후 과정](https://s01va.github.io/Windows-10%EC%97%90%EC%84%9C-WebLogic-12c-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/)이다.
+[WebLogic 설치](https://s01va.github.io/Windows-10%EC%97%90%EC%84%9C-WebLogic-12c-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/) 이후 과정이다.
 
 
 ## IIS 설치
@@ -145,6 +145,6 @@ WebLogicCluster=[Host]:[Port]
 
 ## 추가
 
-컴퓨터에 따라 간혹 오류코드 0x8007007e, 500번 오류가 뜨기도 한다.
+컴퓨터에 따라 간혹 오류코드 0x8007007e(500번 오류)가 뜨기도 한다.
 
 이럴 때는 [마이크로소프트 페이지](https://www.microsoft.com/en-us/download/details.aspx?id=30679)에서 vc++ 런타임을 다운로드 받고 설치해 주면 해결된다.
