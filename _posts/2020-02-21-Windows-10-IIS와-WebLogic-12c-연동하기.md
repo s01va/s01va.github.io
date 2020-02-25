@@ -116,7 +116,7 @@ IIS로 돌아가서 이전에 만든 가상 디렉토리 창에서 처리기 매
 
 아래와 같은 형식으로 작성한다.
 
-```sh
+```bash
 WebLogicCluster=[Host]:[Port]
 ```
 
@@ -126,7 +126,7 @@ WebLogicCluster=[Host]:[Port]
 
 ![index.html]({{site.url}}{{site.baseurl}}/assets/images/2020-02-21-Windows-10-IIS-with-WebLogic-12c/21.PNG)
 
-```xml
+```html
 <html>
 	<head>
 	</head>
