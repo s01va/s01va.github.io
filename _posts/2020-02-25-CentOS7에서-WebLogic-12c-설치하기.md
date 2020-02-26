@@ -27,13 +27,13 @@ java를 설치한다.
 
 [여기](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)에서 리눅스용 자바를 다운받고 해당 CentOS로 옮겼다.
 
-![oracle java download]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/0.PNG)
+![oracle java download]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/0.PNG)
 
-![oracle java download]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/1.PNG)
+![oracle java download]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/1.PNG)
 
 내려받은 rpm 파일로 java를 설치한다.
 
-![rpm]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/2.PNG)
+![rpm]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/2.PNG)
 
 root로 진행해야 한다.
 참고로 위에서 사용한 rpm 명령어의 옵션값은 아래와 같은 의미를 가진다.
@@ -51,7 +51,7 @@ root로 진행해야 한다.
 설치 후 환경변수에 JAVA_HOME을 추가해 주어야 한다. 홈 경로의 .bash_profile을 아래와 같이 수정해 준다.
 (.bashrc에서 설정한 것들은 재접속하면 날아간다.)
 
-![.bash_profile]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/3.PNG)
+![.bash_profile]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/3.PNG)
 
 그리고 아래와 같은 명령어로 수정된 .bash_profile 파일을 적용해 준다.
 
@@ -74,26 +74,26 @@ root로 진행해야 한다.
 
 [Oracle](https://www.oracle.com/middleware/technologies/fusionmiddleware-downloads.html)에서 Generic Installer 다운로드
 
-![Oracle Weblogic]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/4.PNG)
+![Oracle Weblogic]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/4.PNG)
 
-![Oracle Weblogic]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/5.PNG)
+![Oracle Weblogic]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/5.PNG)
 
 
 다음과 같은 압축파일이 다운받아진다
 
-![Oracle Weblogic zipfile]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/6.PNG)
+![Oracle Weblogic zipfile]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/6.PNG)
 
 
 다운로드 받은 파일을 CentOS로 옮겨준다.
 
-![zip file in CentOS]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/7.PNG)
+![zip file in CentOS]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/7.PNG)
 
 
 # WebLogic 설치
 
 압축을 풀어준다.
 
-![unzip]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/8.PNG)
+![unzip]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/8.PNG)
 
 사일런트 모드가 아니라면 바로 설치를 진행할 수 있지만
 사일런트 모드로 설치하기 위해서는 사전에 생성해야 할 파일이 두 개가 있다.
@@ -160,11 +160,11 @@ ORACLE_HOME에 해당되는 디렉토리는 따로 직접 생성해 준다.
 
 .rsp 형태로 파일명을 지정해준다.
 
-![naming rsp file]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/9.PNG)
+![naming rsp file]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/9.PNG)
 
-![making rsp file]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/10.PNG)
+![making rsp file]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/10.PNG)
 
-![making oracle_home]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/11.PNG)
+![making oracle_home]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/11.PNG)
 
 
 ## 인벤토리 포인터 파일 생성
@@ -180,20 +180,20 @@ inst_group=weblogic
 oraInventory는 오라클 제품군 설치 시 필요한 파일들이 들어 있는 디렉토리이다.
 설치 시 디렉토리 째로 생성된다. 위의 inventory_loc 뒤에 이 oraInventory가 생성될 경로를 입력해 준다.
 
-![naming loc file]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/12.PNG)
+![naming loc file]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/12.PNG)
 
-![making loc file]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/13.PNG)
+![making loc file]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/13.PNG)
 
 
 
 이제 설치해 준다.
 
-![Install silent mode]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/14.PNG)
+![Install silent mode]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/14.PNG)
 
 
 위에서 지정해준 ORACLE_HOME 위치에 파일들이 생성된 것을 볼 수 있다.
 
-![ORACLE_HOME]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/15.PNG)
+![ORACLE_HOME]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/15.PNG)
 
 ---------------------------------------------------------------------------------
 
@@ -202,7 +202,7 @@ oraInventory는 오라클 제품군 설치 시 필요한 파일들이 들어 있
 
 `$ORACLE_HOME/wlserver/common/bin`으로 진입한다.
 
-![common]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/16.PNG)
+![common]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/16.PNG)
 
 
 wlst.sh를 발견할 수 있다.
@@ -211,11 +211,11 @@ wlst는 WebLogic Scripting Tool이라고 한다.
 
 이 쉘파일을 실행시킨다.
 
-![wlst.sh]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/17.PNG)
+![wlst.sh]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/17.PNG)
 
 deprecated script라며 oracle_common/common/bin에 있는 wlst.sh를 실행하라고 하지만 현재의 스크립트로 설치를 진행한다.
 
-![read template]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/18.PNG)
+![read template]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/18.PNG)
 
 위의 명령어를 실행시킨다.
 (oracle_common/common/bin에 있는 wlst.sh로 이를 진행하면 템플릿을 찾지 못해 설치가 진행되지 않는다)
@@ -225,11 +225,11 @@ deprecated script라며 oracle_common/common/bin에 있는 wlst.sh를 실행하�
 
 이제 서버 기동 및 콘솔 접근에 필요한 관리자 계정을 생성해 준다.
 
-![make admin]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/19.PNG)
+![make admin]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/19.PNG)
 
 이 weblogic을 운영모드로 운용하려면 다음과 같이 설정해 준다.
 
-![set Production mode]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/20.PNG)
+![set Production mode]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/20.PNG)
 
 Admin server의 이름, 포트를 바꾸려면 아래와 같이 입력한다.
 
@@ -243,7 +243,7 @@ ListenAddress를 위의 설정대로 해주지 않으면 가능한 모든 IP를 
 
 이제 기본 적용된 도메인 이름 base_domain을 다른 이름으로 바꿔줄 것이다.
 
-![rename domain]({{site.url}}{{site.baseurl}}/assets/images/2020-01-02-in-CentOS7-WebLogic12c-Install/21.PNG)
+![rename domain]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/21.PNG)
 
 설정을 마쳤으면 `closeTemplate()`, `exit()`으로 종료해준다.
 
