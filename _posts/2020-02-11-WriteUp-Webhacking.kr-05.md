@@ -179,7 +179,7 @@ URL에 mode라는 변수를 넣으면 두번째 조건을 우회할 수 있다.
 
 로그인 페이지로 돌아가 join에서 입력했던 id와 패스워드를 입력하면 admin으로 로그인 할 수 있는 권한이 주어진다.
 
-join 페이지로 돌아가 admin 뒤에 공백을 추가하고 가입을 시도해 보았다.
+join 페이지로 돌아가 admin 앞에 공백을 추가하고 가입을 시도해 보았다.
 
 ![join  admin]({{site.url}}{{site.baseurl}}/assets/images/2020-02-11-WriteUp-Webhacking.kr-05/19.PNG)
 
