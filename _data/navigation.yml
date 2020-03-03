@@ -14,6 +14,8 @@ categorydocs:
         url: /tags/#jeus
       - title: "WebLogic"
         url: /tags/#weblogic
+      - title: "JVM"
+        url: /tags/#jvm
 
   - title: "Web Hacking"
     children:
