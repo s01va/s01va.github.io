@@ -26,7 +26,6 @@ name                     : "s01va"
 description              : ""
 url                      : "https://s01va.github.io"
 baseurl                  : "/"
-#baseurl                  : "/blog"
 repository               : "s01va/s01va.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : #"/assets/Dominator4.png"
@@ -295,7 +294,7 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments: true
       share: true
       related: true
       sidebar:
