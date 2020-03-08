@@ -8,18 +8,18 @@ html {
   /* apply a natural box layout model to all elements */
   box-sizing: border-box;
   background-color: $background-color;
-  font-size: 11px;
+  font-size: 16px;
 
   @include breakpoint($medium) {
-    font-size: 10px;
+    font-size: 18px;
   }
 
   @include breakpoint($large) {
-    font-size: 11px;
+    font-size: 20px;
   }
 
   @include breakpoint($x-large) {
-    font-size: 12px;
+    font-size: 22px;
   }
 
   -webkit-text-size-adjust: 100%;
@@ -96,7 +96,7 @@ a:active {
 sub,
 sup {
   position: relative;
-  font-size: 100%;
+  font-size: 75%;
   line-height: 0;
   vertical-align: baseline;
 }
