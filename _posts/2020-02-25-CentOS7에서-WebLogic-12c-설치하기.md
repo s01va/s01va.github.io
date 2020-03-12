@@ -2,7 +2,7 @@
 layout: single
 title: "CentOS7에서 WebLogic 12c 설치하기"
 description: "WebLogic 12.2.1.4.0"
-date: 2020-02-25 12:37:00 -0400
+date: 2020-03-09 12:37:00 -0400
 # modified: 
 tags: 
 - centos
@@ -254,7 +254,32 @@ ListenAddress를 위의 설정대로 해주지 않으면 가능한 모든 IP를 
 `wlst.sh /tmp/setwl.py` 이런식으로 실행시키면 된다.
 
 
-편의를 위해 환경변수를 추가한다.
-[추가중]
+편의를 위해 .bash_profile에서 환경변수를 추가한다.
 
-방화벽에서 포트 오픈
+![DOMAIN_HOME]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/22.PNG)
+
+`. .bash_profile`로 적용해 준다.
+
+
+------------------------------------------------------
+
+# Web Console을 이용하기 위한 설정
+
+
+현재 설정중인 서버 내부에서 web console 컨트롤 전용 7001번 포트는 이미 열려있는 상태이다.
+하지만 해당 서버를 원격 터미널을 통해 컨트롤하고 있는 상황이라면 서버 내부 포트 7001과 외부 포트를 연결시켜 주어야 7001 웹 콘솔을 볼 수 있다.
+
+(방화벽에서 포트 오픈)[https://s01va.github.io/iptables-port-forwarding/]
+
+root로 계정을 바꾼 후 설정하였다.
+
+![iptables]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/23.PNG)
+
+
+![]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/20.PNG)
+![]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/20.PNG)
+![]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/20.PNG)
+![]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/20.PNG)
+![]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/20.PNG)
+![]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/20.PNG)
+![]({{site.url}}{{site.baseurl}}/assets/images/2020-02-25-in-CentOS7-WebLogic12c-Install/30.PNG)
