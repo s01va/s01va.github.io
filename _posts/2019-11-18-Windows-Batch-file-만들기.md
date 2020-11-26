@@ -3,7 +3,7 @@ layout: single
 title: "Windows Batch file 만들기"
 description:
 date: 2019-11-14 10:30:00 -0400
-# modified: 
+modified: 2020-11-26
 tags: 
 - windows
 - cmd
@@ -152,3 +152,30 @@ mode con cols=[가로크기] lines=[세로크기]
 
 
 참고한 곳: https://ss64.com/nt/
+
+
+
+## 자주 쓰는 조합
+
+### 주기적인 로그삭제
+
+```batch
+forfiles /p "[path]" /s /m [words to search] /d -[date] /c "cmd /c del @path"
+```
+
+| Option | description | 
+| ------ | ----------- |
+| /p | path |
+| /s | search including subdirectories |
+| /m | search specific words |
+| /d | date |
+| /c | command |
+
+
+ex)
+
+```batch
+forfiles /p "C:\Temp\" /s /m *.log /d -10 /c "cmd /c del @path"
+```
+
+의미: C:\Temp부터 하위 디렉토리 전부를 대상으로, 파일명이 \*.log이며 생성된지 10일이 넘은 파일들을 모두 삭제한다.
