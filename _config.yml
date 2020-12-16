@@ -312,10 +312,14 @@ defaults:
   # _layouts/home
   - scope:
       path: ""
-      type: 
+      type: home
     values:
       layout: home
       classes: wide
       author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
       sidebar:
         nav: "categorydocs"
