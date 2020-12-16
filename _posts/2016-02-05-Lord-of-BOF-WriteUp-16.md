@@ -16,42 +16,40 @@ share: true
 source code:
 
 ```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - zombie_assassin
+        - FEBP
+*/
 
-1  /*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - zombie_assassin
-4          - FEBP
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  
-10 main(int argc, char *argv[])
-11 {
-12         char buffer[40];
-13 
-14         if(argc < 2){
-15                 printf("argv error\n");
-16                 exit(0);
-17         }
-18 
-19         if(argv[1][47] == '\xbf')
-20         {
-21                 printf("stack retbayed you!\n");
-22                 exit(0);
-23         }
-24 
-25         if(argv[1][47] == '\x40')
-26         {
-27                 printf("library retbayed you, too!!\n");
-28                 exit(0);
-29         }
-30 
-31         // strncpy instead of strcpy!
-32         strncpy(buffer, argv[1], 48);
-33         printf("%s\n", buffer);
-34 }
+#include <stdio.h>
+#include <stdlib.h>
 
+main(int argc, char *argv[])
+{
+        char buffer[40];
+
+        if(argc < 2){
+                printf("argv error\n");
+                exit(0);
+        }
+
+        if(argv[1][47] == '\xbf')
+        {
+                printf("stack retbayed you!\n");
+                exit(0);
+        }
+
+        if(argv[1][47] == '\x40')
+        {
+                printf("library retbayed you, too!!\n");
+                exit(0);
+        }
+
+        // strncpy instead of strcpy!
+        strncpy(buffer, argv[1], 48);
+        printf("%s\n", buffer);
+}
 ```
 
 Stack frame structure:

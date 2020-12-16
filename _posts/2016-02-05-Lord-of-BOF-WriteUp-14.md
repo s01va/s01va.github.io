@@ -16,54 +16,52 @@ share: true
 source code:
 
 ```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - giant
+        - RTL2
+*/
 
-1  /*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - giant
-4          - RTL2
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  #include <unistd.h>
-10 
-11 main(int argc, char *argv[])
-12 {
-13         char buffer[40];
-14         FILE *fp;
-15         char *lib_addr, *execve_offset, *execve_addr;
-16         char *ret;
-17 
-18         if(argc < 2){
-19                 printf("argv error\n");
-20                 exit(0);
-21         }
-22 
-23         // gain address of execve
-24         fp = popen("/usr/bin/ldd /home/giant/assassin | /bin/grep libc | /bin/awk '{print $4}'", "r");
-25         fgets(buffer, 255, fp);
-26         sscanf(buffer, "(%x)", &lib_addr);
-27         fclose(fp);
-28 
-29         fp = popen("/usr/bin/nm /lib/libc.so.6 | /bin/grep __execve | /bin/awk '{print $1}'", "r");
-30         fgets(buffer, 255, fp);
-31         sscanf(buffer, "%x", &execve_offset);
-32         fclose(fp);
-33 
-34         execve_addr = lib_addr + (int)execve_offset;
-35         // end
-36 
-37         memcpy(&ret, &(argv[1][44]), 4);
-38         if(ret != execve_addr)
-39         {
-40                 printf("You must use execve!\n");
-41                 exit(0);
-42         }
-43 
-44         strcpy(buffer, argv[1]);
-45         printf("%s\n", buffer);
-46 }
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
+main(int argc, char *argv[])
+{
+        char buffer[40];
+        FILE *fp;
+        char *lib_addr, *execve_offset, *execve_addr;
+        char *ret;
+
+        if(argc < 2){
+                printf("argv error\n");
+                exit(0);
+        }
+
+        // gain address of execve
+        fp = popen("/usr/bin/ldd /home/giant/assassin | /bin/grep libc | /bin/awk '{print $4}'", "r");
+        fgets(buffer, 255, fp);
+        sscanf(buffer, "(%x)", &lib_addr);
+        fclose(fp);
+
+        fp = popen("/usr/bin/nm /lib/libc.so.6 | /bin/grep __execve | /bin/awk '{print $1}'", "r");
+        fgets(buffer, 255, fp);
+        sscanf(buffer, "%x", &execve_offset);
+        fclose(fp);
+
+        execve_addr = lib_addr + (int)execve_offset;
+        // end
+
+        memcpy(&ret, &(argv[1][44]), 4);
+        if(ret != execve_addr)
+        {
+                printf("You must use execve!\n");
+                exit(0);
+        }
+
+        strcpy(buffer, argv[1]);
+        printf("%s\n", buffer);
+}
 ```
 
 Stack frame structure:

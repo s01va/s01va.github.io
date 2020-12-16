@@ -16,101 +16,99 @@ share: true
 source code:
 
 ```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - succubus
+        - calling functions continuously
+*/
 
-1  /*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - succubus
-4          - calling functions continuously
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  #include <dumpcode.h>
-10 
-11 // the inspector
-12 int check = 0;
-13 
-14 void MO(char *cmd)
-15 {
-16         if(check != 4)
-17                 exit(0);
-18 
-19         printf("welcome to the MO!\n");
-20 
-21         // olleh!
-22         system(cmd);
-23 }
-24 
-25 void YUT(void)
-26 {
-27         if(check != 3)
-28                 exit(0);
-29 
-30         printf("welcome to the YUT!\n");
-31         check = 4;
-32 }
-33 
-34 void GUL(void)
-35 {
-36         if(check != 2)
-37                 exit(0);
-38 
-39         printf("welcome to the GUL!\n");
-40         check = 3;
-41 }
-42 
-43 void GYE(void)
-44 {
-45         if(check != 1)
-46                 exit(0);
-47 
-48         printf("welcome to the GYE!\n");
-49         check = 2;
-50 }
-51 
-52 void DO(void)
-53 {
-54         printf("welcome to the DO!\n");
-55         check = 1;
-56 }
-57 
-58 main(int argc, char *argv[])
-59 {
-60         char buffer[40];
-61         char *addr;
-62 
-63         if(argc < 2){
-64                 printf("argv error\n");
-65                 exit(0);
-66         }
-67 
-68         // you cannot use library
-69         if(strchr(argv[1], '\x40')){
-70                 printf("You cannot use library\n");
-71                 exit(0);
-72         }
-73 
-74         // check address
-75         addr = (char *)&DO;
-76         if(memcmp(argv[1]+44, &addr, 4) != 0){
-77                 printf("You must fall in love with DO\n");
-78                 exit(0);
-79         }
-80 
-81         // overflow!
-82         strcpy(buffer, argv[1]);
-83         printf("%s\n", buffer);
-84 
-85         // stack destroyer
-86         // 100 : extra space for copied argv[1]
-87         memset(buffer, 0, 44);
-88         memset(buffer+48+100, 0, 0xbfffffff - (int)(buffer+48+100));
-89 
-90         // LD_* eraser
-91         // 40 : extra space for memset function
-92         memset(buffer-3000, 0, 3000-40);
-93 }
+#include <stdio.h>
+#include <stdlib.h>
+#include <dumpcode.h>
 
+// the inspector
+int check = 0;
+
+void MO(char *cmd)
+{
+        if(check != 4)
+                exit(0);
+
+        printf("welcome to the MO!\n");
+
+        // olleh!
+        system(cmd);
+}
+
+void YUT(void)
+{
+        if(check != 3)
+                exit(0);
+
+        printf("welcome to the YUT!\n");
+        check = 4;
+}
+
+void GUL(void)
+{
+        if(check != 2)
+                exit(0);
+
+        printf("welcome to the GUL!\n");
+        check = 3;
+}
+
+void GYE(void)
+{
+        if(check != 1)
+                exit(0);
+
+        printf("welcome to the GYE!\n");
+        check = 2;
+}
+
+void DO(void)
+{
+        printf("welcome to the DO!\n");
+        check = 1;
+}
+
+main(int argc, char *argv[])
+{
+        char buffer[40];
+        char *addr;
+
+        if(argc < 2){
+                printf("argv error\n");
+                exit(0);
+        }
+
+        // you cannot use library
+        if(strchr(argv[1], '\x40')){
+                printf("You cannot use library\n");
+                exit(0);
+        }
+
+        // check address
+        addr = (char *)&DO;
+        if(memcmp(argv[1]+44, &addr, 4) != 0){
+                printf("You must fall in love with DO\n");
+                exit(0);
+        }
+
+        // overflow!
+        strcpy(buffer, argv[1]);
+        printf("%s\n", buffer);
+
+        // stack destroyer
+        // 100 : extra space for copied argv[1]
+        memset(buffer, 0, 44);
+        memset(buffer+48+100, 0, 0xbfffffff - (int)(buffer+48+100));
+
+        // LD_* eraser
+        // 40 : extra space for memset function
+        memset(buffer-3000, 0, 3000-40);
+}
 ```
 
 우선 76번째 줄의 조건을 반드시 충족시켜야 한다. argv[1]+44의 주소를 addr에 들어있는 값인 DO함수의 주소와 일치시켜야 한다.

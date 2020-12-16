@@ -16,42 +16,40 @@ share: true
 source code:
 
 ```c
+﻿/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - vampire
+        - check 0xbfff
+*/
 
-1  ﻿/*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - vampire
-4          - check 0xbfff
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  
-10 main(int argc, char *argv[])
-11 {
-12         char buffer[40];
-13 
-14         if(argc < 2){
-15                 printf("argv error\n");
-16                 exit(0);
-17         }
-18 
-19         if(argv[1][47] != '\xbf')
-20         {
-21                 printf("stack is still your friend.\n");
-22                 exit(0);
-23         }
-24 
-25         // here is changed!
-26         if(argv[1][46] == '\xff')
-27         {
-28                 printf("but it's not forever\n");
-29                 exit(0);
-30         }
-31 
-32         strcpy(buffer, argv[1]);
-33         printf("%s\n", buffer);
-34 }
+#include <stdio.h>
+#include <stdlib.h>
 
+main(int argc, char *argv[])
+{
+        char buffer[40];
+
+        if(argc < 2){
+                printf("argv error\n");
+                exit(0);
+        }
+
+        if(argv[1][47] != '\xbf')
+        {
+                printf("stack is still your friend.\n");
+                exit(0);
+        }
+
+        // here is changed!
+        if(argv[1][46] == '\xff')
+        {
+                printf("but it's not forever\n");
+                exit(0);
+        }
+
+        strcpy(buffer, argv[1]);
+        printf("%s\n", buffer);
+}
 ```
 
 Stack frame structure:

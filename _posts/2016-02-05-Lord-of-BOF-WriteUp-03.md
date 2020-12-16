@@ -16,20 +16,18 @@ share: true
 source code:
 
 ```c
+﻿/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - goblin
+        - small buffer + stdin
+*/
 
-1  ﻿/*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - goblin
-4          - small buffer + stdin
-5  */
-6  
-7  int main()
-8  {
-9      char buffer[16];
-10     gets(buffer);
-11     printf("%s\n", buffer);
-12 }
-
+int main()
+{
+    char buffer[16];
+    gets(buffer);
+    printf("%s\n", buffer);
+}
 ```
 
 Stack frame structure:

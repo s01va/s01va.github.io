@@ -16,25 +16,22 @@ share: true
 source code:
 
 ```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - cobolt
+        - small buffer
+*/
 
-1  /*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - cobolt
-4          - small buffer
-5  */
-6  
-7  int main(int argc, char *argv[])
-8  {
-9      char buffer[16];
-10     if(argc < 2){
-11         printf("argv error\n");
-12         exit(0);
-13     }
-14     strcpy(buffer, argv[1]);
-15     printf("%s\n", buffer);
-16 }
-
-
+int main(int argc, char *argv[])
+{
+    char buffer[16];
+    if(argc < 2){
+        printf("argv error\n");
+        exit(0);
+    }
+    strcpy(buffer, argv[1]);
+    printf("%s\n", buffer);
+}
 ```
 
 stack frame structure:

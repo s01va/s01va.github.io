@@ -16,44 +16,42 @@ share: true
 source code:
 
 ```c
+﻿/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - wolfman
+        - egghunter + buffer hunter
+*/
 
-1  ﻿/*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - wolfman
-4          - egghunter + buffer hunter
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  
-10 extern char **environ;
-11 
-12 main(int argc, char *argv[])
-13 {
-14         char buffer[40];
-15         int i;
-16 
-17         if(argc < 2){
-18                 printf("argv error\n");
-19                 exit(0);
-20         }
-21 
-22         // egghunter
-23         for(i=0; environ[i]; i++)
-24                 memset(environ[i], 0, strlen(environ[i]));
-25 
-26         if(argv[1][47] != '\xbf')
-27         {
-28                 printf("stack is still your friend.\n");
-29                 exit(0);
-30         }
-31         strcpy(buffer, argv[1]); 
-32         printf("%s\n", buffer);
-33 
-34         // buffer hunter
-35         memset(buffer, 0, 40);
-36 }
+#include <stdio.h>
+#include <stdlib.h>
 
+extern char **environ;
+
+main(int argc, char *argv[])
+{
+        char buffer[40];
+        int i;
+
+        if(argc < 2){
+                printf("argv error\n");
+                exit(0);
+        }
+
+        // egghunter
+        for(i=0; environ[i]; i++)
+                memset(environ[i], 0, strlen(environ[i]));
+
+        if(argv[1][47] != '\xbf')
+        {
+                printf("stack is still your friend.\n");
+                exit(0);
+        }
+        strcpy(buffer, argv[1]); 
+        printf("%s\n", buffer);
+
+        // buffer hunter
+        memset(buffer, 0, 40);
+}
 ```
 
 Stack frame structure

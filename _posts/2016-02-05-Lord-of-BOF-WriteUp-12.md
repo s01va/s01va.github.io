@@ -16,33 +16,31 @@ share: true
 source code:
 
 ```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - darkknight
+        - FPO
+*/
 
-1  /*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - darkknight
-4          - FPO
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  
-10 void problem_child(char *src)
-11 {
-12         char buffer[40];
-13         strncpy(buffer, src, 41);
-14         printf("%s\n", buffer);
-15 }
-16 
-17 main(int argc, char *argv[])
-18 {
-19         if(argc<2){
-20                 printf("argv error\n");
-21                 exit(0);
-22         }
-23 
-24         problem_child(argv[1]);
-25 }
+#include <stdio.h>
+#include <stdlib.h>
 
+void problem_child(char *src)
+{
+        char buffer[40];
+        strncpy(buffer, src, 41);
+        printf("%s\n", buffer);
+}
+
+main(int argc, char *argv[])
+{
+        if(argc<2){
+                printf("argv error\n");
+                exit(0);
+        }
+
+        problem_child(argv[1]);
+}
 ```
 
 Stack frame structure:

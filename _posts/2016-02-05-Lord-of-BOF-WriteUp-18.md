@@ -16,43 +16,41 @@ share: true
 source code:
 
 ```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - nightmare
+        - PLT
+*/
 
-1  /*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - nightmare
-4          - PLT
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  #include <string.h>
-10 #include <dumpcode.h>
-11 
-12 main(int argc, char *argv[])
-13 {
-14         char buffer[40];
-15         char *addr;
-16 
-17         if(argc < 2){
-18                 printf("argv error\n");
-19                 exit(0);
-20         }
-21 
-22         // check address
-23         addr = (char *)&strcpy;
-24         if(memcmp(argv[1]+44, &addr, 4) != 0){
-25                 printf("You must fall in love with strcpy()\n");
-26                 exit(0);
-27         }
-28 
-29         // overflow!
-30         strcpy(buffer, argv[1]);
-31         printf("%s\n", buffer);
-32 
-33         // dangerous waterfall
-34         memset(buffer+40+8, 'A', 4);
-35 }
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <dumpcode.h>
 
+main(int argc, char *argv[])
+{
+        char buffer[40];
+        char *addr;
+
+        if(argc < 2){
+                printf("argv error\n");
+                exit(0);
+        }
+
+        // check address
+        addr = (char *)&strcpy;
+        if(memcmp(argv[1]+44, &addr, 4) != 0){
+                printf("You must fall in love with strcpy()\n");
+                exit(0);
+        }
+
+        // overflow!
+        strcpy(buffer, argv[1]);
+        printf("%s\n", buffer);
+
+        // dangerous waterfall
+        memset(buffer+40+8, 'A', 4);
+}
 ```
 
 우선 24번째 줄의 조건문을 우회해야 하기 때문에 이전 문제에서 ret를 DO 함수로 덮어씌웠듯이 strcpy 함수의 주소를 찾아 ret를 채울 것이다.

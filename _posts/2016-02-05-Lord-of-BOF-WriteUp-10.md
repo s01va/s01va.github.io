@@ -16,58 +16,56 @@ share: true
 source code:
 
 ```c
+﻿/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - skeleton
+        - argv hunter
+*/
 
-1  ﻿/*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - skeleton
-4          - argv hunter
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  
-10 extern char **environ;
-11 
-12 main(int argc, char *argv[])
-13 {
-14         char buffer[40];
-15         int i, saved_argc;
-16 
-17         if(argc < 2){
-18                 printf("argv error\n");
-19                 exit(0);
-20         }
-21 
-22         // egghunter
-23         for(i=0; environ[i]; i++)
-24                 memset(environ[i], 0, strlen(environ[i]));
-25 
-26         if(argv[1][47] != '\xbf')
-27         {
-28                 printf("stack is still your friend.\n");
-29                 exit(0);
-30         }
-31 
-32         // check the length of argument
-33         if(strlen(argv[1]) > 48){
-34                 printf("argument is too long!\n");
-35                 exit(0);
-36         }
-37 
-38         // argc saver
-39         saved_argc = argc;
-40 
-41         strcpy(buffer, argv[1]);
-42         printf("%s\n", buffer);
-43 
-44         // buffer hunter
-45         memset(buffer, 0, 40);
-46 
-47         // ultra argv hunter!
-48         for(i=0; i<saved_argc; i++)
-49                 memset(argv[i], 0, strlen(argv[i]));
-50 }
+#include <stdio.h>
+#include <stdlib.h>
 
+extern char **environ;
+
+main(int argc, char *argv[])
+{
+        char buffer[40];
+        int i, saved_argc;
+
+        if(argc < 2){
+                printf("argv error\n");
+                exit(0);
+        }
+
+        // egghunter
+        for(i=0; environ[i]; i++)
+                memset(environ[i], 0, strlen(environ[i]));
+
+        if(argv[1][47] != '\xbf')
+        {
+                printf("stack is still your friend.\n");
+                exit(0);
+        }
+
+        // check the length of argument
+        if(strlen(argv[1]) > 48){
+                printf("argument is too long!\n");
+                exit(0);
+        }
+
+        // argc saver
+        saved_argc = argc;
+
+        strcpy(buffer, argv[1]);
+        printf("%s\n", buffer);
+
+        // buffer hunter
+        memset(buffer, 0, 40);
+
+        // ultra argv hunter!
+        for(i=0; i<saved_argc; i++)
+                memset(argv[i], 0, strlen(argv[i]));
+}
 ```
 
 Stack frame structure:

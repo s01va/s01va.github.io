@@ -16,19 +16,16 @@ share: true
 source code:
 
 ```c
-
-1  int main(int argc, char *argv[])
-2  {
-3      char buffer[256];
-4      if(argc < 2){
-5          printf("argv error\n");
-6          exit(0);
-7      }
-8      strcpy(buffer, argv[1]);
-9      printf("%s\n", buffer);
-10 }
-
-
+int main(int argc, char *argv[])
+{
+    char buffer[256];
+    if(argc < 2){
+        printf("argv error\n");
+        exit(0);
+    }
+    strcpy(buffer, argv[1]);
+    printf("%s\n", buffer);
+}
 ```
 
 Stack frame structure:

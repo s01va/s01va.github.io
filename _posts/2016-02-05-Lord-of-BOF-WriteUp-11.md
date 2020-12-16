@@ -16,42 +16,40 @@ share: true
 source code:
 
 ```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - golem
+        - stack destroyer
+*/
 
-1  /*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - golem
-4          - stack destroyer
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  
-10 extern char **environ;
-11 
-12 main(int argc, char *argv[])
-13 {
-14         char buffer[40];
-15         int i;
-16 
-17         if(argc < 2){
-18                 printf("argv error\n");
-19                 exit(0);
-20         }
-21 
-22         if(argv[1][47] != '\xbf')
-23         {
-24                 printf("stack is still your friend.\n");
-25                 exit(0);
-26         }
-27 
-28         strcpy(buffer, argv[1]);
-29         printf("%s\n", buffer);
-30 
-31         // stack destroyer!
-32         memset(buffer, 0, 44);
-33         memset(buffer+48, 0, 0xbfffffff - (int)(buffer+48));
-34 }
+#include <stdio.h>
+#include <stdlib.h>
 
+extern char **environ;
+
+main(int argc, char *argv[])
+{
+        char buffer[40];
+        int i;
+
+        if(argc < 2){
+                printf("argv error\n");
+                exit(0);
+        }
+
+        if(argv[1][47] != '\xbf')
+        {
+                printf("stack is still your friend.\n");
+                exit(0);
+        }
+
+        strcpy(buffer, argv[1]);
+        printf("%s\n", buffer);
+
+        // stack destroyer!
+        memset(buffer, 0, 44);
+        memset(buffer+48, 0, 0xbfffffff - (int)(buffer+48));
+}
 ```
 
 Stack frame structure:

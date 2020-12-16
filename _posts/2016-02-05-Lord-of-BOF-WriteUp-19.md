@@ -16,60 +16,58 @@ share: true
 source code:
 
 ```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - xavius
+        - arg
+*/
 
-1  /*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - xavius
-4          - arg
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  #include <dumpcode.h>
-10 
-11 main()
-12 {
-13         char buffer[40];
-14         char *ret_addr;
-15 
-16         // overflow!
-17         fgets(buffer, 256, stdin);
-18         printf("%s\n", buffer);
-19 
-20         if(*(buffer+47) == '\xbf')
-21         {
-22                 printf("stack retbayed you!\n");
-23                 exit(0);
-24         }
-25 
-26         if(*(buffer+47) == '\x08')
-27         {
-28                 printf("binary image retbayed you, too!!\n");
-29                 exit(0);
-30         }
-31 
-32         // check if the ret_addr is library function or not
-33         memcpy(&ret_addr, buffer+44, 4);
-34         while(memcmp(ret_addr, "\x90\x90", 2) != 0)     // end point of function
-35         {
-36                 if(*ret_addr == '\xc9'){                // leave
-37                         if(*(ret_addr+1) == '\xc3'){    // ret
-38                                 printf("You cannot use library function!\n");
-39                                 exit(0);
-40                         }
-41                 }
-42                 ret_addr++;
-43         }
-44 
-45         // stack destroyer
-46         memset(buffer, 0, 44);
-47         memset(buffer+48, 0, 0xbfffffff - (int)(buffer+48));
-48 
-49         // LD_* eraser
-50         // 40 : extra space for memset function
-51         memset(buffer-3000, 0, 3000-40);
-52 }
+#include <stdio.h>
+#include <stdlib.h>
+#include <dumpcode.h>
 
+main()
+{
+        char buffer[40];
+        char *ret_addr;
+
+        // overflow!
+        fgets(buffer, 256, stdin);
+        printf("%s\n", buffer);
+
+        if(*(buffer+47) == '\xbf')
+        {
+                printf("stack retbayed you!\n");
+                exit(0);
+        }
+
+        if(*(buffer+47) == '\x08')
+        {
+                printf("binary image retbayed you, too!!\n");
+                exit(0);
+        }
+
+        // check if the ret_addr is library function or not
+        memcpy(&ret_addr, buffer+44, 4);
+        while(memcmp(ret_addr, "\x90\x90", 2) != 0)     // end point of function
+        {
+                if(*ret_addr == '\xc9'){                // leave
+                        if(*(ret_addr+1) == '\xc3'){    // ret
+                                printf("You cannot use library function!\n");
+                                exit(0);
+                        }
+                }
+                ret_addr++;
+        }
+
+        // stack destroyer
+        memset(buffer, 0, 44);
+        memset(buffer+48, 0, 0xbfffffff - (int)(buffer+48));
+
+        // LD_* eraser
+        // 40 : extra space for memset function
+        memset(buffer-3000, 0, 3000-40);
+}
 ```
 
 가장 먼저 여태까지 대부분 argv로 입력값을 받고 있던 것을 stdin으로 받고 있다.

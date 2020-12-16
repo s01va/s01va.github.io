@@ -16,36 +16,34 @@ share: true
 source code:
 
 ```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - bugbear
+        - RTL1
+*/
 
-1  /*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - bugbear
-4          - RTL1
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  
-10 main(int argc, char *argv[])
-11 {
-12         char buffer[40];
-13         int i;
-14 
-15         if(argc < 2){
-16                 printf("argv error\n");
-17                 exit(0);
-18         }
-19 
-20         if(argv[1][47] == '\xbf')
-21         {
-22                 printf("stack betrayed you!!\n");
-23                 exit(0);
-24         }
-25 
-26         strcpy(buffer, argv[1]);
-27         printf("%s\n", buffer);
-28 }
+#include <stdio.h>
+#include <stdlib.h>
 
+main(int argc, char *argv[])
+{
+        char buffer[40];
+        int i;
+
+        if(argc < 2){
+                printf("argv error\n");
+                exit(0);
+        }
+
+        if(argv[1][47] == '\xbf')
+        {
+                printf("stack betrayed you!!\n");
+                exit(0);
+        }
+
+        strcpy(buffer, argv[1]);
+        printf("%s\n", buffer);
+}
 ```
 
 Stack frame structure:

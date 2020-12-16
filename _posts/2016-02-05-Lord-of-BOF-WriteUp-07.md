@@ -16,57 +16,55 @@ share: true
 source code:
 
 ```c
+﻿/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - orge
+        - check argv[0]
+*/
 
-1  ﻿/*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - orge
-4          - check argv[0]
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  
-10 extern char **environ;
-11 
-12 main(int argc, char *argv[])
-13 {
-14         char buffer[40];
-15         int i;
-16 
-17         if(argc < 2){
-18                 printf("argv error\n");
-19                 exit(0);
-20         }
-21 
-22         // here is changed!
-23         if(strlen(argv[0]) != 77){
-24                 printf("argv[0] error\n");
-25                 exit(0);
-26         }
-27 
-28         // egghunter
-29         for(i=0; environ[i]; i++)
-30                 memset(environ[i], 0, strlen(environ[i]));
-31 
-32         if(argv[1][47] != '\xbf')
-33         {
-34                 printf("stack is still your friend.\n");
-35                 exit(0);
-36         }
-37 
-38         // check the length of argument
-39         if(strlen(argv[1]) > 48){
-40                 printf("argument is too long!\n");
-41                 exit(0);
-42         }
-43 
-44         strcpy(buffer, argv[1]);
-45         printf("%s\n", buffer);
-46 
-47         // buffer hunter
-48         memset(buffer, 0, 40);
-49 }
+#include <stdio.h>
+#include <stdlib.h>
 
+extern char **environ;
+
+main(int argc, char *argv[])
+{
+        char buffer[40];
+        int i;
+
+        if(argc < 2){
+                printf("argv error\n");
+                exit(0);
+        }
+
+        // here is changed!
+        if(strlen(argv[0]) != 77){
+                printf("argv[0] error\n");
+                exit(0);
+        }
+
+        // egghunter
+        for(i=0; environ[i]; i++)
+                memset(environ[i], 0, strlen(environ[i]));
+
+        if(argv[1][47] != '\xbf')
+        {
+                printf("stack is still your friend.\n");
+                exit(0);
+        }
+
+        // check the length of argument
+        if(strlen(argv[1]) > 48){
+                printf("argument is too long!\n");
+                exit(0);
+        }
+
+        strcpy(buffer, argv[1]);
+        printf("%s\n", buffer);
+
+        // buffer hunter
+        memset(buffer, 0, 40);
+}
 ```
 
 Stack frame structure:

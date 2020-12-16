@@ -16,42 +16,40 @@ share: true
 source code:
 
 ```c
+﻿/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - orc
+        - egghunter
+*/
 
-1  ﻿/*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - orc
-4          - egghunter
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  
-10 extern char **environ;
-11 
-12 main(int argc, char *argv[])
-13 {
-14         char buffer[40];
-15         int i;
-16 
-17         if(argc < 2){
-18                 printf("argv error\n");
-19                 exit(0);
-20         }
-21 
-22         // egghunter
-23         for(i=0; environ[i]; i++)
-24                 memset(environ[i], 0, strlen(environ[i]));
-25 
-26         if(argv[1][47] != '\xbf')
-27         {
-28                 printf("stack is still your friend.\n");
-29                 exit(0);
-30         }
-31 
-32         strcpy(buffer, argv[1]);
-33         printf("%s\n", buffer);
-34 }
+#include <stdio.h>
+#include <stdlib.h>
 
+extern char **environ;
+
+main(int argc, char *argv[])
+{
+        char buffer[40];
+        int i;
+
+        if(argc < 2){
+                printf("argv error\n");
+                exit(0);
+        }
+
+        // egghunter
+        for(i=0; environ[i]; i++)
+                memset(environ[i], 0, strlen(environ[i]));
+
+        if(argv[1][47] != '\xbf')
+        {
+                printf("stack is still your friend.\n");
+                exit(0);
+        }
+
+        strcpy(buffer, argv[1]);
+        printf("%s\n", buffer);
+}
 ```
 
 stack frame structure:

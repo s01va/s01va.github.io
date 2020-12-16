@@ -16,44 +16,42 @@ share: true
 source code:
 
 ```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - assassin
+        - no stack, no RTL
+*/
 
-1  /*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - assassin
-4          - no stack, no RTL
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  
-10 main(int argc, char *argv[])
-11 {
-12         char buffer[40];
-13 
-14         if(argc < 2){
-15                 printf("argv error\n");
-16                 exit(0);
-17         }
-18 
-19         if(argv[1][47] == '\xbf')
-20         {
-21                 printf("stack retbayed you!\n");
-22                 exit(0);
-23         }
-24 
-25         if(argv[1][47] == '\x40')
-26         {
-27                 printf("library retbayed you, too!!\n");
-28                 exit(0);
-29         }
-30 
-31         strcpy(buffer, argv[1]);
-32         printf("%s\n", buffer);
-33 
-34         // buffer+sfp hunter
-35         memset(buffer, 0, 44);
-36 }
+#include <stdio.h>
+#include <stdlib.h>
 
+main(int argc, char *argv[])
+{
+        char buffer[40];
+
+        if(argc < 2){
+                printf("argv error\n");
+                exit(0);
+        }
+
+        if(argv[1][47] == '\xbf')
+        {
+                printf("stack retbayed you!\n");
+                exit(0);
+        }
+
+        if(argv[1][47] == '\x40')
+        {
+                printf("library retbayed you, too!!\n");
+                exit(0);
+        }
+
+        strcpy(buffer, argv[1]);
+        printf("%s\n", buffer);
+
+        // buffer+sfp hunter
+        memset(buffer, 0, 44);
+}
 ```
 
 Stack frame structure:

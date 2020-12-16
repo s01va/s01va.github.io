@@ -16,73 +16,71 @@ share: true
 source code:
 
 ```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - dark knight
+        - remote BOF
+*/
 
-1  /*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - dark knight
-4          - remote BOF
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  #include <errno.h>
-10 #include <string.h>
-11 #include <sys/types.h>
-12 #include <netinet/in.h>
-13 #include <sys/socket.h>
-14 #include <sys/wait.h>
-15 #include <dumpcode.h>
-16 
-17 main()
-18 {
-19         char buffer[40];
-20 
-21         int server_fd, client_fd;
-22         struct sockaddr_in server_addr;
-23         struct sockaddr_in client_addr;
-24         int sin_size;
-25 
-26         if((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == -1){
-27                 perror("socket");
-28                 exit(1);
-29         }
-30 
-31         server_addr.sin_family = AF_INET;
-32         server_addr.sin_port = htons(6666);
-33         server_addr.sin_addr.s_addr = INADDR_ANY;
-34         bzero(&(server_addr.sin_zero), 8);
-35 
-36         if(bind(server_fd, (struct sockaddr *)&server_addr, sizeof(struct sockaddr)) == -1){
-37                 perror("bind");
-38                 exit(1);
-39         }
-40 
-41         if(listen(server_fd, 10) == -1){
-42                 perror("listen");
-43                 exit(1);
-44         }
-45 
-46         while(1) {
-47                 sin_size = sizeof(struct sockaddr_in);
-48                 if((client_fd = accept(server_fd, (struct sockaddr *)&client_addr, &sin_size)) == -1){
-49                         perror("accept");
-50                         continue;
-51                 }
-52 
-53                 if (!fork()){
-54                         send(client_fd, "Death Knight : Not even death can save you from me!\n", 52, 0);
-55                         send(client_fd, "You : ", 6, 0);
-56                         recv(client_fd, buffer, 256, 0);
-57                         close(client_fd);
-58                         break;
-59                 }
-60 
-61                 close(client_fd);
-62                 while(waitpid(-1,NULL,WNOHANG) > 0);
-63         }
-64         close(server_fd);
-65 }
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <string.h>
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
+#include <sys/wait.h>
+#include <dumpcode.h>
 
+main()
+{
+        char buffer[40];
+
+        int server_fd, client_fd;
+        struct sockaddr_in server_addr;
+        struct sockaddr_in client_addr;
+        int sin_size;
+
+        if((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == -1){
+                perror("socket");
+                exit(1);
+        }
+
+        server_addr.sin_family = AF_INET;
+        server_addr.sin_port = htons(6666);
+        server_addr.sin_addr.s_addr = INADDR_ANY;
+        bzero(&(server_addr.sin_zero), 8);
+
+        if(bind(server_fd, (struct sockaddr *)&server_addr, sizeof(struct sockaddr)) == -1){
+                perror("bind");
+                exit(1);
+        }
+
+        if(listen(server_fd, 10) == -1){
+                perror("listen");
+                exit(1);
+        }
+
+        while(1) {
+                sin_size = sizeof(struct sockaddr_in);
+                if((client_fd = accept(server_fd, (struct sockaddr *)&client_addr, &sin_size)) == -1){
+                        perror("accept");
+                        continue;
+                }
+
+                if (!fork()){
+                        send(client_fd, "Death Knight : Not even death can save you from me!\n", 52, 0);
+                        send(client_fd, "You : ", 6, 0);
+                        recv(client_fd, buffer, 256, 0);
+                        close(client_fd);
+                        break;
+                }
+
+                close(client_fd);
+                while(waitpid(-1,NULL,WNOHANG) > 0);
+        }
+        close(server_fd);
+}
 ```
 
 평범한 소켓 통신 서버 역할을 하는 프로그램이며, 원격접속한 사용자로부터 입력값을 받고 있다. 그리고 이를 통해 Buffer Overflow(이하 BOF)가 발생하게 된다. 그리고 이전의 문제들과 다르게 이 버퍼에는 아무런 보호조치가 되어있지 않다. 결국 이 문제는 원격지에서 이 LOB 서버로 접속한 후, 쉘코드와 함께 bof를 발생시키면 된다. 우선 따로 만든 공격지에서 LOB 서버 6666번 포트로 nc 명령어를 사용하였다.
@@ -93,7 +91,7 @@ source code:
 공격지인 다른 리눅스 로컬로 리버스 쉘코드를 사용한 브루트 포스 코드를 작성해 두었다. 원격에서 공격하는 만큼 ret주소를 알 수 없기 때문에 브루트 포스를 사용했다.
 
 
-Reverse shellcode 출처: https://orang.tistory.com/entry/%ED%95%B4%EC%BB%A4%EC%8A%A4%EC%BF%A8-LOB-xavius-deathknight-by-ORANG
+[Reverse shellcode 출처](https://orang.tistory.com/entry/%ED%95%B4%EC%BB%A4%EC%8A%A4%EC%BF%A8-LOB-xavius-deathknight-by-ORANG)
 
 ```c
 

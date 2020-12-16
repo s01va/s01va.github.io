@@ -16,55 +16,53 @@ share: true
 source code:
 
 ```c
+﻿/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - troll
+        - check argc + argv hunter
+*/
 
-1  ﻿/*
-2          The Lord of the BOF : The Fellowship of the BOF
-3          - troll
-4          - check argc + argv hunter
-5  */
-6  
-7  #include <stdio.h>
-8  #include <stdlib.h>
-9  
-10 extern char **environ;
-11 
-12 main(int argc, char *argv[])
-13 {
-14         char buffer[40];
-15         int i;
-16 
-17         // here is changed
-18         if(argc != 2){
-19                 printf("argc must be two!\n");
-20                 exit(0);
-21         }
-22 
-23         // egghunter
-24         for(i=0; environ[i]; i++)
-25                 memset(environ[i], 0, strlen(environ[i]));
-26 
-27         if(argv[1][47] != '\xbf')
-28         {
-29                 printf("stack is still your friend.\n");
-30                 exit(0);
-31         }
-32 
-33         // check the length of argument
-34         if(strlen(argv[1]) > 48){
-35                 printf("argument is too long!\n");
-36                 exit(0);
-37         }
-38 
-39         strcpy(buffer, argv[1]);
-40         printf("%s\n", buffer);
-41 
-42         // buffer hunter
-43         memset(buffer, 0, 40);
-44 
-45         // one more!
-46         memset(argv[1], 0, strlen(argv[1]));
-47 }
+#include <stdio.h>
+#include <stdlib.h>
 
+extern char **environ;
+
+main(int argc, char *argv[])
+{
+        char buffer[40];
+        int i;
+
+        // here is changed
+        if(argc != 2){
+                printf("argc must be two!\n");
+                exit(0);
+        }
+
+        // egghunter
+        for(i=0; environ[i]; i++)
+                memset(environ[i], 0, strlen(environ[i]));
+
+        if(argv[1][47] != '\xbf')
+        {
+                printf("stack is still your friend.\n");
+                exit(0);
+        }
+
+        // check the length of argument
+        if(strlen(argv[1]) > 48){
+                printf("argument is too long!\n");
+                exit(0);
+        }
+
+        strcpy(buffer, argv[1]);
+        printf("%s\n", buffer);
+
+        // buffer hunter
+        memset(buffer, 0, 40);
+
+        // one more!
+        memset(argv[1], 0, strlen(argv[1]));
+}
 ```
 
 Stack frame structure:
