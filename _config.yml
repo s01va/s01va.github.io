@@ -315,6 +315,7 @@ defaults:
       type: 
     values:
       layout: home
+      classes: wide
       author_profile: true
       sidebar:
         nav: "categorydocs"
