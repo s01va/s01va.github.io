@@ -13,13 +13,10 @@ share: true
 ---
 
 1. 한 줄에 두 인수 입력받기
-
-ex) 5 2
-
-```python
-x, y = input().split()
-```
-
+	ex) 5 2
+	```python
+	x, y = input().split()
+	```
 2. 빠른 입출력
 
 시간초과를 주의하기 위함이다.
