@@ -5,9 +5,10 @@ description: "자주 쓰이는 것들 추가"
 date: 2020-11-21 22:00:00 -0400
 modified: 2020-12-16 16:50:00 -0400
 tags: 
-- programing
+- programming
 - algorithm
 - codingtest
+- python
 comments: true
 share: true
 ---
