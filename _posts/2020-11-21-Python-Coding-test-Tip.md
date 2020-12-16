@@ -7,7 +7,7 @@ date: 2020-11-21 22:00:00 -0400
 tags: 
 - programing
 - algorithm
-- cogindtest
+- codingtest
 comments: true
 share: true
 ---
