@@ -113,7 +113,7 @@ analytics:
 author:
   name             : "s01va"
   avatar           : "/assets/bio/Dominator4.png"
-  bio              : "전산쟁이"
+  bio              : "차곡차곡"
   location         : "in Session"
   email            :
   links:
@@ -188,8 +188,8 @@ exclude:
   - Rakefile
   - README
   - tmp
-  - /docs # ignore Minimal Mistakes /docs
-  - /test # ignore Minimal Mistakes /test
+  #- /docs # ignore Minimal Mistakes /docs
+  #- /test # ignore Minimal Mistakes /test
 keep_files:
   - .git
   - .svn
@@ -292,6 +292,7 @@ defaults:
       type: posts
     values:
       layout: single
+      classes: wide
       author_profile: true
       read_time: true
       comments: true
