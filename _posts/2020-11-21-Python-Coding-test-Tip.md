@@ -3,7 +3,7 @@ layout: single
 title: "Python Coding test Tip"
 description: "자주 쓰이는 것들 추가"
 date: 2020-11-21 22:00:00 -0400
-# modified: 
+modified: 2020-12-16 16:50:00 -0400
 tags: 
 - programing
 - algorithm
@@ -39,9 +39,9 @@ share: true
 		2. 받은 입력값 int로 받기
 		```python
 		input()
-		s = map(int, n.split()) for n in sys.stdin
+		s = map(int, n.split() for n in sys.stdin)
 		```
-		3. dd
+		3. 한번에 총합 계산
 		```python
 		input()
 		s = list(sum(map(int, n.split())) for n in sys.stdin)
