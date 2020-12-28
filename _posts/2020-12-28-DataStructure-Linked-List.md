@@ -141,5 +141,8 @@ share: true
 
    ![04](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/4.jpg)
 
-   ![05](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/5.jpg)
+
+   항상 NodeMgmt의 node는 head부터 시작해서 next 방향으로 따라감
+
+   
 
