@@ -3,7 +3,7 @@ layout: single
 title: "Python Coding test Tip"
 description: "자주 쓰이는 것들 추가"
 date: 2020-11-21 22:00:00 -0400
-modified: 2020-12-16 16:50:00 -0400
+modified: 2020-12-28 10:45:00 -0400
 tags: 
 - programming
 - algorithm
@@ -50,8 +50,23 @@ share: true
 
 3. print 이외에
 
-	`sys.stdout.write()`
-4. Python이 느릴 시
+	```python
+	sys.stdout.write()
+	```
+4. 배열 초기화
+
+	```python
+	testlist1 = [0 for i in range(10)]
+	# 결과
+	# [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+	```
+
+	```python
+	testlist2 = [i for i in range(10)]
+	# 결과
+	# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+	```
+5. Python이 느릴 시
 
 	pypy가 있다면 소스코드 그대로 pypy로 채점
 
