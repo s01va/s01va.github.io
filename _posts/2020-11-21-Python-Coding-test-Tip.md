@@ -19,6 +19,7 @@ share: true
 	```python
 	x, y = input().split()
 	```
+	
 2. 빠른 입출력
 
 	시간초과를 주의하기 위함이다.
@@ -53,20 +54,72 @@ share: true
 	```python
 	sys.stdout.write()
 	```
+	
 4. 배열 초기화
 
 	```python
 	testlist1 = [0 for i in range(10)]
-	# 결과
-	# [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+	# 결과: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	```
-
-	```python
+	
+```python
 	testlist2 = [i for i in range(10)]
-	# 결과
-	# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+	# 결과: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 	```
+	
 5. Python이 느릴 시
 
 	pypy가 있다면 소스코드 그대로 pypy로 채점
+	
+	
+	
+6. `import` 없이 쓰는 간단한 수학 함수
+
+   - 총합
+
+     ```python
+     sum(testlist2)
+     # 결과: 45
+     ```
+
+     
+
+   - 최대
+
+     ```python
+     max(testlist2)
+     # 결과: 9
+     ```
+
+     
+
+   - 최소
+
+     ```python
+     min(testlist2)
+     # 결과: 0
+     ```
+
+     
+
+   - 평균
+
+     ```python
+     sum(testlist2)/len(testlist2)
+     # 결과: 4.5
+     ```
+
+     평균은 `import` 없이 쓸 수 있는 함수가 따로 없음
+
+7. list 중 중복 없애기
+
+   ```python
+   testlist3 = [0, 0, 0, 1, 1, 2, 2, 3]
+   resultlist = set(testlist3)
+   # 결과: [0, 1, 2, 3]
+   ```
+
+   
+
+   
 
