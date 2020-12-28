@@ -73,7 +73,7 @@ share: true
 
    
 
-   ![00](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/0.jpg)
+   ![00](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/0.jpg){: width="60%" height="60%"}
 
    
 
@@ -116,7 +116,7 @@ share: true
 
    `class NodeMgmt`의 초기화 과정 `__init__`을 거쳐감으로써 생성되는 Node 객체
 
-   ![01](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/1.jpg)
+   ![01](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/1.jpg){: width="60%" height="60%"}
 
    ```python
    for data in range(1,10):
@@ -125,13 +125,13 @@ share: true
 
    반복문 중 `node_mgmt.add(1)` 과정
 
-   ![02](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/2.jpg)
+   ![02](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/2.jpg){: width="60%" height="60%"}
 
    
 
    반복문 중 `node_mgmt.add(2)` 과정
 
-   ![03](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/3.jpg)
+   ![03](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/3.jpg){: width="60%" height="60%"}
 
    
 
@@ -139,7 +139,7 @@ share: true
    node_mgmt.desc()
    ```
 
-   ![04](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/4.jpg)
+   ![04](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/4.jpg){: width="60%" height="60%"}
 
 
    항상 NodeMgmt의 node는 head부터 시작해서 next 방향으로 따라감
