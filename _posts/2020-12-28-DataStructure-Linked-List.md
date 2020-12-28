@@ -11,6 +11,8 @@ comments: true
 share: true
 ---
 
+사고과정 따라가기/익숙해지기
+
 1. 구현
 
    ```python
@@ -71,6 +73,10 @@ share: true
 
    
 
+   ![00](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/0.jpg)
+
+   
+
 2. 사용
 
    ```python
@@ -101,7 +107,39 @@ share: true
    ```
 
    
-   
+
 3. 과정
 
+   ```python
+   node_mgmt = NodeMgmt(0)
+   ```
+
+   `class NodeMgmt`의 초기화 과정 `__init__`을 거쳐감으로써 생성되는 Node 객체
+
+   ![01](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/1.jpg)
+
+   ```python
+   for data in range(1,10):
+   	node_mgmt.add(data)
+   ```
+
+   반복문 중 `node_mgmt.add(1)` 과정
+
+   ![02](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/2.jpg)
+
    
+
+   반복문 중 `node_mgmt.add(2)` 과정
+
+   ![03](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/3.jpg)
+
+   
+
+   ```python
+   node_mgmt.desc()
+   ```
+
+   ![04](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/4.jpg)
+
+   ![05](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/5.jpg)
+
