@@ -127,13 +127,9 @@ share: true
 
    ![02](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/2.jpg){: width="60%" height="60%"}
 
-   
-
    반복문 중 `node_mgmt.add(2)` 과정
 
    ![03](https://s01va.github.io/assets/images/2020-12-28-DataStructure-Linked-List/3.jpg){: width="60%" height="60%"}
-
-   
 
    ```python
    node_mgmt.desc()
