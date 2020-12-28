@@ -62,7 +62,7 @@ share: true
 	# 결과: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	```
 	
-```python
+	```python
 	testlist2 = [i for i in range(10)]
 	# 결과: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 	```
@@ -80,27 +80,21 @@ share: true
      ```python
      sum(testlist2)
      # 결과: 45
-     ```
-
-     
+     ```     
 
    - 최대
 
      ```python
      max(testlist2)
      # 결과: 9
-     ```
-
-     
+     ```     
 
    - 최소
 
      ```python
      min(testlist2)
      # 결과: 0
-     ```
-
-     
+     ```     
 
    - 평균
 
