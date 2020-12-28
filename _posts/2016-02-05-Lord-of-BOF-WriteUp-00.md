@@ -15,7 +15,7 @@ share: true
 
 BOF의 OS의 종류와 버전은 LOB의 VM을 통해 Red Hat Linux 6.2라는 것을 알 수 있으며 리눅스 환경이므로 ELF 파일구조를 사용함과 어셈블리어가 at&t 문법임을 유추해 낼 수 있다. 그리고 아래와 같이 i686 아키텍처이므로 32bit 메모리를 사용함을 알 수 있다.
 
-![arch]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-Intro/0.png)
+![arch](https://s01va.github.io/assets/images/2016-02-05-LOB-Intro/0.png)
 
 
 LOB 풀이에 사용한 쉘코드는 다음과 같다.
@@ -35,10 +35,10 @@ LOB 풀이에 사용한 쉘코드는 다음과 같다.
 
 그리고 LOB의 default shell(bash)의 버전이 낮아 /xff의 입력을 /x00으로 받아들이는 오류가 있으므로 bash2를 사용하도록 한다. root 권한으로 이를 한꺼번에 바꾸도록 한다. root의 패스워드는 hackerschoolbof이다. root로 로그인 후 /etc/passwd를 열어 bash를 bash2로 모두 치환해준다.
 
-![bash2]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-Intro/1.png)
+![bash2](https://s01va.github.io/assets/images/2016-02-05-LOB-Intro/1.png)
 
 
 다음은 C언어의 stack frame structure이다.
 
 
-![[memory map of a typical C ELF executable on x86]]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-Intro/2.png)
+![[memory map of a typical C ELF executable on x86]](https://s01va.github.io/assets/images/2016-02-05-LOB-Intro/2.png)

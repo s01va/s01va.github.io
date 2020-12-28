@@ -113,11 +113,11 @@ main(int argc, char *argv[])
 
 우선 76번째 줄의 조건을 반드시 충족시켜야 한다. argv[1]+44의 주소를 addr에 들어있는 값인 DO함수의 주소와 일치시켜야 한다.
 
-![disas_DO]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-17/0.png)
+![disas_DO](https://s01va.github.io/assets/images/2016-02-05-LOB-17/0.png)
 
 DO함수의 시작지점은 0x80487ec이다. 해당 조건문을 우회하는지 다음을 통해 알아보았다.
 
-![succubus1]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-17/1.png)
+![succubus1](https://s01va.github.io/assets/images/2016-02-05-LOB-17/1.png)
 
 성공적으로 우회하였다. 이 상태에서 쉘을 띄우는 가장 좋은 방법은 system 함수를 포함하고 있는 MO함수를 활용하는 것으로 보인다. 하지만 MO 함수를 포함한 모든 함수에 check 조건문을 우회시키기 위해 다음과 같이 함수 주소를 쌓는다.
 
@@ -163,23 +163,23 @@ DO 함수가 끝난 후에는 SFP 다음 내용이 eip에 들어가게 된다.
 
 nm 명령어를 통해 필요한 모든 함수의 주소지를 찾았다.
 
-![nm_succubus]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-17/2.png)
+![nm_succubus](https://s01va.github.io/assets/images/2016-02-05-LOB-17/2.png)
 
 이를 활용해 보았다.
 
-![succubus2]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-17/3.png)
+![succubus2](https://s01va.github.io/assets/images/2016-02-05-LOB-17/3.png)
 
 이제 MO 함수에 인자로 shell을 주면 된다.
 
-![disas_MO]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-17/4.png)
+![disas_MO](https://s01va.github.io/assets/images/2016-02-05-LOB-17/4.png)
 
-![memory]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-17/5.png)
+![memory](https://s01va.github.io/assets/images/2016-02-05-LOB-17/5.png)
 
-![memory2]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-17/6.png)
+![memory2](https://s01va.github.io/assets/images/2016-02-05-LOB-17/6.png)
 
 /bin/sh 문자열의 주소를 알아내었다. 이 주소를 이용해 보았으나 잘 되지 않아 근처의 주소지를 써서 공격에 성공하였다.
 
-![exploit]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-17/7.png)
+![exploit](https://s01va.github.io/assets/images/2016-02-05-LOB-17/7.png)
 
 
 my-pass: here to stay

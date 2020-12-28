@@ -70,17 +70,17 @@ Stack frame structure:
 
 위와 같은 것을 알아둔 후, 맨 위에서 언급했던 메모리 영역 이미지를 상기시켜 보자.
 
-![stack frame]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-11/0.png)
+![stack frame](https://s01va.github.io/assets/images/2016-02-05-LOB-11/0.png)
 
 Stack 영역 아래에 Shared library영역이 존재하는 것을 알 수 있다. 이 공유라이브러리를 응용해서 공격을 진행해 보았다.
 
-![ls]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-11/1.png)
+![ls](https://s01va.github.io/assets/images/2016-02-05-LOB-11/1.png)
 
 ldsh.c라는 빈 파일을 생성한 후 이것으로 쉘코드를 컴파일한다.
 
-![gcc]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-11/2.png)
+![gcc](https://s01va.github.io/assets/images/2016-02-05-LOB-11/2.png)
 
-![ls2]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-11/3.png)
+![ls2](https://s01va.github.io/assets/images/2016-02-05-LOB-11/3.png)
 
 
 - shared: 공유 라이브러리를 우선 링크하라
@@ -88,14 +88,14 @@ ldsh.c라는 빈 파일을 생성한 후 이것으로 쉘코드를 컴파일한�
 
 공유 라이브러리는 LD_PRELOAD라는 환경변수에 등록시키면 해당 영역에 올릴 수 있게 된다. 이를 환경변수에 등록시킨다.
 
-![export]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-11/4.png)
+![export](https://s01va.github.io/assets/images/2016-02-05-LOB-11/4.png)
 
 gdb로 분석하여 LD_PRELOAD에 포함되어 있는 쉘코드의 위치를 찾는다.
 
-![memory]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-11/5.png)
+![memory](https://s01va.github.io/assets/images/2016-02-05-LOB-11/5.png)
 
 0xbffff564부터 쉘코드가 위치하고 있는 것을 찾았다. 이를 이용해 공격을 진행하였다.
 
-![my-pass]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-11/6.png)
+![my-pass](https://s01va.github.io/assets/images/2016-02-05-LOB-11/6.png)
 
 my-pass: cup of coffee

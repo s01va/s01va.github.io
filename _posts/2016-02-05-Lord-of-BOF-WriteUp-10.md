@@ -82,31 +82,31 @@ Stack frame structure:
 
 환경변수부터 buffer 40바이트, argv[0]까지 모두 0으로 초기화시키고 있다. 초기화가 이루어진 후 스택에 남아있는 부분이 있는지 gdb를 통해 알아보았다.
 
-![disas]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-10/0.png)
+![disas](https://s01va.github.io/assets/images/2016-02-05-LOB-10/0.png)
 
 (중략)
 
-![disas2]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-10/1.png)
+![disas2](https://s01va.github.io/assets/images/2016-02-05-LOB-10/1.png)
 
 main+368에서 leave하고 있다. 이 지점까지 실행시킨 후 스택에 남은 공간이 있는지의 여부를 보았다.
 
-![stack mem]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-10/2.png)
+![stack mem](https://s01va.github.io/assets/images/2016-02-05-LOB-10/2.png)
 
 (중략)
 
-![stack mem2]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-10/3.png)
+![stack mem2](https://s01va.github.io/assets/images/2016-02-05-LOB-10/3.png)
 
 메모리 끝에서 경로가 남아있는 부분을 찾았다. argv[0]부분이 이 주소지에 아직 남아있는 것을 발견하였다. B가 250번 반복되는 이름을 가진 디렉토리를 생성하고 실행파일 skeleton을 복사하여 위와 같은 실험을 반복하였다.
 
-![mkdir]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-10/4.png)
+![mkdir](https://s01va.github.io/assets/images/2016-02-05-LOB-10/4.png)
 
-![mem: argv[0]]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-10/5.png)
+![mem: argv[0]](https://s01va.github.io/assets/images/2016-02-05-LOB-10/5.png)
 
 동일하게 메모리 끝쪽에 argv[0]이 남아있는 것을 발견하였다. 이것을 이용하여 다음과 같은 익스플로잇을 진행하였다.
 
-![mkdir ln]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-10/6.png)
+![mkdir ln](https://s01va.github.io/assets/images/2016-02-05-LOB-10/6.png)
 
-![exploit]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-10/7.png)
+![exploit](https://s01va.github.io/assets/images/2016-02-05-LOB-10/7.png)
 
 
 my-pass: shellcoder

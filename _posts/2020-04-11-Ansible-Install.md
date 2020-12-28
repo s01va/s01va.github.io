@@ -24,7 +24,7 @@ share: true
 
 `ansible-playbook -i inventory install.yml` 이후
 
-![failed=1]({{site.url}}{{site.baseurl}}/assets/images/2020-04-11-Install-Ansible-with-troubleshooting/0.PNG)
+![failed=1](https://s01va.github.io/assets/images/2020-04-11-Install-Ansible-with-troubleshooting/0.PNG)
 
 docker관련 python 모듈 사이에 충돌이 나는 듯 하다.
 
@@ -35,5 +35,5 @@ pip uninstall docker docker-py docker-compose
 pip install docker-compose --ignore-installed
 ```
 
-![failed=0]({{site.url}}{{site.baseurl}}/assets/images/2020-04-11-Install-Ansible-with-troubleshooting/1.PNG)
+![failed=0](https://s01va.github.io/assets/images/2020-04-11-Install-Ansible-with-troubleshooting/1.PNG)
 

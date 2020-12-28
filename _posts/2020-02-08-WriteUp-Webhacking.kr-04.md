@@ -16,7 +16,7 @@ share: true
 ---
 
 
-![04]({{site.url}}{{site.baseurl}}/assets/images/2020-02-08-WriteUp-Webhacking.kr-04/0.PNG)
+![04](https://s01va.github.io/assets/images/2020-02-08-WriteUp-Webhacking.kr-04/0.PNG)
 
 4번 문제의 첫 화면이다. 저 값은 새로고침을 할 때마다 바뀐다.
 
@@ -139,8 +139,8 @@ f.close()
 
 위의 스크립트를 활용하다 보면 일정 확률로 문제를 풀 수 있다.
 
-![script]({{site.url}}{{site.baseurl}}/assets/images/2020-02-08-WriteUp-Webhacking.kr-04/1.PNG)
+![script](https://s01va.github.io/assets/images/2020-02-08-WriteUp-Webhacking.kr-04/1.PNG)
 
-![input key]({{site.url}}{{site.baseurl}}/assets/images/2020-02-08-WriteUp-Webhacking.kr-04/2.PNG)
+![input key](https://s01va.github.io/assets/images/2020-02-08-WriteUp-Webhacking.kr-04/2.PNG)
 
-![pwned]({{site.url}}{{site.baseurl}}/assets/images/2020-02-08-WriteUp-Webhacking.kr-04/3.PNG)
+![pwned](https://s01va.github.io/assets/images/2020-02-08-WriteUp-Webhacking.kr-04/3.PNG)

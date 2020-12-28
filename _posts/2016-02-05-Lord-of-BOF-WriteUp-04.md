@@ -69,23 +69,23 @@ environ을 memset시키기 때문에 환경변수를 이용한 공격은 사용�
 
 다음은 orc의 어셈블리어이다.
 
-![orc]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-04/0.png)
+![orc](https://s01va.github.io/assets/images/2016-02-05-LOB-04/0.png)
 
-![orc1]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-04/1.png)
+![orc1](https://s01va.github.io/assets/images/2016-02-05-LOB-04/1.png)
 
 argv[1]을 주었을 시 주소지를 알아볼 필요가 있다. 입력값의 길이를 48bytes로 맞추어 주었다. argv[2]를 활용할 경우도 생각하여 다음과 같이 입력값을 주었다.
 
-![argv addr]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-04/2.png)
+![argv addr](https://s01va.github.io/assets/images/2016-02-05-LOB-04/2.png)
 
 (중략)
 
-![argv addr2]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-04/3.png)
+![argv addr2](https://s01va.github.io/assets/images/2016-02-05-LOB-04/3.png)
 
-![argv addr3]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-04/4.png)
+![argv addr3](https://s01va.github.io/assets/images/2016-02-05-LOB-04/4.png)
 
 0xbfffbdc부터 0xbffffc0b에 argv[1]이 들어가 있는 것을 볼 수 있다. 0xbffffc0c부터는 argv[2]가 시작되고 있다. argv[2] 자리에 shellcode를 적재시킨다면 위의 조건을 모두 맞추면서 exploit이 성공할 것이다. 아래와 같이 공격을 시도하였다.
 
-![exploit]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-04/5.png)
+![exploit](https://s01va.github.io/assets/images/2016-02-05-LOB-04/5.png)
 
 권한 상승에 성공하였다.
 

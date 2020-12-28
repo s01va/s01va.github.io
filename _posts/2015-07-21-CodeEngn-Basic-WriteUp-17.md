@@ -17,73 +17,73 @@ Key 값이 BEDA-2F56-BC4F4368-8A71-870B 일때 Name은 무엇인가
 힌트 : Name은 한자리인데.. 알파벳일수도 있고 숫자일수도 있고.. 
 정답인증은 Name의 MD5 해쉬값(대문자)
 
-![crackme]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/0.png)
+![crackme](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/0.png)
 
 Name과 Key를 입력하는 프로그램이다.
 
-![PEiD]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/1.png)
+![PEiD](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/1.png)
 
 델파이로 작성되었으며, 패킹은 되어있지 않다. 그대로 분석을 진행한다.
 
-![crackme inpug]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/2.png)
+![crackme inpug](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/2.png)
 
 A와 12345를 입력하였더니 ‘Please Enter More Chars…’라는 문자열이 떴다. 이를 바탕으로 스트링을 검색하여 해당 주소지들을 찾았다. Name이 30자 이하가 되어야 한다는 것도 추가적으로 알 수 있다.
 
-![string ascii]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/3.png)
+![string ascii](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/3.png)
 
 다음은 정답 판별 부분이다.
 
-![into good boy]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/4.png)
+![into good boy](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/4.png)
 
 그리고 그 위에는 다음과 같은 부분들이 있다.
 
-![up1]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/5.png)
+![up1](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/5.png)
 
-![up2]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/6.png)
+![up2](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/6.png)
 
 “Please Enter More Chars…” 파트를 넘기 위해서는 EAX가 3이어야 한다. 프로그램을 실행시켜 보며 분석한 결과 Name이 3글자 이상이어야 EAX가 3이 되는 것을 확인할 수 있었다. 문제에서 Name은 한글자라고도 하였으니 이 조건을 모두 만족시켜줄 Name의 조건을 찾아보려 하였으나 별다른 해결책을 찾지 못하였다. 간단하게 “CMP EAX,3” 부분을 “CMP EAX,1”로 코드패치 하여 덤프를 뜬 이후 진행하였다. 
 
-![change eax]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/7.png)
+![change eax](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/7.png)
 
 EAX와 EDX 값을 비교하여 정답 여부를 확인하는 것을 볼 수 있다. 저 지점까지 도달하면 EDX에는 아래와 같이 정답 키 값이 들어가 있다.
 
-![reg]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/8.png)
+![reg](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/8.png)
 
 이제부터 Name에 무엇을 넣어야 키 값이 BEDA-2F56-BC4F4368-8A71-870B이 되는지를 추적해 보도록 하겠다.
 
-![name]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/9.png)
+![name](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/9.png)
 
 재실행시켜 해당 지점까지 실행시켰을 때 이미 Name을 통해 만들어낸 키값은 LOCAL.5에 생성되어 있으며 이를 EDX로 MOV하고 있다.
 
-![mov edx]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/10.png)
+![mov edx](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/10.png)
 
 몇 줄 위에서 LEA에서 LOCAL.5의 주소지를 EDX로 받아오고 있고, 45B850 함수를 통과한 이후 제대로 된 키값을 받아오는 것을 볼 수 있었다. 함수 45B850의 내부로 들어가서 관찰하도록 한다.
 
-![make key]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/11.png)
+![make key](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/11.png)
 
 해당 함수 내부에서 한줄씩 실행시키다 보면 어떤 유사한 부분이 반복되며 키를 한 파트씩 생성해 내는 것을 볼 수 있었다. 모두 동일하게 4086C8 함수를 통과하면 특정 문자열을 로컬 변수에 저장하는 것을 볼 수 있었다.
 
-![after loop]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/12.png)
+![after loop](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/12.png)
 
 반복되는 구간을 모두 지나오면 스택에 키값의 조각들이 쌓여있는 것을 볼 수 있다. 이 반복되는 부분을 분석해 보도록 하겠다.
 
-![arg1]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/13.png)
+![arg1](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/13.png)
 
 Arg1 부분만 바뀌고 위와 같은 부분이 계속 반복되는 것을 확인할 수 있었다. Name에 “A”를 입력하고 다음과 같은 연산들을 반복했을 시 나타나는 최종 키값은 FFE3-2C73-0502A34C-8A48-E1CB이었다. 이 키값이 만들어지는 과정을 뜯어보면 다음과 같다.
 
-![local.7]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/14.png)
+![local.7](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/14.png)
 
 LOCAL.7(== 주소지19F5FC)가 Arg1로 들어가서 ESI(==FFE374F0)를 기반으로 맨 앞의 문자열 “FFE3”을 만들어 낸다(함수 1이라 칭함).
 
-![local.9]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/15.png)
+![local.9](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/15.png)
 
 LOCAL.9(== 주소지19F5F4)가 Arg1로 들어가서 LOCAL.4(==02C733B4)를 기반으로 두 번째 문자열 “2C73”을 만들어 낸다(함수 2라 칭함).
 
-![local.11]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/16.png)
+![local.11](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/16.png)
 
 LOCAL.11(== 주소지 19F5EC)가 Arg1로 들어가서 LOCAL.2(== 0502A34CDF1251DEE5DC2EC8D 3FC7510) 를 기반으로 세번째 문자열 “0502A34C”를 만들어 낸다(함수 3이라 칭함).
 
-![local.12, local.14]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/17.png)
+![local.12, local.14](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/17.png)
 
 네 번째, 다섯 번째 문자열은 첫 번째, 두번째 문자열을 만드는 과정과 동일하다(함수 4,5라 칭함). 단 Arg1값과 최종적으로 만들어질 문자열이 참고하는 지점이 다르다. 이와 같은 과정을 표로 정리하면 다음과 같다.
 
@@ -110,25 +110,25 @@ LOCAL.11(== 주소지 19F5EC)가 Arg1로 들어가서 LOCAL.2(== 0502A34CDF1251D
 
 Arg1과 참고 지점은 같으나, 참고 지점에 들어가는 문자열이 다름으로 인해 최종 결과 키값이 달라지는 것을 확인할 수 있었다. 이를 통해 미리 해당 키값들이 저장되어 있고, Name에 따라 미리 저장된 키값을 찾아가서 조합하는 것이 아니라, Name에 들어오는 문자열을 바탕으로 연산을 수행해서 스택에 저장하는 것임을 짐작할 수 있다. 다음으로는 위의 키 값이 만들어지는 다섯 파트의 바깥 부분을 관찰하였다.
 
-![first stack]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/18.png)
+![first stack](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/18.png)
 
 이 45B850함수의 첫 부분과 스택을 쌓는 부분이다. PUSH 0을 반복하여 LOCAL.1부터 LOCAL.14까지 쌓는 것을 볼 수 있다.
 
-![all stack]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/19.png)
+![all stack](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/19.png)
 
 위의 PUSH를 반복하는 부분을 모두 지나고 나서 쌓인 스택의 모습이다. 19F614부터 LOCAL.1이다. 스택을 쌓은 후, ESI, EDI, EBX를 생성한다.
 
-![ESI]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/20.png)
+![ESI](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/20.png)
 
-![EDI]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/21.png)
+![EDI](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/21.png)
 
-![EBX]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/22.png)
+![EBX](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/22.png)
 
 위에서부터 ESI, EDI, EBX의 값이 결정되는 부분이다. ESI 값이 생성되는 과정부터 분석해 보겠다.
 
-![making ESI 1]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/23.png)
+![making ESI 1](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/23.png)
 
-![making ESI 2]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/24.png)
+![making ESI 2](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/24.png)
 
 ESI 생성 과정과 그 시작 부분의 레지스터 값들이다. LOCAL.1에는 23350E8이 들어 있다. 다음은 각 어셈블리어 코드 한줄 한줄 진행 과정에 따른 분석이다.
 
@@ -176,7 +176,7 @@ while (namecode < 0x7f):
 
 Name은 F가 나왔다. 이를 확인해 보았다.
 
-![well done]({{site.url}}{{site.baseurl}}/assets/images/2015-07-21-CodeEngn-Basic-17/25.png)
+![well done](https://s01va.github.io/assets/images/2015-07-21-CodeEngn-Basic-17/25.png)
 
 정답은 Name의 md5 hash값이다.
 

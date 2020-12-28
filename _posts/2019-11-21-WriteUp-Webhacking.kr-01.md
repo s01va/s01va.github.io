@@ -16,7 +16,7 @@ share: true
 
 리뉴얼 기념!
 
-![gate-01]({{site.url}}{{site.baseurl}}/assets/images/2019-11-21-WriteUp-Webhacking.kr-01/0.PNG)
+![gate-01](https://s01va.github.io/assets/images/2019-11-21-WriteUp-Webhacking.kr-01/0.PNG)
 
 
 ```php
@@ -55,12 +55,12 @@ user_lv 쿠키값이 6보다 같거나 크면 안되며
 
 쿠키값을 5.5로 맞추어 주었다.
 
-![user_lv cookie]({{site.url}}{{site.baseurl}}/assets/images/2019-11-21-WriteUp-Webhacking.kr-01/1.PNG)
+![user_lv cookie](https://s01va.github.io/assets/images/2019-11-21-WriteUp-Webhacking.kr-01/1.PNG)
 
 간단하게 1번문제를 풀었다.
-![pwned!]({{site.url}}{{site.baseurl}}/assets/images/2019-11-21-WriteUp-Webhacking.kr-01/2.PNG)
+![pwned!](https://s01va.github.io/assets/images/2019-11-21-WriteUp-Webhacking.kr-01/2.PNG)
 
-![Congratz]({{site.url}}{{site.baseurl}}/assets/images/2019-11-21-WriteUp-Webhacking.kr-01/3.PNG)
+![Congratz](https://s01va.github.io/assets/images/2019-11-21-WriteUp-Webhacking.kr-01/3.PNG)
 
 ※
 나는 웹해킹 문제를 주로 Chrome에서 풀이했다.

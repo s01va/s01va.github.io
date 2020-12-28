@@ -85,7 +85,7 @@ main()
 
 평범한 소켓 통신 서버 역할을 하는 프로그램이며, 원격접속한 사용자로부터 입력값을 받고 있다. 그리고 이를 통해 Buffer Overflow(이하 BOF)가 발생하게 된다. 그리고 이전의 문제들과 다르게 이 버퍼에는 아무런 보호조치가 되어있지 않다. 결국 이 문제는 원격지에서 이 LOB 서버로 접속한 후, 쉘코드와 함께 bof를 발생시키면 된다. 우선 따로 만든 공격지에서 LOB 서버 6666번 포트로 nc 명령어를 사용하였다.
 
-![nc]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-20/0.png)
+![nc](https://s01va.github.io/assets/images/2016-02-05-LOB-20/0.png)
 
 위와 같이 입력값을 받고 있다.
 공격지인 다른 리눅스 로컬로 리버스 쉘코드를 사용한 브루트 포스 코드를 작성해 두었다. 원격에서 공격하는 만큼 ret주소를 알 수 없기 때문에 브루트 포스를 사용했다.
@@ -126,11 +126,11 @@ for i in range(0xff, 0xf0, -1):
 
 LOB 서버에 6666번 포트로 연결하고, receive를 9999번 포트로 받으려고 한다.
 
-![nc2]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-20/1.png)
+![nc2](https://s01va.github.io/assets/images/2016-02-05-LOB-20/1.png)
 
 nc로 공격지에서 listen 모드로 9999번 포트를 열어두고, 위의 브루트포스 코드를 실행시킨다.
 
-![exploit]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-20/2.png)
+![exploit](https://s01va.github.io/assets/images/2016-02-05-LOB-20/2.png)
 
 
 my-pass: got the life

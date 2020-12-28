@@ -74,17 +74,17 @@ Stack frame structure:
 
 이전 문제의 조건에 argv[1]의 크기를 한정하는 조건이 추가되었다. 이전 문제들을 풀이할 때에도 argv[1]의 크기는 딱 48바이트로 맞추었으므로 같은 방식으로 문제를 풀어도 문제되지 않을 것이다. argv[1]에 48바이트를, argv[2]에 100바이트를 넣어 이들의 주소지를 확인해 보았다.
 
-![argv addr]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-06/0.png)
+![argv addr](https://s01va.github.io/assets/images/2016-02-05-LOB-06/0.png)
 
 (중략)
 
-![argv addr2]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-06/1.png)
+![argv addr2](https://s01va.github.io/assets/images/2016-02-05-LOB-06/1.png)
 
 argv[2]는 0xbffffb0c부터 위치하는 것을 확인할 수 있다. 이를 바탕으로 아래와 같이 공격을 진행하였다.
 
-![exploit]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-06/2.png)
+![exploit](https://s01va.github.io/assets/images/2016-02-05-LOB-06/2.png)
 
-![my-pass]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-06/3.png)
+![my-pass](https://s01va.github.io/assets/images/2016-02-05-LOB-06/3.png)
 
 
 my-pass: kernel crashed

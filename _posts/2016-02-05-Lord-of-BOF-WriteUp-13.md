@@ -60,29 +60,29 @@ Stack frame structure:
 
 앞의 LD_PRELOAD를 이용하는 skeleton 문제에서 라이브러리 관련 설명과 함께 풀이를 한 바 있다. RTL은 Return To Library로, 링킹된 라이브러리의 또다른 함수로 리턴시켜 실행시키는 기법이다. 쉘을 실행시키는 것이 목적인데, 가장 쉬운 방법으로 system(“/bin/sh”)가 있다. argument로 “/bin/sh”를 주고, ret 자리에 system함수의 주소를 준 후, 크기가 4만큼의 패딩을 준 후 해당 함수의 인자로 들어가야 할 “/bin/sh”의 주소를 줄 것이다. 보통 함수의 인자가 ebp+4의 자리에 위치하기 때문이다. 
 
-![disas]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-13/0.png)
+![disas](https://s01va.github.io/assets/images/2016-02-05-LOB-13/0.png)
 
 인자로 준 “A” * 44는 buffer의 패딩, “BBBB”는 ret에 넣을 system 함수의 주소 자리, “CCCC”는 인자를 주기 전의 패딩이며 “DDDD”는 “/bin/sh”문자열의 주소 자리이다. system 함수의 주소는 0x40058ae0이므로 argv[1][47]==’/xbf’의 조건문에도 걸리지 않을 것이다.
 
-![memory1]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-13/1.png)
+![memory1](https://s01va.github.io/assets/images/2016-02-05-LOB-13/1.png)
 
 (중략)
 
-![memory2]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-13/2.png)
+![memory2](https://s01va.github.io/assets/images/2016-02-05-LOB-13/2.png)
 
-![memory3]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-13/3.png)
+![memory3](https://s01va.github.io/assets/images/2016-02-05-LOB-13/3.png)
 
 “/bin/sh” 문자열이 시작하는 지점은 0xbffffc44이다. 이를 바탕으로 공격을 진행하였다.
 
-![exploit1]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-13/4.png)
+![exploit1](https://s01va.github.io/assets/images/2016-02-05-LOB-13/4.png)
 
 공격에 실패하였으나 경로명이 보이는 것을 보아 “/bin/sh” 문자열이 bugbear의 복사본 파일에서는 0xbffffc44에 위치하였으나, 원본 파일에서 0xbffffc44는 “/bin/sh”의 약간 뒤에 위치하고 있음을 추측해 낼 수 있었다.
 
-![exploit2]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-13/5.png)
+![exploit2](https://s01va.github.io/assets/images/2016-02-05-LOB-13/5.png)
 
 “/bin/sh”의 주소지를 0xbffffc3a로 설정하니 공격에 성공하였다.
 
-![mypass]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-13/6.png)
+![mypass](https://s01va.github.io/assets/images/2016-02-05-LOB-13/6.png)
 
 
 my-pass: new divide
@@ -110,7 +110,7 @@ my-pass: new divide
 
 ```
 
-![ps]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-13/7.png)
+![ps](https://s01va.github.io/assets/images/2016-02-05-LOB-13/7.png)
 
 
 system함수 내에서 “/bin/sh”이라는 문자열이 있는 주소는 0x400fbff9이다.

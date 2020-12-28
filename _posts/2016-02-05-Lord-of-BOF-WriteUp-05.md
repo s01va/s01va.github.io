@@ -68,15 +68,15 @@ Stack frame structure
 
 environ을 memset시키는 부분이 있다. 환경변수를 이용한 공격은 할 수 없다. 공격을 위한 조건은 이전의 문제와 같으니 같은 방법으로 풀이해 보았다. argv[1]에 48바이트를 채우고, argv[2]에 100바이트를 채운 후 그 주소값을 확인하였다.
 
-![disas]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-05/0.png)
+![disas](https://s01va.github.io/assets/images/2016-02-05-LOB-05/0.png)
 
 (중략)
 
-![disas2]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-05/1.png)
+![disas2](https://s01va.github.io/assets/images/2016-02-05-LOB-05/1.png)
 
 argv[2]가 시작하는 주소지는 0xbffffc1c임을 알 수 있다. 이를 이용하여 다음과 같이 공격을 시도하였다.
 
-![exploit]({{site.url}}{{site.baseurl}}/assets/images/2016-02-05-LOB-05/2.png)
+![exploit](https://s01va.github.io/assets/images/2016-02-05-LOB-05/2.png)
 
 
 my-pass: love eyuna

@@ -36,7 +36,7 @@ CentOS쪽으로 붙을 클라이언트 측(Windows)에서 [Xming을 설치](http
 
 설치 이후 설정을 해 주어야 한다. Xming을 설치하면 XLaunch라는 것이 생긴다. 이걸 실행하면 아래같은 창이 뜬다.
 
-![XLaunch]({{site.url}}{{site.baseurl}}/assets/images/2019-12-26-CentOS7-X11-forwarding/0.PNG)
+![XLaunch](https://s01va.github.io/assets/images/2019-12-26-CentOS7-X11-forwarding/0.PNG)
 
 계속 다음-다음-마침 눌러주면 된다.
 
@@ -48,13 +48,13 @@ CentOS쪽으로 붙을 클라이언트 측(Windows)에서 [Xming을 설치](http
 putty를 실행하면 왼쪽 탭에서
 Connection - SSH - X11에 들어가 Enable X11 forwarding에 체크해 준다.
 
-![Enable X11]({{site.url}}{{site.baseurl}}/assets/images/2019-12-26-CentOS7-X11-forwarding/1.PNG)
+![Enable X11](https://s01va.github.io/assets/images/2019-12-26-CentOS7-X11-forwarding/1.PNG)
 
 세션에 저장해두면 편하다.
 
 
 # 5. Test
 
-![xclock]({{site.url}}{{site.baseurl}}/assets/images/2019-12-26-CentOS7-X11-forwarding/2.PNG)
+![xclock](https://s01va.github.io/assets/images/2019-12-26-CentOS7-X11-forwarding/2.PNG)
 
 xclock 명령어로 테스트할 수 있다.
