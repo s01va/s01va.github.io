@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Python Coding test Tip"
-description: "자주 쓰이는 것들 추가"
+description: "자주 쓰는 것들 추가"
 date: 2020-11-21 22:00:00 -0400
 modified: 2020-12-28 10:45:00 -0400
 tags: 
@@ -22,32 +22,35 @@ share: true
 	
 2. 빠른 입출력
 
-	시간초과를 주의하기 위함이다.
+  시간초과를 주의하기 위함이다.
 
-	입출력 방식이 느리면 여러 줄을 입력받거나 출력할 때 시간초과가 날 수 있다.
+  입출력 방식이 느리면 여러 줄을 입력받거나 출력할 때 시간초과가 날 수 있다.
 
-	Python을 사용하고 있다면, `input` 대신 `sys.stdin.readline`을 사용할 수 있다.
+  Python을 사용하고 있다면, `input` 대신 `sys.stdin.readline`을 사용할 수 있다.
 
-	단, 이때는 맨 끝의 개행문자까지 같이 입력받기 때문에 문자열을 저장하고 싶을 경우 `.rstrip()`을 추가로 해 주는 것이 좋다.
+  단, 이때는 맨 끝의 개행문자까지 같이 입력받기 때문에 문자열을 저장하고 싶을 경우 `.rstrip()`을 추가로 해 주는 것이 좋다.
 
-	*from Baekjoon*
+  *from Baekjoon*
 
-	- 응용
-	
-		1. 입력값 한번에 두개 받기
-		```python
-		x, y = sys.stdin.readline().rstrip().split()
-		```
-		2. 받은 입력값 int로 받기
-		```python
-		input()
-		s = map(int, n.split() for n in sys.stdin)
-		```
-		3. 한번에 총합 계산
-		```python
-		input()
-		s = list(sum(map(int, n.split())) for n in sys.stdin)
-		```
+  - 응용
+
+  	1. 입력값 한번에 두개 받기
+  	
+  	   ```python
+  	   x, y = sys.stdin.readline().rstrip().split()
+  	   ```
+  	2. 받은 입력값 int로 받기
+  	
+  	   ```python
+  	   input()
+  	   s = map(int, n.split() for n in sys.stdin)
+  	   ```
+  	3. 한번에 총합 계산
+  	
+  	   ```python
+  	   input()
+  	   s = list(sum(map(int, n.split())) for n in sys.stdin)
+  	   ```
 
 3. print 이외에
 
@@ -73,28 +76,28 @@ share: true
 	
 	
 	
-6. `import` 없이 쓰는 간단한 수학 함수
+6. `import` 없이 쓰는 간단한 수학 함수 활용
 
    - 총합
 
      ```python
      sum(testlist2)
      # 결과: 45
-     ```     
+     ```
 
    - 최대
 
      ```python
      max(testlist2)
      # 결과: 9
-     ```     
+     ```
 
    - 최소
 
      ```python
      min(testlist2)
      # 결과: 0
-     ```     
+     ```
 
    - 평균
 
@@ -104,8 +107,48 @@ share: true
      ```
 
      평균은 `import` 없이 쓸 수 있는 함수가 따로 없음
+     
+   - 소수점 출력
 
-7. list 중 중복 없애기
+     ```python
+     pi = 3.1415926535
+     print("%0.2f%%" % pi)
+     print("%0.4f%%" % pi)
+     ```
+
+     
+
+7. `print` formatting 방식
+
+   ```python
+   # 테스트용 str 추가
+   exstr = "helloworld"
+   ```
+   
+1. 기존 방식
+   
+   ```python
+      print("exstr = %s / testlist2[9] = %d / pi = %f" % (exstr, testlist2[9], pi))
+      # 결과: exstr = helloworld / testlist2[9] = 9 / pi = 3.141593
+      ```
+   
+   2. `.format` 방식
+   
+      이는 string을 선언할 때에도 유용하다.
+   
+      ```python
+      print("exstr = {0} / testlist2[9] = {1} / pi = {2}".format(exstr, testlist2[8], pi))
+      ```
+   
+      변수 사용도 가능
+   
+      ```python
+      print("exstr = {exstr} / testlist2[8] = {tl} / pi = {pi2}".format(exstr=exstr, tl=testlist2[8], pi2=pi))
+      ```
+   
+      
+   
+8. list 중 중복 없애기
 
    ```python
    testlist3 = [0, 0, 0, 1, 1, 2, 2, 3]
