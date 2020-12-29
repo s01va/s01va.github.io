@@ -5,8 +5,11 @@ description: "자료구조 기초"
 date: 2020-12-28 12:37:00 -0400
 # modified: 
 tags:
+- programming
 - DataStructure
 - BasicCS
+- codingtest
+- python
 comments: true
 share: true
 ---
