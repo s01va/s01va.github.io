@@ -32,48 +32,49 @@ share: true
 
    *from Baekjoon*
 
-  - 응용
+   ### 응용
+   1. 입력값 한번에 두개 받기
 
-    1. 입력값 한번에 두개 받기
+      ```python
+      x, y = sys.stdin.readline().rstrip().split()
+      ```
 
-       ```python
-       x, y = sys.stdin.readline().rstrip().split()
-       ```
-    2. 받은 입력값 int로 받기
+   2. 받은 입력값 int로 받기
 
-       ```python
-       input()
-       s = map(int, n.split() for n in sys.stdin)
-       ```
-    3. 한번에 총합 계산
+      ```python
+      input()
+      s = map(int, n.split() for n in sys.stdin)
+      ```
 
-       ```python
-       input()
-       s = list(sum(map(int, n.split())) for n in sys.stdin)
-       ```
+   3. 한번에 총합 계산
+
+      ```python
+      input()
+      s = list(sum(map(int, n.split())) for n in sys.stdin)
+      ```
 
 3. print 이외에
 
-	```python
-	sys.stdout.write()
-	```
-	
+  ```python
+  sys.stdout.write()
+  ```
+
 4. 배열 초기화
 
-	```python
-	testlist1 = [0 for i in range(10)]
-	# 결과: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-	```
-	
-	```python
-	testlist2 = [i for i in range(10)]
-	# 결과: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-	```
-	
+  ```python
+  testlist1 = [0 for i in range(10)]
+  # 결과: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  ```
+
+  ```python
+  testlist2 = [i for i in range(10)]
+  # 결과: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  ```
+
 5. list 중 중복 없애기
 
-	
-	
+  
+
 6. Python이 느릴 시
 
   pypy가 있다면 소스코드 그대로 pypy로 채점
