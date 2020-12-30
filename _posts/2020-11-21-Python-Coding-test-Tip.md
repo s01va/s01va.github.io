@@ -123,6 +123,13 @@ resultlist = set(testlist3)
   ```
 
 
+## 증감연산자
+
+맨날헷갈림...
+다른 언어에서 `++`, `--` 형태로 사용하던 버릇대로 쓰려니 **파이썬에서 당연히 안먹힘**
+
+python에선 `var += 1`과 같은 형태로 쓸 것
+
 ## `print` formatting 방식
 
 ```python
