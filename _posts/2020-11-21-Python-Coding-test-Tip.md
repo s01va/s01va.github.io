@@ -73,17 +73,15 @@ share: true
 
 5. list 중 중복 없애기
 
-  
-
-6. Python이 느릴 시
-
-  pypy가 있다면 소스코드 그대로 pypy로 채점
-
   ```python
   testlist3 = [0, 0, 0, 1, 1, 2, 2, 3]
   resultlist = set(testlist3)
   # 결과: [0, 1, 2, 3]
   ```
+
+6. Python이 느릴 시
+
+  pypy가 있다면 소스코드 그대로 pypy로 채점
 
 7. `import` 없이 쓰는 간단한 수학 함수 활용
 
