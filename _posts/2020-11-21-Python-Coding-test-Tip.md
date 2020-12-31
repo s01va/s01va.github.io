@@ -184,6 +184,8 @@ exstr = "helloworld"
   print("exstr = {exstr} / testlist2[8] = {tl} / pi = {pi2}".format(exstr=exstr, tl=testlist2[8], pi2=pi))
   ```
 
+  같은 문자열이 여러번 들어가는데, 이 문자열이 변동 여지가 있을 때 쓰기 좋음
+
   
 
 ## 문자열 거꾸로 출력하기
