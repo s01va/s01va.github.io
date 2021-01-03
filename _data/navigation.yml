@@ -8,6 +8,17 @@ main:
 #    url: /categories/
 
 categorydocs:
+  - title: "Programming"
+    url: /tags/#programming
+    children:
+      - title: "Python"
+        url: /tags/#python
+      - title: "Basic CS"
+        url: /tags/#basiccs
+      - title: "Data Structure"
+        url: /tags/#datastructure
+      - title: "algorithm"
+        url: /tags/#algorithm
   - title: "WAS"
     children:
       - title: "JEUS"
