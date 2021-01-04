@@ -19,7 +19,9 @@ categorydocs:
         url: /tags/#datastructure
       - title: "algorithm"
         url: /tags/#algorithm
+
   - title: "WAS"
+    url: /tags/#was
     children:
       - title: "JEUS"
         url: /tags/#jeus
@@ -29,16 +31,19 @@ categorydocs:
         url: /tags/#troubleshooting
 
   - title: "Web Hacking"
+    url: /tags/#webhacking
     children:
       - title: "webhacking.kr"
         url: /tags/#webhacking-kr
 
   - title: "Reversing"
+    url: /tags/#reversing
     children:
       - title: "CodeEngn Basic"
         url: /tags/#codeengn-basic
 
   - title: "Pwnable"
+    url: /tags/#pwnable
     children:
       - title: "Lord of BOF"
         url: /tags/#lob
