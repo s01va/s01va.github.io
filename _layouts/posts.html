@@ -27,3 +27,12 @@ layout: archive
     <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
   </section>
 {% endfor %}
+
+<script>
+ window.Lazyload.js('{{ https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js }}', function() {
+   mermaid.initialize({
+     startOnLoad: true
+   });
+   mermaid.init(undefined, '.language-mermaid');
+ });
+</script>
