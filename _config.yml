@@ -255,7 +255,7 @@ whitelist:
   - jekyll-mermaid
 
 mermaid:
-  src: '_includes/mermaid.js'
+  src: '/js/mermaid.js'
 
 # Archives
 #  Type

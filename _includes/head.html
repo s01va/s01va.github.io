@@ -14,6 +14,21 @@
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
+{% if site.head_scripts %}
+  {% for script in site.head_scripts %}
+    {% if script contains "://" %}
+      {% capture script_path %}{{ script }}{% endcapture %}
+    {% else %}
+      {% capture script_path %}{{ script | relative_url }}{% endcapture %}
+    {% endif %}
+    <script src="{{ script_path }}"></script>
+  {% endfor %}
+{% endif %}
+
+<!-- using mermaid for rendering Diagram and flow chart -->
+<script src="/cookbook-dev/assets/js/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+
 <!--[if IE]>
   <style>
     /* old IE unsupported flexbox fixes */
@@ -29,13 +44,4 @@
   </style>
 <![endif]-->
 
-{% if site.head_scripts %}
-  {% for script in site.head_scripts %}
-    {% if script contains "://" %}
-      {% capture script_path %}{{ script }}{% endcapture %}
-    {% else %}
-      {% capture script_path %}{{ script | relative_url }}{% endcapture %}
-    {% endif %}
-    <script src="{{ script_path }}"></script>
-  {% endfor %}
-{% endif %}
+
