@@ -256,6 +256,7 @@ whitelist:
 
 mermaid:
   src: '/js/mermaid.js'
+  src_config: '/js/config.js'
 
 # Archives
 #  Type
