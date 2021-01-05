@@ -24,11 +24,11 @@ http에서 session은 사용자 하나하나를 구분할 수 없고, 상태를 
 
 WAS를 이중화를 해 놓는다면 아래와 같은 모양새가 된다.
 
-```mermaid
+{% mermaid %}
 graph LR;
 	A[User] --> B[WAS1];
 	A --> C[WAS2];
-```
+{% endmermaid %}
 
 
 
