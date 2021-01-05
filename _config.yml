@@ -243,6 +243,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-mermaid
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -251,7 +252,10 @@ whitelist:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-mermaid
 
+mermaid:
+  src: '_includes/mermaid.js'
 
 # Archives
 #  Type
