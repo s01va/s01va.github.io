@@ -24,11 +24,11 @@ http에서 session은 사용자 하나하나를 구분할 수 없고, 상태를 
 
 WAS를 이중화를 해 놓는다면 아래와 같은 모양새가 된다.
 
-``` mermaid
+{% mermaid %}
 graph LR;
 	A[User] --> B[WAS1];
 	A --> C[WAS2];
-```
+{% endmermaid %}
 
 User는 WAS1에 붙어있다가 문제가 생기면 WAS2에 연결되게 되는데, 로그인 등을 한 상태라면 이 상태를 가지고 그대로 작업을 가능하게 해야 한다.
 
@@ -42,12 +42,12 @@ User가 WAS1에서 쿠키를 받고 작업을 하다가 WAS1과의 연결이 끊
 
 이를 위해 Web server를 사이에 설치해 준다.
 
-```mermaid
+{% mermaid %}
 graph LR;
 A[User] ==> B[Web server];
 B --> C[WAS1];
 B --> D[WAS2];
-```
+{% endmermaid %}
 
 User는 새로고침을 하더라도 Web server가 쿠키값을 보고 User를 한 사람으로 인식하고 적절한 WAS로 load balancing 시켜주게 된다.
 
@@ -57,14 +57,14 @@ User는 새로고침을 하더라도 Web server가 쿠키값을 보고 User를 �
 
 JEUS6까지 Session server가 따로 존재했었다. 쿠키정보를 Session server에 저장해 두었다.
 
-```mermaid
+{% mermaid %}
 graph LR;
 A[User] ==> B[Web server];
 B --> C[WAS1];
 C --> D[Session server];
 B --> E[WAS2];
 E --> D;
-```
+{% endmermaid %}
 
 user와 session연결이 되었을 때마다 session server의 쿠키값을 확인하는 방식이었다.
 
@@ -74,11 +74,11 @@ JEUS7에 와서는 Session server가 사라졌다. 분산처리하는 방식으�
 
 (모두 공유하지 않는다. MS 4개가 있으면, primary server는 하나의 서버만 backup server로 삼는다. 모두 공유하면 리소스 낭비이므로)
 
-```mermaid
+{% mermaid %}
 graph LR;
 A[User] ==> B[Web server] --> C[WAS1 :Session Server];
 B --> D[WAS2 :Session Server];
-```
+{% endmermaid %}
 
 ### Primary / Secondary(==backup)
 
