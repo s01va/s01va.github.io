@@ -255,8 +255,8 @@ whitelist:
   - jekyll-mermaid
 
 mermaid:
-  src: '/js/mermaid.js'
-  src_config: '/js/config.js'
+  src: '/assets/js/mermaid.js'
+  src_config: '/assets/js/config.js'
 
 # Archives
 #  Type
