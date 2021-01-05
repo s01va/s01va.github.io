@@ -254,12 +254,6 @@ whitelist:
   - jekyll-include-cache
   - jekyll-mermaid
 
-mermaid:
-  src:
-    - '/assets/js/mermaid.js'
-  src_config:
-    - '/assets/js/config.js'
-
 # Archives
 #  Type
 #  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
