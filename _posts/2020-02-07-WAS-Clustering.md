@@ -24,7 +24,7 @@ http에서 session은 사용자 하나하나를 구분할 수 없고, 상태를 
 
 WAS를 이중화를 해 놓는다면 아래와 같은 모양새가 된다.
 
-```mermaid!
+```mermaid
 graph LR;
 	A[User] --> B[WAS1];
 	A --> C[WAS2];
@@ -44,7 +44,7 @@ User가 WAS1에서 쿠키를 받고 작업을 하다가 WAS1과의 연결이 끊
 
 이를 위해 Web server를 사이에 설치해 준다.
 
-```mermaid~
+```mermaid
 graph LR;
 A[User] ==> B[Web server];
 B --> C[WAS1];
@@ -59,7 +59,7 @@ User는 새로고침을 하더라도 Web server가 쿠키값을 보고 User를 �
 
 JEUS6까지 Session server가 따로 존재했었다. 쿠키정보를 Session server에 저장해 두었다.
 
-```mermaid!
+```mermaid
 graph LR;
 A[User] ==> B[Web server];
 B --> C[WAS1];
@@ -78,7 +78,7 @@ JEUS7에 와서는 Session server가 사라졌다. 분산처리하는 방식으�
 
 (모두 공유하지 않는다. MS 4개가 있으면, primary server는 하나의 서버만 backup server로 삼는다. 모두 공유하면 리소스 낭비이므로)
 
-```mermaid!
+```mermaid
 graph LR;
 A[User] ==> B[Web server] --> C[WAS1 :Session Server];
 B --> D[WAS2 :Session Server];
