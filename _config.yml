@@ -384,7 +384,7 @@ defaults:
       type: home
     values:
       layout: home
-      classes: wide
+      #classes: wide
       author_profile: true
       read_time: true
       comments: true
