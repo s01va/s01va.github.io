@@ -128,3 +128,45 @@ for i in range(T):
 	print(l[-1])
 ```
 
+
+
+## 단계7 설탕 배달
+
+
+
+```python
+N = int(input())
+if N % 5 == 0:
+	print(N//5)
+else:
+	for n5 in range(N//5, -1, -1):
+		if (N-5*n5) % 3 == 0:
+			print(n5 + ((N-5*n5)//3))
+			break
+		else:
+			if n5 == 0:
+				print(-1)
+```
+
+
+
+## 단계8 큰 수 A+B
+
+python에서는 큰 수를 다루는 데에 문제가 되지 않는다.
+
+```python
+import sys
+A, B = map(int, sys.stdin.readline().rstrip().split())
+sys.stdout.write(str(A+B))
+```
+
+
+
+## 단계9 Fly me to the Alpha Centauri
+
+
+
+```python
+
+```
+
