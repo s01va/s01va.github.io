@@ -13,6 +13,6 @@ share: true
 
 ---
 
-좋은 포스트를 발견했다!
+좋은 포스트를 발견했다 이해에 많은 도움이 됨
 
-https://smjeon.dev/web/sticky-session/
+[Sticky Session과 Session Clustering](https://smjeon.dev/web/sticky-session/)
