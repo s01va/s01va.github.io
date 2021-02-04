@@ -228,3 +228,12 @@ AWS에서 해당 인스턴스 보안 그룹 설정-인바운드 규칙에서 80�
 이제 해당 서버 DNS를 브라우저 주소창에 치면 nginx가 구동되어 있는 것을 볼 수 있다.
 
 ![0](https://s01va.github.io/assets/images/2021-01-28-Nginx-Tomcat-Kafka/0.png)
+
+포트는 `/conf/nginx.conf`에서 변경할 수 있다.
+
+## 종료
+
+```shell
+./nginx -s stop
+```
+
