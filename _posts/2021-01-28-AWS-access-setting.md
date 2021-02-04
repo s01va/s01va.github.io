@@ -67,7 +67,9 @@ share: true
 
 
 - 최초접속시 User name
+  
   Ubuntu의 경우: ubuntu
+  
   Red hat의 경우: ec2-user
 
 
