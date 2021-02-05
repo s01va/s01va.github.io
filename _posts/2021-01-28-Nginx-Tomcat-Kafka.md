@@ -29,15 +29,6 @@ OS: Red Hat Ent 8.3.0
 
   설치 경로는 모두 `/app/`
 
-- redhat OS 설치 직후, 다음 유틸리티가 없을 수 있다. 설치해준다.
-
-  ```shell
-  yum install -y vim
-  yum install -y wget
-  yum install -y gcc
-  yum install -y make
-  ```
-
 
 
 
@@ -47,36 +38,16 @@ OS: Red Hat Ent 8.3.0
 
 ## Nginx 설치
 
-[Nginx 공식 install 문서](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/)
+나는 컴파일 설치를 적용하였다.
 
-### yum 설치
+redhat OS 설치 직후, 다음 유틸리티가 없을 수 있다. 설치해준다.
 
-1. Yum repository에 nginx가 없어, repository 설정을 따로 해준다.
-
-   `/etc/yum.repos.d/`에서 `nginx.repo`를 생성하고 아래와 같이 작성한다.
-
-   ```shell
-   vi /etc/yum.repos.d/nginx.repo
-   ```
-
-
-   ```shell
-   [nginx]
-   name=nginx repo
-   baseurl=https://nginx.org/packages/rhel/8/x86_64/
-   gpgcheck=0
-   enabled=1
-   ```
-
-   
-
-   공식문서의 `$releasever`, `$basearch` 부분은 자신의 설정 환경에 맞게 입력하였다.
-
-2. Nginx 설치
-
-   ```shell
-   yum install nginx
-   ```
+```shell
+yum install -y vim
+yum install -y wget
+yum install -y gcc
+yum install -y make
+```
 
 ### 컴파일 설치
 
@@ -241,6 +212,36 @@ AWS에서 해당 인스턴스 보안 그룹 설정-인바운드 규칙에서 80�
 ```
 
 
+
+### + yum 설치
+
+[Nginx 공식 install 문서](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/)
+
+1. Yum repository에 nginx가 없어, repository 설정을 따로 해준다.
+
+   `/etc/yum.repos.d/`에서 `nginx.repo`를 생성하고 아래와 같이 작성한다.
+
+   ```shell
+   vi /etc/yum.repos.d/nginx.repo
+   ```
+   
+   ```
+   [nginx]
+   name=nginx repo
+   baseurl=https://nginx.org/packages/rhel/8/x86_64/
+   gpgcheck=0
+   enabled=1
+   ```
+   
+   
+   
+   공식문서의 `$releasever`, `$basearch` 부분은 자신의 설정 환경에 맞게 입력하였다.  
+
+2. Nginx 설치
+
+   ```shell
+   yum install -y nginx
+   ```
 
 -------------------------------------
 
