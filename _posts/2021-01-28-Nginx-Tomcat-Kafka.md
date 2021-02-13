@@ -53,26 +53,31 @@ yum install -y make
 
 [Nginx download link](https://nginx.org/en/download.html)
 
-1. nginx 설치 디렉토리 생성
-
-   ```shell
-   mkdir /app/nginx
-   ```
-
-   
-
-2. stable 버전 중 최신 버전 링크를 사용하였다.
+1. stable 버전 중 최신 버전 링크를 사용하였다.
 
    ```shell
    wget https://nginx.org/download/nginx-1.18.0.tar.gz
    ```
 
-   압축 해제 후 디렉토리 진입
+   압축 해제 후 디렉토리명 변경
+
+   기존 디렉토리명을 -source로 변경하고 nginx-1.18.0을 새로 만든다.
+
+   nginx-1.18.0에 컴파일 결과물이 들어갈 예정
 
    ```shell
    tar -xvf nginx-1.18.0.tar.gz
-   cd nginx-1.18.0
+   mv nginx-1.18.0/ nginx-1.18.0-source
+   cd nginx-1.18.0-source
    ```
+
+2. 설치 디렉토리 생성
+
+   ```shell
+   mkdir nginx-1.18.0
+   ```
+
+   
 
 3. configure
 
@@ -81,7 +86,7 @@ yum install -y make
    설치 경로도 지정할 수 있는데, 이렇게 지정해줄 수 있다.
 
    ```shell
-   ./configure --prefix=/app/nginx
+   ./configure --prefix=/app/nginx-1.18.0
    ```
 
    
@@ -128,7 +133,7 @@ yum install -y make
    
 
    ```shell
-   ./configure --prefix=/app/nginx
+   ./configure --prefix=/app/nginx-1.18.0
    ```
 
    이제 문제없이 진행된다.
@@ -150,7 +155,7 @@ yum install -y make
 
    ```shell
    yum install -y openssl-devel
-   ./configure --prefix=/app/nginx --with-http_ssl_module
+   ./configure --prefix=/app/nginx-1.18.0 --with-http_ssl_module
    ```
 
    나중에 https를 사용할 수도 있으니 `--with-http_ssl_module` 옵션을 추가하였다.
@@ -175,16 +180,17 @@ yum install -y make
 ### 명령어만 총 정리
 
 ```shell
-mkdir /app/nginx
 wget https://nginx.org/download/nginx-1.18.0.tar.gz
 tar -xvf nginx-1.18.0.tar.gz
-cd nginx-1.18.0
+mv nginx-1.18.0/ nginx-1.18.0-source
+mkdir nginx-1.18.0
+cd nginx-1.18.0-source
 
 yum install -y pcre-devel
 yum install -y zlib-devel
 yum install -y openssl-devel
 
-./configure --prefix=/app/nginx --with-http_ssl_module
+./configure --prefix=/app/nginx-1.18.0 --with-http_ssl_module
 make && make install
 ```
 
@@ -244,4 +250,53 @@ AWS에서 해당 인스턴스 보안 그룹 설정-인바운드 규칙에서 80�
    ```
 
 -------------------------------------
+
+# WAS
+
+## Tomcat 설치
+
+자바 설치가 선행되어야 한다.
+
+```shell
+yum install -y java-1.8.0-openjdk
+```
+
+openjdk로 1.8을 설치하였다.
+
+## 컴파일 설치
+
+정해진 설치 경로 생성 및 이동
+
+```shell
+mkdir /app
+cd /app
+```
+
+Tomcat 9버전 링크를 사용하였다.
+
+```shell
+wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.43/bin/apache-tomcat-9.0.43.tar.gz
+```
+
+압축 해제 및 디렉토리명 변경
+
+```shell
+tar -xvf apache-tomcat-9.0.43.tar.gz
+mv apache-tomcat-9.0.43/ tomcat9.0.43
+```
+
+정상 구동 여부 확인을 위해 `version.sh`로 확인한다.
+
+(.bat 파일은 레드햇에서 필요 없어서 모두 삭제했다)
+
+```shell
+cd tomcat9.0.43/bin
+./version.sh
+```
+
+구동!
+
+```shell
+./startup.sh
+```
 
