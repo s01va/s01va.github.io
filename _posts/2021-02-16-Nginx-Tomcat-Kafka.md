@@ -2,7 +2,7 @@
 layout: single
 title: "Nginx-Tomcat-Kafka install & setting"
 description:
-date: 2021-01-29 10:17:00 -0400
+date: 2021-02-16 10:17:00 -0400
 # modified: 
 tags:
 - centos
@@ -299,4 +299,74 @@ cd tomcat9.0.43/bin
 ```shell
 ./startup.sh
 ```
+
+
+
+포트를 변경하지 않았다면 8080포트로 tomcat 기동을 확인할 수 있다.
+
+![1](https://s01va.github.io/assets/images/2021-01-28-Nginx-Tomcat-Kafka/1.PNG)
+
+
+
+## 배포
+
+[여기](https://s01va.github.io/WAS-%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%9A%A9-%EC%9B%B9-%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%A7%8C%EB%93%A4%EA%B8%B0/)에서 만든 웹 어플리케이션을 사용
+
+디렉토리 째로 `$TOMCAT_HOME/webapps`에 이동시킨다.
+
+배포 소스 디렉토리명이 webtest인데, tomcat 기동 이후 `[해당 host ip]:8080/webtest`로 접속하면 배포된 결과를 볼 수 있다.
+
+
+
+--------------------------------------------------
+
+# WEB-WAS 연동
+
+## Nginx 설정
+
+수정할 설정파일: `$NGINX_HOME/conf/nginx.conf`
+
+나는 `[해당 host ip]/webtest`로 접속했을 때 webtest가 보이게 하고싶어서 아래와 같이 설정했다.
+
+```shell
+...
+http {
+	...
+	server {
+		...
+		location /webtest {
+			proxy_pass http://localhost:8080/webtest;
+			proxy_set_header X-Forwarded-FOr $proxy_add_x_forwarded_for;
+		}
+		...
+	}
+	...
+}
+```
+
+context root를 `/`로 설정하고 싶으면 `location / {}` 안에 설정해 준다.
+
+## Tomcat 내 로그 설정
+
+따로 설정을 고쳐주지 않으면, nginx를 통해 접속했을 시 로그가 nginx 웹서버의 로그로 남는다.
+
+실제 클라이언트의 ip가 기록되도록 아래와 같이 설정을 바꾸어 준다.
+
+수정할 설정 파일: `$TOMCAT_HOME/conf/server.xml`
+
+수정할 원본 부분:
+
+```xml
+<Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" prefix="localhost_access_log" suffix=".txt" pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+```
+
+`%h`에 ip값이 들어간다. 여기를 `%{x-forwarded-for}i`로 수정해 준다.
+
+```xml
+<Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" prefix="localhost_access_log" suffix=".txt" pattern="%{x-forwarded-for}i %l %u %t &quot;%r&quot; %s %b" />
+```
+
+이제 로그에 클라이언트의 실제 ip가 기록된다.
+
+----------------------
 
