@@ -370,3 +370,79 @@ context root를 `/`로 설정하고 싶으면 `location / {}` 안에 설정해 �
 
 ----------------------
 
+# WAS Clustering
+
+[참고 링크](https://shonm.tistory.com/m/641)
+
+각 `<Engind>` 태그 하위에 아래와 같은 내용을 입력한다.
+
+```xml
+<Cluster 
+    channelSendOptions="8" 
+    channelStartOptions="3" 
+    className="org.apache.catalina.ha.tcp.SimpleTcpCluster">
+    <Manager 
+        className="org.apache.catalina.ha.session.DeltaManager" 
+        expireSessionsOnShutdown="false" 
+        notifyListenersOnReplication="true"
+    />
+    <Channel className="org.apache.catalina.tribes.group.GroupChannel">
+        <Sender className="org.apache.catalina.tribes.transport.ReplicationTransmitter">
+            <Transport className="org.apache.catalina.tribes.transport.nio.PooledParallelSender" />
+        </Sender>
+        <Receiver 
+            address=""
+            autoBind="0" 
+            className="org.apache.catalina.tribes.transport.nio.NioReceiver" 
+            maxThreads="6" 
+            port="3100" 
+            selectorTimeout="5000"
+        /> <!-- server1 information -->
+        <!-- <Interceptor className="com.dm.tomcat.interceptor.DisableMulticastInterceptor" /> -->
+        <Interceptor className="org.apache.catalina.tribes.group.interceptors.TcpPingInterceptor" staticOnly="true"/>
+        <Interceptor className="org.apache.catalina.tribes.group.interceptors.TcpFailureDetector" />
+        <Interceptor className="org.apache.catalina.tribes.group.interceptors.StaticMembershipInterceptor">
+            <Member 
+                className="org.apache.catalina.tribes.membership.StaticMember" 
+                port="3100" 
+                host="" 
+                uniqueId="{0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1}" 
+            /> <!-- server2 -->
+            <Member 
+                className="org.apache.catalina.tribes.membership.StaticMember" 
+                port="3100" 
+                host="" 
+                uniqueId="{0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2}" 
+            /> <!-- server3 -->
+        </Interceptor>
+        <Interceptor className="org.apache.catalina.tribes.group.interceptors.MessageDispatchInterceptor" />
+    </Channel>
+    <Valve 
+        className="org.apache.catalina.ha.tcp.ReplicationValve" 
+        filter=".*\.gif;.*\.js;.*\.jpg;.*\.png;.*\.htm;.*\.html;.*\.css;.*\.txt;" 
+    />
+    <ClusterListener className="org.apache.catalina.ha.session.ClusterSessionListener" />
+</Cluster>
+```
+
+`<Receiver>`, `<Member>` 태그 안의 정보를 고쳐주어야 한다.
+
+각 세 서버에 아래와 같이 입력하였다.
+
+편의상 1, 2, 3으로 기입함
+
+|                               |       Web/WAS 1       |       Web/WAS 2       |       Web/WAS 3       |
+| :---------------------------: | :-------------------: | :-------------------: | :-------------------: |
+|    `<Receiver address="">`    |         1 ip          |         2 ip          |         3 ip          |
+|   first `<Member host="">`    |         2 ip          |         3 ip          |         1 ip          |
+| first `<Member uniqueId="">`  | {0, 0, ... , 0, 1, 2} | {0, 0, ... , 0, 1, 3} | {0, 0, ... , 0, 1, 1} |
+|   second `<Member host="">`   |         3 ip          |         1 ip          |         2 ip          |
+| second `<Member uniqueId="">` | {0, 0, ... , 0, 1, 3} | {0, 0, ... , 0, 1, 1} | {0, 0, ... , 0, 1, 2} |
+
+
+
+모두 포트는 3100으로 통일했고(다른 포트도 무방)
+
+aws내 보안그룹 인바운드 규칙 설정에서 해당 포트를 열어주면 된다.
+
+소스는 서로의 보안그룹으로 설정해줌(최소한에게 포트를 오픈하기 위함)
