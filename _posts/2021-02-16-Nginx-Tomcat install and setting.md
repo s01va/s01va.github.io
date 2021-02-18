@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "Nginx-Tomcat-Kafka install & setting"
+title: "Nginx-Tomcat install & setting"
 description:
 date: 2021-02-16 10:17:00 -0400
 # modified: 
 tags:
-- centos
+- was
 - nginx
-- kafka
+- tomcat
 - middleware
 comments: true
 share: true
@@ -370,7 +370,9 @@ context root를 `/`로 설정하고 싶으면 `location / {}` 안에 설정해 �
 
 ----------------------
 
-# WAS Clustering
+# Clustering
+
+## Tomcat 설정
 
 [참고 링크](https://shonm.tistory.com/m/641)
 
@@ -446,3 +448,60 @@ context root를 `/`로 설정하고 싶으면 `location / {}` 안에 설정해 �
 aws내 보안그룹 인바운드 규칙 설정에서 해당 포트를 열어주면 된다.
 
 소스는 서로의 보안그룹으로 설정해줌(최소한에게 포트를 오픈하기 위함)
+
+
+
+## Clustering된 Tomcat과 Nginx 연동 설정
+
+수정할 Nginx 설정 파일: `$NGINX_HOME/conf/nginx.conf`
+
+`http` 하위 블록으로 `upstream`을 만들어 주고, 연동시킬 tomcat cluster 정보를 입력한다.
+
+- upstream 뒤에 붙는 이름은 자유
+
+- load balancing 방법을 기입
+
+  [참고](http://nginx.org/en/docs/http/load_balancing.html)
+
+  round robin, least connection, ip hash 셋 중 하나를 선택할 수 있다. 중복 안됨
+
+  sticky session 기능은 nginx plus에서만 제공한다.
+
+  nginx에서는 이를 ip_hash로 대신함
+
+- server 뒤에 tomcat 서버들 정보를 하나씩 입력한다.
+
+`server` 하위 블록의 `location [/context_root]`에 썼던 내용을 일부 수정한다.
+
+- proxy_pass http://[tomcat cluter 이름];
+- `proxy_set_header Host $host;` 추가
+- `proxy_set_header X-Real-IP $remote_addr;` 추가
+
+위의 proxy_set_header 설정을 추가하지 않으면 header값을 제대로 전달하지 못해서 tomcat cluster와 연동에 지대로 되지 않는다.
+
+```shell
+...
+http {
+	...
+	upstream [tomcat cluter 이름] {
+		ip_hash;
+		server [web/was 1번서버 ip]:[tomcat_port(8080)];
+		server [web/was 2번서버 ip]:[tomcat_port(8080)];
+		server [web/was 3번서버 ip]:[tomcat_port(8080)];
+	}
+	server {
+		...
+		location /webtest {
+			proxy_pass http://[tomcat cluter 이름];
+			proxy_set_header X-Forwarded-FOr $proxy_add_x_forwarded_for;
+			proxy_set_header Host $host;
+			proxy_set_header X-Real-IP $remote_addr;
+		}
+		...
+	}
+	...
+}
+```
+
+이제 1번 서버 nginx(http://[web/WAS IP]:80)로 접속 테스트를 하면, 2번 3번 서버의 tomcat을 연결해서 보여주기도 하는 것을 볼 수 있다.
+
