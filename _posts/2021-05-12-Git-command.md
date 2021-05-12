@@ -14,6 +14,8 @@ share: true
 
 ## git 확인
 
+git 명령어 cheating sheat
+
 
 
 ## 일반 확인
@@ -40,25 +42,27 @@ share: true
 
 ## commit-push
 
-- dd
+- 파일을 untracked 상태에서 track 상태로 전환(add)
 
   ```bash
   git add [file_name]
   ```
 
-- dd
+- commit
 
   ```bash
   git commit -m "[commit_message]"
   ```
 
-- dd
+- push
 
   ```bash
   git push
   ```
 
-  
+파일 수정 후 반영 시에도 위와 같은 과정을 동일하게 거쳐야 함
+
+(마지막 커밋 이후 untracked 상태가 됨)
 
 -------------------------------
 
