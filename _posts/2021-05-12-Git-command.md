@@ -2,7 +2,7 @@
 layout: single
 title: "git 명령어 cheating sheat"
 description: "자주 까먹어서 나를 위해 남겨둠"
-date: 2020-12-29 13:37:00 -0400
+date: 2021-05-12 11:00:00 -0400
 # modified: 
 tags:
 - git
