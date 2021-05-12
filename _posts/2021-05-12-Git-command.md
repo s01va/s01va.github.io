@@ -14,7 +14,7 @@ share: true
 
 ## git 확인
 
-git 명령어 cheating sheat
+
 
 
 
