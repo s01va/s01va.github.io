@@ -9,7 +9,9 @@ tags:
 - algorithm
 - codingtest
 - python
-comments: true
+- cheatingsheet
+comments:
+ true
 share: true
 ---
 
