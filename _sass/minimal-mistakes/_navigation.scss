@@ -433,7 +433,7 @@
 .nav__list .nav__items {
   margin: 0;
   font-size: 1.50rem;
-  width: 80%;
+  width: 60%;
 
   a {
     color: inherit;
@@ -490,7 +490,7 @@
   font-size: $type-size-6;
   font-weight: bold;
   text-transform: uppercase;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px dotted $border-color;
 }
 
 /*
