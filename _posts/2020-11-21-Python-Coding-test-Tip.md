@@ -3,7 +3,7 @@ layout: single
 title: "Python Coding test Tip"
 description: "자주 쓰는 것들 추가"
 date: 2020-11-21 22:00:00 -0400
-modified: 2020-12-28 10:45:00 -0400
+modified: 2021-07-26 13:33:00 -0400
 tags: 
 - programming
 - algorithm
@@ -13,6 +13,7 @@ tags:
 comments:
  true
 share: true
+toc_sticky: true
 ---
 
 
@@ -66,6 +67,8 @@ Python을 사용하고 있다면, `input` 대신 `sys.stdin.readline`을 사용�
    input()
    s = list(sum(map(int, n.split())) for n in sys.stdin)
    ```
+
+
 
 ## Python이 느릴 시
 
@@ -210,5 +213,103 @@ elements = [int(ch) for ch in str(num)]
 
 또 다른 방법은 [여기](https://shoark7.github.io/programming/algorithm/3-ways-to-get-length-of-natural-number) 참고
 
+## Dictionary 정리
 
+dictionary는 순서가 없다는 점 유의하기
+
+for문 사용 시, **임의의 순서로 사용**하게 된다. **정렬 관련한 문제에서는 그렇게 좋은 선택지가 아닐수도 있음.**
+
+- 선언
+
+  ```python
+  dict1 = {"a":"apple", "b":"bannana", "c":"coconut"}
+  ```
+
+- 추가
+
+  list가 append함수를 쓴다면, dictionary는 그냥 씀.
+
+  ```python
+  dict1["d"] = "durian"
+  # 결과: {'a': 'apple', 'b': 'bannana', 'c': 'coconut', 'd': 'durian'}
+  ```
+
+- 요소 삭제
+
+  ```python
+  del dict1["a"]
+  # 결과: {'b': 'bannana', 'c': 'coconut', 'd': 'durian'}
+  ```
+
+### 반복문 관련
+
+list 돌리듯 반복문 돌리면 key값만 반환한다.
+
+```python
+# dict1 = {'a': 'apple', 'b': 'bannana', 'c': 'coconut', 'd': 'durian'}
+
+for member in dict1:
+	print(member)
+
+# 결과: 
+# a
+# b
+# c
+# d
+```
+
+아래와 같이 사용하면 value를 반환한다.
+
+```python
+for member in dict1:
+	print(dict1[member])
+
+# 결과:
+# apple
+# bannana
+# coconut
+# durian
+```
+
+이렇게 해도 됨
+
+```python
+for val in dict1.values():
+	print(val)
+```
+
+반복문 돌면서 key와 value를 동시에 얻고 싶을 경우 items 함수 사용
+
+```python
+for val in dict1.items():
+	print(val)
+    
+# 결과:
+# ('a', 'apple')
+# ('b', 'bannana')
+# ('c', 'coconut')
+# ('d', 'durian')
+```
+
+key, value를 각기 다른 변수로 취하려면 이렇게
+
+```python
+for key, value in dict1.items():
+	print(key, value)
+    
+# 결과:
+# a apple
+# b bannana
+# c coconut
+# d durian
+```
+
+유의점: dictionary의 in은 key에 한정한다.
+
+```python
+print("apple" in dict1)
+# 결과: False
+print("a" in dict1)
+# 결과: T
+```
 
