@@ -310,6 +310,6 @@ for key, value in dict1.items():
 print("apple" in dict1)
 # 결과: False
 print("a" in dict1)
-# 결과: T
+# 결과: True
 ```
 
