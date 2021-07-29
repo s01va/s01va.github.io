@@ -213,7 +213,7 @@ elements = [int(ch) for ch in str(num)]
 
 또 다른 방법은 [여기](https://shoark7.github.io/programming/algorithm/3-ways-to-get-length-of-natural-number) 참고
 
-## Dictionary 정리
+## Dictionary
 
 dictionary는 순서가 없다는 점 유의하기
 
@@ -312,4 +312,6 @@ print("apple" in dict1)
 print("a" in dict1)
 # 결과: True
 ```
+
+### List로 전환해야 할 경우
 
