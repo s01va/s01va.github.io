@@ -35,7 +35,7 @@
     {% endif %} -->
     {% if post.last_modified_at %}
       <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>    {{ post.last_modified_at | date: "%B %d %Y" }}</p>
-    {% elseif post.date %}
+    {% elsif post.date %}
     <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i>    {{ post.date | date: "%B %d %Y" }}</p>
       {% endif %}
     {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
