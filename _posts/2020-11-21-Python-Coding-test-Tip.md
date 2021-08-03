@@ -315,3 +315,19 @@ print("a" in dict1)
 
 ### List로 전환해야 할 경우
 
+```python
+dict2list = list(dict1)
+# 결과: ['a', 'b', 'c', 'd']
+```
+
+위와 같은 경우  key만 반환된다.
+
+value만 list화 시키려면 아래와 같이 한다.
+
+```python
+dict2list = list(dict1.values())
+# 결과: ['apple', 'bannana', 'coconut', 'durian']
+```
+
+python3는 dictionary의 순서대로 반환해준다.
+
