@@ -22,7 +22,7 @@ share: true
 
    ```mysql
    create user 'root'@'localhost';
-   # 패스워드 변경 시: create user 'root'@'localhost' # identified by '[password]';
+   # 패스워드 변경 시: create user 'root'@'localhost' identified by '[password]';
    grant all privileges on *.* to 'root'@'localhost' with grant option;
    flush privileges;
    ```
