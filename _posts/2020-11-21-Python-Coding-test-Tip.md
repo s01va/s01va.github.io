@@ -351,6 +351,9 @@ inputex = [25, 4, 9, 72, 11]
 for i in inputex:
     heapq.heappush(heaplist, i) # heap 형태로 push
 
+heaplist2 = heaplist.copy()
+heaplist3 = heaplist.copy()
+
 while len(heaplist) > 0:
     print(heapq.heappop(heaplist))
 
@@ -367,13 +370,6 @@ while len(heaplist) > 0:
 최대탐색이 필요할 때는 트릭이 필요하다.
 
 ```python
-heaplist2 = []
-
-for i in inputex:
-    heapq.heappush(heaplist2, (-i, i)) 
-
-heaplist3 = heaplist2.copy()
-
 while len(heaplist2) > 0:
     print(heapq.heappop(heaplist2))
 
