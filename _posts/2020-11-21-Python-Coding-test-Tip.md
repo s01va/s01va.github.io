@@ -3,7 +3,7 @@ layout: single
 title: "Python Coding test Tip"
 description: "자주 쓰는 것들 추가"
 date: 2020-11-21 22:00:00 -0400
-modified: 2021-07-26 13:33:00 -0400
+modified: 2021-08-03 10:07:00 -0400
 tags: 
 - programming
 - algorithm
@@ -330,4 +330,72 @@ dict2list = list(dict1.values())
 ```
 
 python3는 dictionary의 순서대로 반환해준다.
+
+
+
+## Heap
+
+**빠른 최대/최소 탐색**을 위해서 씀.
+
+시간제한 등이 걸려있는 알고리즘 문제에서는 최대/최소 관련한 문제가 등장했을 때 빠르게 heapq를 응용할 생각을 해야 한다.
+
+사용법:
+
+```python
+import heapq
+
+heaplist = [] # 리스트를 우선 생성
+
+inputex = [25, 4, 9, 72, 11]
+
+for i in inputex:
+    heapq.heappush(heaplist, i) # heap 형태로 push
+
+while len(heaplist) > 0:
+    print(heapq.heappop(heaplist))
+
+# 결과:
+# 4
+# 9
+# 11
+# 25
+# 72
+```
+
+결과를 보면 알겠지만 이 파이썬 heapq는 무조건 최소트리로 만들어진다.
+
+최대탐색이 필요할 때는 트릭이 필요하다.
+
+```python
+heaplist2 = []
+
+for i in inputex:
+    heapq.heappush(heaplist2, (-i, i)) 
+
+heaplist3 = heaplist2.copy()
+
+while len(heaplist2) > 0:
+    print(heapq.heappop(heaplist2))
+
+# 결과: 
+# (-72, 72)
+# (-25, 25)
+# (-11, 11)
+# (-9, 9)
+# (-4, 4)
+```
+
+`heappush([해당 리스트], (-i, i))`로 push 후 다음과 같이 pop되는 것을 활용하여 최대 탐색은 다음과 같이 하면 된다.
+
+```python
+while len(heaplist3) > 0:
+    print(heapq.heappop(heaplist3)[1])
+
+# 결과:
+# 72
+# 25
+# 11
+# 9
+# 4
+```
 
