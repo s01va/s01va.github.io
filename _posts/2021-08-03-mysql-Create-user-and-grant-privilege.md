@@ -27,6 +27,8 @@ share: true
    flush privileges;
    ```
 
+   
+
 2. 신규 user 생성 및 권한 할당
 
    ```mysql
