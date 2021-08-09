@@ -20,7 +20,7 @@ share: true
 
 1. root에게 권한을 할당하는 권한 주기
 
-   ```mysql
+   ```sql
    create user 'root'@'localhost';
    # 패스워드 변경 시: create user 'root'@'localhost' identified by '[password]';
    grant all privileges on *.* to 'root'@'localhost' with grant option;
@@ -31,7 +31,7 @@ share: true
 
 2. 신규 user 생성 및 권한 할당
 
-   ```mysql
+   ```sql
    create user '[newuser]'@'[specific IP]';
    # 패스워드 변경 시: create user '[newuser]'@'[specific IP]' identified by '[newuser_pw]';
    
