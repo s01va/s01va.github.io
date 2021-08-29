@@ -333,6 +333,27 @@ python3는 dictionary의 순서대로 반환해준다.
 
 
 
+### 정렬이 필요할 때
+
+```python
+import operator
+
+dict2 = {'A': 4, 'B': 2, 'C': 6, 'F': 2, 'G': 2, 'D': 3, 'E': 3, 'H': 1}
+sorteddict2_key = sorted(dict2.items(), key=operator.itemgetter(0))	# itemgetter(0) : key 기준으로 정렬
+# sorteddict2_key 결과:
+# [('A', 4), ('B', 2), ('C', 6), ('D', 3), ('E', 3), ('F', 2), ('G', 2), ('H', 1)]
+sorteddict2_value = sorted(dict2.items(), key=operator.itemgetter(1))	# itemgetter(1) : value 기준으로 정렬
+# sorteddict2_value 결과:
+# [('H', 1), ('B', 2), ('F', 2), ('G', 2), ('D', 3), ('E', 3), ('A', 4), ('C', 6)]
+
+# 역순 필요시
+sorteddict2_value_r = sorted(dict2.items(), key=operator.itemgetter(1), reverse=True)
+# sorteddict2_value_r 결과:
+# [('C', 6), ('A', 4), ('D', 3), ('E', 3), ('B', 2), ('F', 2), ('G', 2), ('H', 1)]
+```
+
+
+
 ## Heap
 
 **빠른 최대/최소 탐색**을 위해서 씀.
