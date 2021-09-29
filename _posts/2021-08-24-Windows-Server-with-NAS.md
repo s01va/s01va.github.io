@@ -7,6 +7,7 @@ date: 2021-08-24 12:00:00 -0400
 tags: 
 - nas
 - windows
+- troubleshooting
 comments:
  true
 share: true
