@@ -45,3 +45,14 @@ share: true
 - `flush privileges;`까지 해야 적용된다.
 - `'[specific IP]'` 대신 모든 IP로 권한을 열어주고 싶을 경우 `'%'` 입력
 
+이후 mysql 설정 파일 `/etc/mysql/mysql.conf.d/mysqld.cnf` 수정하기
+
+```bash
+#bind-address           = 127.0.0.1
+```
+
+주석처리 후 재기동
+
+`sudo service mysql restart`
+
+여기까지 해야 외부 접속이 가능해진다
