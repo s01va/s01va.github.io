@@ -110,3 +110,7 @@ JpaRepository를 상속하면 CRUD 메소드가 자동으로 생성됨
 
 
 
+## Spring Web Layer
+
+![final spring web layer](https://www.petrikainulainen.net/wp-content/uploads/spring-web-app-architecture.png)
+
