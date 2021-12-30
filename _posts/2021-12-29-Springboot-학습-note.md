@@ -114,3 +114,10 @@ JpaRepository를 상속하면 CRUD 메소드가 자동으로 생성됨
 
 ![final spring web layer](https://www.petrikainulainen.net/wp-content/uploads/spring-web-app-architecture.png)
 
+Service는 트랜잭션, 도메인 간 순서 보장만 한다. **여기서 비즈니스 로직을 처리하지 않는다.**
+
+비즈니스 로직 처리는 domain이 한다.
+
+
+
+ㅋ
