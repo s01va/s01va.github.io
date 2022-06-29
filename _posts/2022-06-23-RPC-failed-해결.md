@@ -18,7 +18,7 @@ toc_sticky: true
 
 vscode를 wsl 터미널로 사용하면서 git pull을 받을 때 발생하는 문제
 
-![0](https://s01va.github.io/assets/images/2022-06-23-RPC-failed-해결/0.PNG)
+![0](https://s01va.github.io/assets/images/2022-06-23-RPC-failed-fix/0.PNG)
 
 mtu 값을 조정해주면 해결된다.
 
@@ -26,7 +26,7 @@ mtu 값을 조정해주면 해결된다.
 
 wsl에서 default mtu 값: 1500
 
-![1](https://s01va.github.io/assets/images/2022-06-23-RPC-failed-해결/1.PNG)
+![1](https://s01va.github.io/assets/images/2022-06-23-RPC-failed-fix/1.PNG)
 
 
 
