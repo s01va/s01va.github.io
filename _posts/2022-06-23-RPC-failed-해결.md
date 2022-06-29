@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Git: RPC failed 해결방법"
+title: "RPC failed 해결"
 description: ""
 date: 2022-06-23 12:00:00 -0400
 # modified: 
