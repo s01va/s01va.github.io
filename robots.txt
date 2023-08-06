@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://s01va.github.io/sitemap.xml
+Sitemap: https://gatsby-starter-portfolio-minimal-theme.netlify.app/sitemap-index.xml
+Host: https://gatsby-starter-portfolio-minimal-theme.netlify.app
