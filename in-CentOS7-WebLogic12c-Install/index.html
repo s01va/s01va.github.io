@@ -5,7 +5,7 @@
                 google_ad_client: "pub-1418443722497332",
                 enable_page_level_ads: true
               });
-          </script></head><body data-theme="lightTheme"><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="style-module--Layout--b3aca"><header class="style-module--Header--9993b"><div class="style-module--ContentWrapper --5d8c4" style="opacity:0"><a aria-label="home" href="/"><div class="style-module--Logo--c7351" aria-roledescription="logo" style="font-size:2rem;color:var(--primary-color">s01ving note</div></a><div class="style-module--Burger--1ab74"><div></div><div></div><div></div></div><div class="style-module--SideBarWrapper--e7152" aria-hidden="true" tabindex="-1"><nav class="style-module--SideNavigationBar--57a7b"><a class="style-module--NavLink--94101" href="/#about">About</a><a class="style-module--NavLink--94101" href="/blog/">Blog</a><a class="style-module--NavLink--94101" href="/#github">Contact</a></nav></div><div class="style-module--SideBarBackdrop--fb470"></div></div></header><main><article class="style-module--Article--a4577"><div class="style-module--Breadcrumb--15487"><a title="Back To Article Listing" href="/blog/"><span class="style-module--BackArrow--f76ce">❮</span>All Articles</a></div><section class="style-module--Header--1fafc"><span class="style-module--Category--d42a1">misc / setting</span><h1>CentOS7에서 WebLogic 12c 설치하기</h1><div class="style-module--Details--92676">March 09, 2020<span class="style-module--ReadingTime--45206">9 min read</span></div></section><section class="style-module--Body--9dac7"><div class="style-module--Content--a6403"><p>선수 요구사항:
+          </script></head><body data-theme="lightTheme"><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="style-module--Layout--b3aca"><header class="style-module--Header--9993b"><div class="style-module--ContentWrapper --5d8c4" style="opacity:0"><a aria-label="home" href="/"><div class="style-module--Logo--c7351" aria-roledescription="logo" style="font-size:2rem;color:var(--primary-color">s01ving note</div></a><div class="style-module--Burger--1ab74"><div></div><div></div><div></div></div><div class="style-module--SideBarWrapper--e7152" aria-hidden="true" tabindex="-1"><nav class="style-module--SideNavigationBar--57a7b"><a class="style-module--NavLink--94101" href="/#about">About</a><a class="style-module--NavLink--94101" href="/blog/">Blog</a><a class="style-module--NavLink--94101" href="/#github">Contact</a></nav></div><div class="style-module--SideBarBackdrop--fb470"></div></div></header><main><article class="style-module--Article--a4577"><div class="style-module--Breadcrumb--15487"><a title="Back To Article Listing" href="/blog/"><span class="style-module--BackArrow--f76ce">❮</span>All Articles</a></div><section class="style-module--Header--1fafc"><span class="style-module--Category--d42a1">misc / setting</span><h1>CentOS7에서 WebLogic 12c 설치하기</h1><div class="style-module--Details--92676">March 09, 2020<span class="style-module--ReadingTime--45206">9 min read</span></div></section><section class="style-module--Banner--cbdac"><div data-gatsby-image-wrapper="" class="gatsby-image-wrapper gatsby-image-wrapper-constrained"><div style="max-width:660px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg%20height=&#x27;400.5026929982046&#x27;%20width=&#x27;660&#x27;%20xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%20version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><div aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear;background-color:#f8f8f8;position:absolute;top:0;left:0;bottom:0;right:0"></div><picture><source type="image/webp" data-srcset="/static/19c04b1c7943f0b1e17a6c3dd43b67bf/e7b31/0.webp 139w,/static/19c04b1c7943f0b1e17a6c3dd43b67bf/75714/0.webp 279w,/static/19c04b1c7943f0b1e17a6c3dd43b67bf/22ba5/0.webp 557w" sizes="(min-width: 557px) 557px, 100vw"/><img data-gatsby-image-ssr="" class="style-module--BannerImage--71c8d" data-main-image="" style="opacity:0" sizes="(min-width: 557px) 557px, 100vw" decoding="async" loading="lazy" data-src="/static/19c04b1c7943f0b1e17a6c3dd43b67bf/b0860/0.png" data-srcset="/static/19c04b1c7943f0b1e17a6c3dd43b67bf/d4d45/0.png 139w,/static/19c04b1c7943f0b1e17a6c3dd43b67bf/7fa9b/0.png 279w,/static/19c04b1c7943f0b1e17a6c3dd43b67bf/b0860/0.png 557w" alt="Image for CentOS7에서 WebLogic 12c 설치하기"/></picture><noscript><picture><source type="image/webp" srcSet="/static/19c04b1c7943f0b1e17a6c3dd43b67bf/e7b31/0.webp 139w,/static/19c04b1c7943f0b1e17a6c3dd43b67bf/75714/0.webp 279w,/static/19c04b1c7943f0b1e17a6c3dd43b67bf/22ba5/0.webp 557w" sizes="(min-width: 557px) 557px, 100vw"/><img data-gatsby-image-ssr="" class="style-module--BannerImage--71c8d" data-main-image="" style="opacity:0" sizes="(min-width: 557px) 557px, 100vw" decoding="async" loading="lazy" src="/static/19c04b1c7943f0b1e17a6c3dd43b67bf/b0860/0.png" srcSet="/static/19c04b1c7943f0b1e17a6c3dd43b67bf/d4d45/0.png 139w,/static/19c04b1c7943f0b1e17a6c3dd43b67bf/7fa9b/0.png 279w,/static/19c04b1c7943f0b1e17a6c3dd43b67bf/b0860/0.png 557w" alt="Image for CentOS7에서 WebLogic 12c 설치하기"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div></section><section class="style-module--Body--9dac7"><div class="style-module--Content--a6403"><p>선수 요구사항:
 Oracle 계정
 Java HotSpot(TM) 1.8.0_241
 앞으로 CentOS7에서 모든 WAS 테스트는 /was 경로에서 진행할 것이다.</p>
@@ -13,10 +13,107 @@ Java HotSpot(TM) 1.8.0_241
 <h1>선수 요구사항을 위한 세팅</h1>
 <p>java를 설치한다.</p>
 <p><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">여기</a>에서 리눅스용 자바를 다운받고 해당 CentOS로 옮겼다.</p>
-<p><img src="./images/0.PNG" alt="oracle java download"></p>
-<p><img src="./images/1.PNG" alt="oracle java download"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 557px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 60.60606060606061%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA7DAAAOwwHHb6hkAAACoElEQVR42j2T247iRhRF+c28JFKkPCSav8i3RJq8RJmMNFHmnksTmAZsY2NjG4PvV7ANNGOwTa/IJj0lHVWpqnTO2rtODYqiwPM8wjD8Epq6QBKmTO5HiMIEWRL6WZFFxNkEYTpFmE3xPY/A9wl8D891yfOcQRAEDIdDRqMRd3d3jMdjXn34kxdvh/z6eshPL97x/OU7fn75nt9ej2/7b97y6uPfjOYKY3nB/WLJcCb2MIOqqugoD4cD+7Jkv9/zUJ0oDj8iyd/zz7/f8Gn6NeP77/j411eY61+IkhLTWrGxbYzViqWho6gq2+2Owel0Ik0SdF3HsiwMQ0dTVTTtDXH8ibKYYxrv0dQ/2KUfyLIF2bZgtTIQRAHTsoiiiDCKOB6PDJIoQhJlJEFAmkuIsoQwESjLiraFpgFtuWE6EYhnGqKdIDghCzdkYjrMNh6yE7BOt/D4yKDIc+yNTVnuubYtdV3TNE2/btuGpqnpfLbXJjttgRUnrJIQJwswIpe4yKmbhktdc71eGWyzFGNpcDw+0I22afuDtk/Y9slt28Y01mTK72j+D2jhM1bxM1TvW/z8OY9X+sLd/UHoB8iygu/5VNW5T3A+n2+kbcvlfGaxUPvWSWZjREdGdDUU30RxdbTA5vI/RE+YJRkba4OhL3EclyAKydKUMAxI0oT6csH3A+yNxU43WCcldlqyTgqcrMQIM7xtTts0N8LA81FlFWu1wjQMrPWaNEt7wrpuuF5bHNdFXy5I5xKKG6AGMbIXIrsBehizPTzcfO8Iuw6fS3Mcx+Hz56qX2/Xmk4TOG103Uead5BlzN0TxIyQ36BMqXkRV1zw+Sb59PZc4jnsPnx6kq9hF56Hn+/ieQ2lvcLIdQV7gdvMux8lyTufzF8n/AWCQapnfU60EAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/19c04b1c7943f0b1e17a6c3dd43b67bf/c9b55/0.webp 165w,
+/static/19c04b1c7943f0b1e17a6c3dd43b67bf/f2908/0.webp 330w,
+/static/19c04b1c7943f0b1e17a6c3dd43b67bf/9b7c7/0.webp 557w"
+              sizes="(max-width: 557px) 100vw, 557px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/19c04b1c7943f0b1e17a6c3dd43b67bf/04c57/0.png 165w,
+/static/19c04b1c7943f0b1e17a6c3dd43b67bf/d9ecf/0.png 330w,
+/static/19c04b1c7943f0b1e17a6c3dd43b67bf/30d00/0.png 557w"
+            sizes="(max-width: 557px) 100vw, 557px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/19c04b1c7943f0b1e17a6c3dd43b67bf/30d00/0.png"
+            alt="oracle java download"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 225px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 15.75757575757576%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAArklEQVR42jXMwWqEMBhF4Uwz0UQca/5EjQm1TrBQKLPu+z/ZGXDaxYXLWXzKx8jHvrHdK/tx4GVkyZm1ZFLJLHkl5YR6uzCGQFhmGmtJOZ9NKYXWmrZtz6/m4Z2ftFBCoM4TuwhfMTKLUESoMfApgm8Mse/ZhgFxjiye4hyd1i/of1Njedx6kjHcnaV2HdU5xuuVpWk4One271vP5hyPYWBtWyZj+BVPsvaELn/gE/kKRu7GdDZ/AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/fa526df876fd8a7e0893df06893a9bc6/c9b55/1.webp 165w,
+/static/fa526df876fd8a7e0893df06893a9bc6/d7e55/1.webp 225w"
+              sizes="(max-width: 225px) 100vw, 225px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/fa526df876fd8a7e0893df06893a9bc6/04c57/1.png 165w,
+/static/fa526df876fd8a7e0893df06893a9bc6/3684f/1.png 225w"
+            sizes="(max-width: 225px) 100vw, 225px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/fa526df876fd8a7e0893df06893a9bc6/3684f/1.png"
+            alt="oracle java download"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>내려받은 rpm 파일로 java를 설치한다.</p>
-<p><img src="./images/2.PNG" alt="rpm"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 52.72727272727272%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABU0lEQVR42qVSy3LDIAzENjbYCQTxtJ3//87tSNRpeumhOeyAGKHH7qqcM/bjQKsFpVbsewO/lVrQ9l3uIRDO88B5nkgpIaWIWgtSykg59/xS4LyDut1uGMcB4zgKhmGAUkowDCOccwjhgRgJFAneexAFQQgB27ZhXVeB/JPKzkkX7s53ay2MMZKg5/k1US5FcnJOEheJo/zhwSY9QVEIKKWPTDHCLAu01oJrUr4vy4x5/sF7rPUkObyh4g8x9gkC0a+V/wklArAYzAnz+XFB5qW1hnXbPi0GNWktZD+fJ47jkPWtNZimzgufy7K8cPG7GCMxU9Tf5r5dbU2KsDB8eu/EGmwHPpl0Y01X3toeGyPbsFVYiN7MYGJRaqtoe5OCqRTkXODud0lmK1xq8ySXV/9cmYjEpOynFBNoJ1Al4dU/vFjp7hw4L357brtt0uzy6ju+AGPj8iUnSShwAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/de260ba50f42741fc5ed5a72941e9139/c9b55/2.webp 165w,
+/static/de260ba50f42741fc5ed5a72941e9139/f2908/2.webp 330w,
+/static/de260ba50f42741fc5ed5a72941e9139/0ba47/2.webp 640w"
+              sizes="(max-width: 640px) 100vw, 640px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/de260ba50f42741fc5ed5a72941e9139/04c57/2.png 165w,
+/static/de260ba50f42741fc5ed5a72941e9139/d9ecf/2.png 330w,
+/static/de260ba50f42741fc5ed5a72941e9139/6af66/2.png 640w"
+            sizes="(max-width: 640px) 100vw, 640px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/de260ba50f42741fc5ed5a72941e9139/6af66/2.png"
+            alt="rpm"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>root로 진행해야 한다.
 참고로 위에서 사용한 rpm 명령어의 옵션값은 아래와 같은 의미를 가진다.</p>
 <table>
@@ -49,7 +146,40 @@ Java HotSpot(TM) 1.8.0_241
 위에서 prefix옵션 뒤의 경로는 미리 생성해둔 경로이다.</p>
 <p>설치 후 환경변수에 JAVA_HOME을 추가해 주어야 한다. 홈 경로의 .bash_profile을 아래와 같이 수정해 준다.
 (.bashrc에서 설정한 것들은 재접속하면 날아간다.)</p>
-<p><img src="./images/3.PNG" alt=".bash_profile"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 445px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 64.84848484848484%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABd0lEQVR42q2TyW4cMQxEqaUlautWd8/icZaLT7nm///tBbJ7gEmQGImRQ6EoSiqRBUpCEIwJiFRE9oM7IgUR+XeoCt4pIg2RfPDAcojOx7ofcX5fcFSYsiNGj6pjCsq6nrndvrIsKzFG1nXseUQG3PuCMQq5CNa+JQanrOynlX3veG8xRl7xVy2PClUN1o6X7YHHQ+Yh/xjbX/bNIRgFK/HwTA+f7l7VB//uHt/zywPvxx1BchLcUpF1p9tOl4XZNE5yIXkll0ytjdIK1Vd2ObGkBc3p9y3XKoQ6MbVIcgGNDfWZLIXgA6qRpIomRV0kSyaHRIjhD4JNmJujzwkfE7J9QSb/sRkcaLOwlMC+NTQ35PyC2TbM0ydiX9mHFb3T504tlVIK27ZR64gzrTXaPHO+XElJkZKF/Ztw+zzGxSDPT0zblbO/sYWdi7tw9Vdu9pmTnthOG2GaMMbgnMN7j7X2lUdOUjS47+PL/Fy6+WjLb9Mv/w0/AEmZEWPgU+ZWAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/2684027d09a41da48eb8bd4587129cec/c9b55/3.webp 165w,
+/static/2684027d09a41da48eb8bd4587129cec/f2908/3.webp 330w,
+/static/2684027d09a41da48eb8bd4587129cec/75680/3.webp 445w"
+              sizes="(max-width: 445px) 100vw, 445px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/2684027d09a41da48eb8bd4587129cec/04c57/3.png 165w,
+/static/2684027d09a41da48eb8bd4587129cec/d9ecf/3.png 330w,
+/static/2684027d09a41da48eb8bd4587129cec/e66bf/3.png 445w"
+            sizes="(max-width: 445px) 100vw, 445px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/2684027d09a41da48eb8bd4587129cec/e66bf/3.png"
+            alt=".bash_profile"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>그리고 아래와 같은 명령어로 수정된 .bash_profile 파일을 적용해 준다.</p>
 <div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">.</span> .bash_profile</code></pre></div>
 <p><a href="https://s01va.github.io/CentOS7%EC%97%90%EC%84%9C-X11-forwarding-%EC%84%A4%EC%A0%95/">CentOS7에서 X11 forwarding 설정(X Window 설치)</a>를 해두면 이후 과정은 <a href="https://s01va.github.io/Windows-10%EC%97%90%EC%84%9C-WebLogic-12c-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/">이 페이지</a>를 그대로 따라해도 좋다.</p>
@@ -59,15 +189,186 @@ Java HotSpot(TM) 1.8.0_241
 <p>대신 사일런트 모드를 사용할 수 있으므로, 사일런트 모드 설치과정을 기재하였다.</p>
 <h1>설치파일 다운로드</h1>
 <p><a href="https://www.oracle.com/middleware/technologies/fusionmiddleware-downloads.html">Oracle</a>에서 Generic Installer 다운로드</p>
-<p><img src="./images/4.PNG" alt="Oracle Weblogic"></p>
-<p><img src="./images/5.PNG" alt="Oracle Weblogic"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 660px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 118.18181818181819%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD+ElEQVR42o2UyW8cRRSH+w4JkcIhXEycIJ9wSORxxjOOPd4By5GPTgTjSxBS4ABJWC6xHe7kn0Ec4MAJBByQCMQJXsbjZTz79Cy9Vq8fqu5xZDsmpKVP71XVq5/ee1XVyuKNBRazWT7MZllczJLNZllYWODWrVvcvHGD2dlZrl+/ztzc3HPMz8+TSqXo6emht7eXvr4+lMuX36G/v5+BgQRXU8MMj46RSKa4NjYR+QPJFINDwySS6Whd2sRQmoGrKa4MDPJ2/yUSiQQz0zMMDQ2hZBKXyQxeYSSd5P3p8Yj3psaYmRiNeHcyczJyfXyEqUyaydE0o+kkix/cRBlPDjCWTHAtNcj02DBTo2nGryUZH05GdnI09R/EQtOZYSZGUgxeucTtjz9Cee3MGS5c6OWNc+e4+NZFzp9/k9fPnuX06VOcevUVFEV5acYyGZSvv/qSleX7LC/d55sHK6wsL7OyvMSDlWVWlu7zxb27Effu3uHO55+diFz79JPbPHz4LUoY+FimgbAtbMtE19oIYUdzcuw4NsK2CQKf//t0rYPSaalUSvtUy0VqlRKl/b14XCrGlIvs7+3SqFVwbBPHtnCEfQSZjO+5VKsVFEvvoKt1tEYNo9XAaKuYbTXy9WYDTa3hGBquqWFpLVzHxnOdI7iOgNCnXqui1KsVVh//zZPVxzx69CdPn6yytvY0sjvb+ShIbgrDgDCQ+M8R+B4QxoKtZoO9nR0Ku7vsbm9T3C9QKOyR38pRLhXptFrU69UoWFKrViKrNuo06rUIOSdLr9drKE21zlYuR25jnXw+R35ri+3tPFubG2yur7GV2ySX22BjbY18brMbK8f/dOfXo3h5iGqjgaK1W1F2hb1dioVdmrUqmtah027SajWR61qnTadr9U67O26iaW20drwmBSWKbKjsTeDHvYj7EsQ9OyAIIIyRMcGz3vmRf7DPlIKe5+IYbTxh4jkWnjiEPEVHRNi2HRGGIYFM4Bhy3joQ9AV4NngixndiPMfBtU08YWMaBoZpRhdYbj6O/GJB18UTf+G7v+C7v+N7vyHErwjxB+A+9xpOEosFD2XoWT/j2d/hOz8SOD9g6N9j6D8RhrJEur0MX8iRDH0XAg+EAFsczublxI5l6OEYLTxbx7J0TMsAAkKCly73qKDrEngSL7aug+84+NLK7OUpuw5CiO51elHJJorrugitiWMauPJ3Zeq4thX5sTWwTQPNsvC7WQZBiC/tAUF8lQxDR/E976Cgw8Udgqh4t1FDqDU0Q48usKd1MDQNXdcwDR15uLquo8hH3lQbEYf9Z8ifgKrSyG2g5jcplcvUKmVahR0qxX3K5RLVSpl2q0m5VOJfN0NACmDh9u4AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/605edddddbd0a5f9a778fca7e33a9005/c9b55/4.webp 165w,
+/static/605edddddbd0a5f9a778fca7e33a9005/f2908/4.webp 330w,
+/static/605edddddbd0a5f9a778fca7e33a9005/cc661/4.webp 660w,
+/static/605edddddbd0a5f9a778fca7e33a9005/10884/4.webp 778w"
+              sizes="(max-width: 660px) 100vw, 660px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/605edddddbd0a5f9a778fca7e33a9005/04c57/4.png 165w,
+/static/605edddddbd0a5f9a778fca7e33a9005/d9ecf/4.png 330w,
+/static/605edddddbd0a5f9a778fca7e33a9005/1f083/4.png 660w,
+/static/605edddddbd0a5f9a778fca7e33a9005/20982/4.png 778w"
+            sizes="(max-width: 660px) 100vw, 660px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/605edddddbd0a5f9a778fca7e33a9005/1f083/4.png"
+            alt="Oracle Weblogic"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 660px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 118.18181818181819%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD9klEQVR42o2UW1McRRTHx2cCqYJYu75IDLJBUTDkwi7shcuCGB8IfJAESPQpAYxVarT8GL7mQaX8CpYGTFlJlZHlMrts2BACuzN9mZ7b3+ozuwuUxmKqfnVO9/Sc/vc5p8eYyGUxOzOD6elpzM7OYObGDUxNTSGXy+FiIoE3z51DPB5HPBZDLBYj2yQeR0dHB1paWtDW1ob29nYY/f39GBgYwGAyieFsDrnxPJLDGQwOpdF36TK6e3rR0/shLr7/AXp6+8gmNO/1oivRg7c7z6M70Y1kMolEIgEje7kP2SsfIZ26hqn8CD6ZGCW0f31yDJ9+PE5Wz2l7vf6+sWZyNIPJkTSm8qMYSadgjFy9hNHkFaSTVzExMkyMZ1MYyyQxlkkhnxtGPjuE8UzqJNmIfG4Io+kkcsODyKSuwWg7exYXut7BW/EYut7twvnOTnR0tKO19Qxaz7TAMIxT84a2n392B0uL97B47y6+WF7C0uIijZeXtL2LO7cXiNsL85ifu/VaFubnMHfrJozA9yA4gyMFpOCwrSqUI2lOj13l0Lsg8HGax6ge7KPyfAe75R282C2jXDKxWy6hcoxy0cT+XgVKctpM42qUA1fVx8oBsy0Y3DqEffASjl0lFLPg2DVIqwpJc7UmvHoAJQWUE6mOiAJ6rqJTGZXnZTx98gR+4EEpF0opQi8gSIUD5R690/i+30QI0UyT8Wr/Jba3NhCGgBQCNrPBGYMn63ALrojmbNsmGGMIggBhGBKe56FWPQRnNoy9Shnbmy+gvB+wX70JzjwwZsGyLfqwWquS7/keQoTNIA0agSuV3SiHh6/2YG6VEYaP4Qd/QqkAvusBuqjHCU8S+AGUq6iyQRDCsmqQgsGgswtOR9a4SmGjXMDvz37DWmENq+urWF1/RP5aYZXQ7wo7BTjSaSrVLUY51AG4VUMY+AgR9drKHz/hy4fL+H7lW3zz41d4QHxNfPfzA9x/uIRfHq/Q2kYaHMehGlBAYVuUCy4EhJRUNZ2/BrpQTBeL88jnDFwr0uuFoG915Y8CMpt6S3AeIQR9rI8kpYQUkmykIvIb6LW6ykcKXRcOs8CsWjOgZVmwLYtUNJSQT5vxE+oam+t+lJIUOpQ/33WjXR0nupThv1vk/9BPXaGCJ2x4sr6bkK+9+KcLqBX6PgLPQ+C5CFwFX18tbV0XvnLgKUU5Co/djv8MqI+s9D1lNShuQwkOh9lwBSff1T8C/RvjDJZtw6MmDgifCJtj3dy6E4zwlP+5QDnwK2VSQUWQHG69lXShfM8jaxTNLZSKJkrFbZTM7bpvnpgrFk2Yhb9RevQrNjcKWNf++jOYfz0lf0OPiya2NjfwD4ibLilNI0V7AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/93d70b0ce4b4c6fa403cea39bc0da45f/c9b55/5.webp 165w,
+/static/93d70b0ce4b4c6fa403cea39bc0da45f/f2908/5.webp 330w,
+/static/93d70b0ce4b4c6fa403cea39bc0da45f/cc661/5.webp 660w,
+/static/93d70b0ce4b4c6fa403cea39bc0da45f/10884/5.webp 778w"
+              sizes="(max-width: 660px) 100vw, 660px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/93d70b0ce4b4c6fa403cea39bc0da45f/04c57/5.png 165w,
+/static/93d70b0ce4b4c6fa403cea39bc0da45f/d9ecf/5.png 330w,
+/static/93d70b0ce4b4c6fa403cea39bc0da45f/1f083/5.png 660w,
+/static/93d70b0ce4b4c6fa403cea39bc0da45f/20982/5.png 778w"
+            sizes="(max-width: 660px) 100vw, 660px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/93d70b0ce4b4c6fa403cea39bc0da45f/1f083/5.png"
+            alt="Oracle Weblogic"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>다음과 같은 압축파일이 다운받아진다</p>
-<p><img src="./images/6.PNG" alt="Oracle Weblogic zipfile"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 660px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 24.848484848484848%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAArUlEQVR42p1Oyw7DIAzjM/oQbQFBeLQMdpn2/x/mKZGYpmmnHazEiWNHeR8QAiGEAO89jDGYpgnLsgjWdRV8cq7zPL933I+9SonQ+w3OOTFkWGvhrMW2bSiloPcOIsJxHEg5IecswcZapJTklnf7vkO1Sng+7iCKIqy1ikkpWURsxPPzPBFjFN5aEw0bsOF1XRIghlpv0FrLN99gwa/50HPg4KxlrkbzD75v+cMX5jiLPUkd9ywAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/dac3bd6974cf986f6b95591e168657f1/c9b55/6.webp 165w,
+/static/dac3bd6974cf986f6b95591e168657f1/f2908/6.webp 330w,
+/static/dac3bd6974cf986f6b95591e168657f1/cc661/6.webp 660w,
+/static/dac3bd6974cf986f6b95591e168657f1/e213b/6.webp 684w"
+              sizes="(max-width: 660px) 100vw, 660px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/dac3bd6974cf986f6b95591e168657f1/04c57/6.png 165w,
+/static/dac3bd6974cf986f6b95591e168657f1/d9ecf/6.png 330w,
+/static/dac3bd6974cf986f6b95591e168657f1/1f083/6.png 660w,
+/static/dac3bd6974cf986f6b95591e168657f1/2c288/6.png 684w"
+            sizes="(max-width: 660px) 100vw, 660px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/dac3bd6974cf986f6b95591e168657f1/1f083/6.png"
+            alt="Oracle Weblogic zipfile"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>다운로드 받은 파일을 CentOS로 옮겨준다.</p>
-<p><img src="./images/7.PNG" alt="zip file in CentOS"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 481px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 7.2727272727272725%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAARElEQVR42iWJQQqAMAwEpd0otE1TUxQ8+P9nrqQeBoaZ7XXn4yenKi8zjlJ4t7YYu7DmzApQAR4psQM0+Xt4l0CWx/8AguEWT1jGzf4AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/07600e23d4c5294c1f06c18ae441b2e1/c9b55/7.webp 165w,
+/static/07600e23d4c5294c1f06c18ae441b2e1/f2908/7.webp 330w,
+/static/07600e23d4c5294c1f06c18ae441b2e1/1c567/7.webp 481w"
+              sizes="(max-width: 481px) 100vw, 481px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/07600e23d4c5294c1f06c18ae441b2e1/04c57/7.png 165w,
+/static/07600e23d4c5294c1f06c18ae441b2e1/d9ecf/7.png 330w,
+/static/07600e23d4c5294c1f06c18ae441b2e1/d024a/7.png 481w"
+            sizes="(max-width: 481px) 100vw, 481px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/07600e23d4c5294c1f06c18ae441b2e1/d024a/7.png"
+            alt="zip file in CentOS"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <h1>WebLogic 설치</h1>
 <p>압축을 풀어준다.</p>
-<p><img src="./images/8.PNG" alt="unzip"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 561px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.51515151515152%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABC0lEQVR42n2QzW6kMBgEjcE2hsH477NhyGijXPb9n7BWM8ohiZQ9lPrUJXWrv9edt1I4c+aIO33feS+FewhE58iz42YMk0k4GzHGk72neU+eZ6qfEefYjSEZg3o7L44mhBBoUokhkPZATgmpFZFKLYVt28m5EGNku924LQvrJ2YaGZRCK4WKa6Ifx0tQqyAi5PQUbLTe6EdHmmDMyDRp9DCgnsXfaPeD88/F8TiRs1KOijwaIe8sy8rsPc451GBRyqCU/r/w49FIaSaGmZxWalm5eqB4xzpowjjitab4TF8yu/VkayjWkq1lm6bvwksu+nNmzHRpSK60WhitRqvhNVEP6vXRT/RnfhX+Ax2jhvN7tPrRAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/64fa59a948ebd90bda108051ad23c345/c9b55/8.webp 165w,
+/static/64fa59a948ebd90bda108051ad23c345/f2908/8.webp 330w,
+/static/64fa59a948ebd90bda108051ad23c345/6c067/8.webp 561w"
+              sizes="(max-width: 561px) 100vw, 561px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/64fa59a948ebd90bda108051ad23c345/04c57/8.png 165w,
+/static/64fa59a948ebd90bda108051ad23c345/d9ecf/8.png 330w,
+/static/64fa59a948ebd90bda108051ad23c345/410f3/8.png 561w"
+            sizes="(max-width: 561px) 100vw, 561px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/64fa59a948ebd90bda108051ad23c345/410f3/8.png"
+            alt="unzip"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>사일런트 모드가 아니라면 바로 설치를 진행할 수 있지만
 사일런트 모드로 설치하기 위해서는 사전에 생성해야 할 파일이 두 개가 있다.
 (사일런트 모드 설치 명령어는 다음과 같이 이루어진다.)</p>
@@ -118,9 +419,110 @@ Response File <span class="token assign-left variable">Version</span><span class
 <span class="token assign-left variable">COLLECTOR_SUPPORTHUB_URL</span><span class="token operator">=</span></code></pre></div>
 <p>ORACLE_HOME에 해당되는 디렉토리는 따로 직접 생성해 준다.</p>
 <p>.rsp 형태로 파일명을 지정해준다.</p>
-<p><img src="./images/9.PNG" alt="naming rsp file"></p>
-<p><img src="./images/10.PNG" alt="making rsp file"></p>
-<p><img src="./images/11.PNG" alt="making oracle_home"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 512px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 15.75757575757576%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAk0lEQVR42mXO2w6CMBRE0dLSmkKvFsSUqvz/T24DXmLiw8pMzsPJiLIV8jUTp0CcI2MZSTXjykjf9wghDl0n0TrSqwEpT9/7n3XyZGfwgyEMhpIGlmRZgsVLiVOKqBRWKrJxXKwnGUvWmmIM5zctu9fD7bFxa41WK62urLVyb425FLwbCSGQYzz6Tu5rhTjy12fhE2yiQtgkr6ZHAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/41d3c300b093498c3c2bc2c695a508b0/c9b55/9.webp 165w,
+/static/41d3c300b093498c3c2bc2c695a508b0/f2908/9.webp 330w,
+/static/41d3c300b093498c3c2bc2c695a508b0/bd5dd/9.webp 512w"
+              sizes="(max-width: 512px) 100vw, 512px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/41d3c300b093498c3c2bc2c695a508b0/04c57/9.png 165w,
+/static/41d3c300b093498c3c2bc2c695a508b0/d9ecf/9.png 330w,
+/static/41d3c300b093498c3c2bc2c695a508b0/01e7c/9.png 512w"
+            sizes="(max-width: 512px) 100vw, 512px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/41d3c300b093498c3c2bc2c695a508b0/01e7c/9.png"
+            alt="naming rsp file"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 660px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 114.54545454545455%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACXklEQVR42qVV2Y7bMAykRNmybl9J9jCwvdD+/xdOIZlJne1L0j4MSMn2gMeQpsEZpDwhxhFEBkQMIgUiehhK7e9v2wbyvoP3C6ydMAwnOHdCCBOs7WGtBTM/R+gcY14SximDuT4kaL3bisciJCF8B/V9B6UWEAUQObGD+Fasl7soz72gnnso5Zvdth8g5zvkfEaMETknhBAQ446a9mMR6mPKHYhGKDVBqRlEK4gKiKqfQLSIXzEJ5vbNjiIRWmzbr0qokfPSGpHy2nzvE7yvTUotFaJObH84d1IGe9+UYWBovUDrE7SeoVSB1meJdpJoTyDKEvEofhEMhwh/7hGmtCDGFSmt8H5ELhfEtIguu08wh3vzSTbvoBgZIa7wYUYIcyMMYW1+tT5MCOEEZvOAbN5AIWh0XYExCcbEhq7L4ic518Jf5ZLElpuElEot4m37BtKawfzW6sb8Cq3fofkFzFu727t8kToGqZ8Tm4UwSw2/7yn7MMKHjBBGOFe1WFrX+z4calZHUEua+uB/SjllbrM8uALvS2vGMBTEuCClM3K+NISwSNr2MFHm71lOieHcDOfqQkjQ2oM5grlvM621us32Q8uhEno/w/kJXRdEDvYupae2zZXQu1qzKJNgpWb/QVjTvicM4v8D4bWGO2EdpevK4uf3Yc6MGOcmmSqXmOZ2dq48WEd1W1+vr28g22toWtuCUGptS0KpkyzdSYR99VcR+HpYZ17kpPHy8hUUT4z4kZH8iJQmlFJX2Nyi/SNmcxDz8azuUr5czqDOGZClp/5yVxhjMAzDrSkfH1/wG2ET6VAZvVHkAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/18fca4a58e16cf9a648ee126f0c39fe4/c9b55/10.webp 165w,
+/static/18fca4a58e16cf9a648ee126f0c39fe4/f2908/10.webp 330w,
+/static/18fca4a58e16cf9a648ee126f0c39fe4/cc661/10.webp 660w,
+/static/18fca4a58e16cf9a648ee126f0c39fe4/a6306/10.webp 669w"
+              sizes="(max-width: 660px) 100vw, 660px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/18fca4a58e16cf9a648ee126f0c39fe4/04c57/10.png 165w,
+/static/18fca4a58e16cf9a648ee126f0c39fe4/d9ecf/10.png 330w,
+/static/18fca4a58e16cf9a648ee126f0c39fe4/1f083/10.png 660w,
+/static/18fca4a58e16cf9a648ee126f0c39fe4/99272/10.png 669w"
+            sizes="(max-width: 660px) 100vw, 660px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/18fca4a58e16cf9a648ee126f0c39fe4/1f083/10.png"
+            alt="making rsp file"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 636px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 13.333333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAIAAAAcOLh5AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAeklEQVR42n3MixHDIAgA0CCigoDGz5neZf85e12gb4B3PZ9n7zXmnGutvaVWc/fmVSsAXP9ZZ+3lPjqOmmW6IAWIECS1VoYkLSEIYkEsAZiH+6v6MLffPNzOnO9e7xp3yRWjETFipdRT1kgaY09kRBZjLqzmwlVEEMMXWwsGc4H1XGIAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/103f3a2d456d4bd69db0c6235005a5ef/c9b55/11.webp 165w,
+/static/103f3a2d456d4bd69db0c6235005a5ef/f2908/11.webp 330w,
+/static/103f3a2d456d4bd69db0c6235005a5ef/6d494/11.webp 636w"
+              sizes="(max-width: 636px) 100vw, 636px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/103f3a2d456d4bd69db0c6235005a5ef/04c57/11.png 165w,
+/static/103f3a2d456d4bd69db0c6235005a5ef/d9ecf/11.png 330w,
+/static/103f3a2d456d4bd69db0c6235005a5ef/9be90/11.png 636w"
+            sizes="(max-width: 636px) 100vw, 636px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/103f3a2d456d4bd69db0c6235005a5ef/9be90/11.png"
+            alt="making oracle_home"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <h2>인벤토리 포인터 파일 생성</h2>
 <p><code class="language-text">-invPtrLoc</code> 옵션에 들어갈 파일도 필요하다.
 이 파일의 이름은 oraInst.loc이어야 한다.
@@ -129,30 +531,329 @@ Response File <span class="token assign-left variable">Version</span><span class
 <span class="token assign-left variable">inst_group</span><span class="token operator">=</span>weblogic</code></pre></div>
 <p>oraInventory는 오라클 제품군 설치 시 필요한 파일들이 들어 있는 디렉토리이다.
 설치 시 디렉토리 째로 생성된다. 위의 inventory_loc 뒤에 이 oraInventory가 생성될 경로를 입력해 준다.</p>
-<p><img src="./images/12.PNG" alt="naming loc file"></p>
-<p><img src="./images/13.PNG" alt="making loc file"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 660px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 12.121212121212121%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAdUlEQVR42h3DAQ6DIBAAQQRaTu5QQbG0pun/X7lNnGTc61tp58LajK0bx1hZTJAQSSGguVBKI2dDVTFTRBJVhJ4z2yzUlFhiRGPA/a7BNU5GP3j3xufcqaa0UtiLoXkhPpQQnnjv79M0kUVQEeaUeMaAd+7+B1f4LTR6+/FbAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/982b6be756733cb6a10196cf14c3128b/c9b55/12.webp 165w,
+/static/982b6be756733cb6a10196cf14c3128b/f2908/12.webp 330w,
+/static/982b6be756733cb6a10196cf14c3128b/cc661/12.webp 660w"
+              sizes="(max-width: 660px) 100vw, 660px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/982b6be756733cb6a10196cf14c3128b/04c57/12.png 165w,
+/static/982b6be756733cb6a10196cf14c3128b/d9ecf/12.png 330w,
+/static/982b6be756733cb6a10196cf14c3128b/1f083/12.png 660w"
+            sizes="(max-width: 660px) 100vw, 660px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/982b6be756733cb6a10196cf14c3128b/1f083/12.png"
+            alt="naming loc file"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 319px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 21.81818181818182%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAiUlEQVR42pWMSwrCQBBEOxrNLiPTv+keXQjewmN4/7OUqBFdqODiURT1IWbGZktgEWQmVAURjsqCWitMBWKKjA4+VvjJ4OpQM7gpzBWlFBDRAxHGNBGqCFpzlDLDW8P+0BHRkBnwNMTcsbvMoPMyXNHr5B3VWMxw13Fcfy4+Twb6nt8wy9+FP7kC9CJYA26Zvt8AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/533169f31dc7499a6f70ed28632c965a/c9b55/13.webp 165w,
+/static/533169f31dc7499a6f70ed28632c965a/1590b/13.webp 319w"
+              sizes="(max-width: 319px) 100vw, 319px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/533169f31dc7499a6f70ed28632c965a/04c57/13.png 165w,
+/static/533169f31dc7499a6f70ed28632c965a/b53cf/13.png 319w"
+            sizes="(max-width: 319px) 100vw, 319px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/533169f31dc7499a6f70ed28632c965a/b53cf/13.png"
+            alt="making loc file"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>이제 설치해 준다.</p>
-<p><img src="./images/14.PNG" alt="Install silent mode"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 660px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 117.57575757575758%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAACXBIWXMAAA7DAAAOwwHHb6hkAAACYUlEQVR42q1V2XKjMBAEG5AEugABdnjwxo/5///rrR5Ay1atK5VsHrpkdPRMz+ViXVfMy4yURkzThGVZMAwDpnnG2/qGZZnhvUfXdXm11sI5wmEcB4Tg0Vkr58UwjBjGQchiCHJJKY22NfKQBG3bQimFuq5Q1zWqqoJpW9k3xkAbvZ/XKKZp8yClSbzp+x6x74WIl67XK7TW0MbAOifnTVOLYWs7FEXxN/jYWSuHfvcwpfRHnnMIIUBrBa0NYoxyp2mUkPNO0zRilA4U3gdxnTHhIRFjyHIom95RjtJa9mmAJCQmEVVUdSWhKMSK7cSyDx7eOzjvcvzoabuvbveWq8C7bDTHME0J4zii7yPGtK28TIIY+30NkvkxJZF5EMc+iiPkEDLGkPEiYQhRYseHtuvkUb70FRxxYGxIxsTQU3rWKCVyGJuus5KYXCZaZ6nWWeFgWRX0jGQ8lIw7K0G+XC6oqq3m6OkBfjMhZVn+20OpuxgxiGyP1hh5cCRhs7yT1TWunxHSIg/plVKNSCDKsvh6/Ai23lb1FtM8SQt+KxkHSEAcJWGl8lU2Qm+l9bSR35RrTIvL5YXkRi5twaZsyt8Cv+29jNUrdNLHVvrZuS0plCy9Sc+Uzt/SWp8RzsuCEKMMB5YK8e34EbfbTQj/KxFnLLdF6pAl8zOEu2Qm4UcI7/e7lIsMx58gZIuZ/T+DJVJeytzLBH+fv4+uOu+dUXC6UDLjyDEWfUAMPUxr8iThoGVhc9LUUtgml9ExPA4DxfP5xOPxwK/3B9b7ivVjRXj38J2XAXHgPK3NPkCOvj/jN+8pCCJoj9SQAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/1f326e33926b684dd5d553afb7a8f1fc/c9b55/14.webp 165w,
+/static/1f326e33926b684dd5d553afb7a8f1fc/f2908/14.webp 330w,
+/static/1f326e33926b684dd5d553afb7a8f1fc/cc661/14.webp 660w,
+/static/1f326e33926b684dd5d553afb7a8f1fc/b09c6/14.webp 667w"
+              sizes="(max-width: 660px) 100vw, 660px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/1f326e33926b684dd5d553afb7a8f1fc/04c57/14.png 165w,
+/static/1f326e33926b684dd5d553afb7a8f1fc/d9ecf/14.png 330w,
+/static/1f326e33926b684dd5d553afb7a8f1fc/1f083/14.png 660w,
+/static/1f326e33926b684dd5d553afb7a8f1fc/295bd/14.png 667w"
+            sizes="(max-width: 660px) 100vw, 660px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/1f326e33926b684dd5d553afb7a8f1fc/1f083/14.png"
+            alt="Install silent mode"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>위에서 지정해준 ORACLE_HOME 위치에 파일들이 생성된 것을 볼 수 있다.</p>
-<p><img src="./images/15.PNG" alt="ORACLE_HOME"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 399px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 21.21212121212121%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAw0lEQVR42nWOS3KDMBAFET8JZhBSEMhgZMeVyv2P2CmcbbLoXb+uV6V15SwP9n3nljNbzizL8mb2njkEvPd4PyEixBgwxlBV1d+sW6I8C6Wc3O8Hx7GzbYkYZ8bRIaKIjMjo6PuOrmv/j12E8GJJX4gErG1RTUxTIYQHH7Egej2bifGJ6o5qZhgKtk+YztCnli42NFr/Bp07EflG5EVdT1g7kG8PtvUaR1SFuh65PGN6jLE0zUhteprOofETmU+cbO/gD7ThWwb0bL4cAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/9212ff2752d82edccd31297b246e1947/c9b55/15.webp 165w,
+/static/9212ff2752d82edccd31297b246e1947/f2908/15.webp 330w,
+/static/9212ff2752d82edccd31297b246e1947/66086/15.webp 399w"
+              sizes="(max-width: 399px) 100vw, 399px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/9212ff2752d82edccd31297b246e1947/04c57/15.png 165w,
+/static/9212ff2752d82edccd31297b246e1947/d9ecf/15.png 330w,
+/static/9212ff2752d82edccd31297b246e1947/a307d/15.png 399w"
+            sizes="(max-width: 399px) 100vw, 399px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/9212ff2752d82edccd31297b246e1947/a307d/15.png"
+            alt="ORACLE_HOME"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <hr>
 <h1>도메인 구성 &#x26; Admin server 생성</h1>
 <p><code class="language-text">$ORACLE_HOME/wlserver/common/bin</code>으로 진입한다.</p>
-<p><img src="./images/16.PNG" alt="common"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 563px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 11.515151515151516%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAaklEQVR42oXISRbCIBBAQWTKQ4JNDCEtONz/lN/nCVzUpsxDB6/5ZI6J9pPeDvRU+tHJ6YqIkFPGXSzGmP/29077NDbd2Ealjoo0oWgh1khcI8t9IdaAXx0uOXzxBAmE3xWPTRZ/87hk+QJNyy0BIIJN3QAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/a21bbcb82761b2c707a2b08613282241/c9b55/16.webp 165w,
+/static/a21bbcb82761b2c707a2b08613282241/f2908/16.webp 330w,
+/static/a21bbcb82761b2c707a2b08613282241/a1a69/16.webp 563w"
+              sizes="(max-width: 563px) 100vw, 563px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/a21bbcb82761b2c707a2b08613282241/04c57/16.png 165w,
+/static/a21bbcb82761b2c707a2b08613282241/d9ecf/16.png 330w,
+/static/a21bbcb82761b2c707a2b08613282241/7cb89/16.png 563w"
+            sizes="(max-width: 563px) 100vw, 563px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/a21bbcb82761b2c707a2b08613282241/7cb89/16.png"
+            alt="common"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>wlst.sh를 발견할 수 있다.</p>
 <p>wlst는 WebLogic Scripting Tool이라고 한다.</p>
 <p>이 쉘파일을 실행시킨다.</p>
-<p><img src="./images/17.PNG" alt="wlst.sh"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 642px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 30.303030303030305%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA0ElEQVR42n2Q24rDMAxEncRXybILDQ002dKF/v8vTpFCQ1nCPhyELh6N7J6/T6zbhmVZcFtumOcZ1/lqsbWGnDNSSmBm5JJBRFbTmPJeJyogJptzIoJ+udjj3jt6b9aYpgneeyOEYAzDcDCO4xE/aO6qVNvGtUKkgokslyY4euaCTFwXKc65c9QV85dIZRPQBdqruqgJSinHnPbV0algobL/U07wg0eKeu5oZ8cYzdW/An+5r3esPxse6wP8Ynj2iD6amKLCIUSEmMzlBzVxxhsvt4MY7DVDAwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/c31211f4683c8fece93955ae2acba098/c9b55/17.webp 165w,
+/static/c31211f4683c8fece93955ae2acba098/f2908/17.webp 330w,
+/static/c31211f4683c8fece93955ae2acba098/7eb86/17.webp 642w"
+              sizes="(max-width: 642px) 100vw, 642px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/c31211f4683c8fece93955ae2acba098/04c57/17.png 165w,
+/static/c31211f4683c8fece93955ae2acba098/d9ecf/17.png 330w,
+/static/c31211f4683c8fece93955ae2acba098/1bba8/17.png 642w"
+            sizes="(max-width: 642px) 100vw, 642px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/c31211f4683c8fece93955ae2acba098/1bba8/17.png"
+            alt="wlst.sh"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>deprecated script라며 oracle_common/common/bin에 있는 wlst.sh를 실행하라고 하지만 현재의 스크립트로 설치를 진행한다.</p>
-<p><img src="./images/18.PNG" alt="read template"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 497px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 9.696969696969697%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAcUlEQVR42k2MQQ7DIBADWRQpBwLK0hCRpdDH9P9vmgpOPVi2xrJdzpnHjForqiflvmnN6KPT+5vZqyoxRjQrWU+O4yCmREqJEAKv61pMRHClFKwZ1to6muf9Mxg20O/JnnfECd77NRBxK/9r8unbtvEDJdsu73Pqp9cAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/6e97930e0cb13dc9fd611e884ad06fe5/c9b55/18.webp 165w,
+/static/6e97930e0cb13dc9fd611e884ad06fe5/f2908/18.webp 330w,
+/static/6e97930e0cb13dc9fd611e884ad06fe5/a4aa0/18.webp 497w"
+              sizes="(max-width: 497px) 100vw, 497px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/6e97930e0cb13dc9fd611e884ad06fe5/04c57/18.png 165w,
+/static/6e97930e0cb13dc9fd611e884ad06fe5/d9ecf/18.png 330w,
+/static/6e97930e0cb13dc9fd611e884ad06fe5/15d25/18.png 497w"
+            sizes="(max-width: 497px) 100vw, 497px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/6e97930e0cb13dc9fd611e884ad06fe5/15d25/18.png"
+            alt="read template"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>위의 명령어를 실행시킨다.
 (oracle_common/common/bin에 있는 wlst.sh로 이를 진행하면 템플릿을 찾지 못해 설치가 진행되지 않는다)</p>
 <p>명령어 라인에 base_domain이 생긴 것을 볼 수 있다.
 이렇게 기본 생성된 도메인 이름은 나중에 변경할 수 있다.</p>
 <p>이제 서버 기동 및 콘솔 접근에 필요한 관리자 계정을 생성해 준다.</p>
-<p><img src="./images/19.PNG" alt="make admin"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 660px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 6.0606060606060606%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAQUlEQVR42iWKMQ7AIAzEKiYWGABF5FL+/0yjtJMl28/2jbsjCcl5zyGdmRERKPTRs8f/ZBtz0npjrEXvjVorpRQu9NcY+il+bSkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/2a6728e85d9ac30ee4d04c3e3d666634/c9b55/19.webp 165w,
+/static/2a6728e85d9ac30ee4d04c3e3d666634/f2908/19.webp 330w,
+/static/2a6728e85d9ac30ee4d04c3e3d666634/cc661/19.webp 660w,
+/static/2a6728e85d9ac30ee4d04c3e3d666634/8cb39/19.webp 752w"
+              sizes="(max-width: 660px) 100vw, 660px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/2a6728e85d9ac30ee4d04c3e3d666634/04c57/19.png 165w,
+/static/2a6728e85d9ac30ee4d04c3e3d666634/d9ecf/19.png 330w,
+/static/2a6728e85d9ac30ee4d04c3e3d666634/1f083/19.png 660w,
+/static/2a6728e85d9ac30ee4d04c3e3d666634/442cb/19.png 752w"
+            sizes="(max-width: 660px) 100vw, 660px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/2a6728e85d9ac30ee4d04c3e3d666634/1f083/19.png"
+            alt="make admin"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>이 weblogic을 운영모드로 운용하려면 다음과 같이 설정해 준다.</p>
-<p><img src="./images/20.PNG" alt="set Production mode"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 557px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 6.0606060606060606%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAQ0lEQVR42h3GSQ6AIBBFQXHBkhCkh994/2s+E2tVVypZa5ESEU5mECok4e7s/RAR/6uKeg8qYWbMOTE3xhj03rlb4wPiLhi0bxCrwgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/c9b55/20.webp 165w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/f2908/20.webp 330w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/9b7c7/20.webp 557w"
+              sizes="(max-width: 557px) 100vw, 557px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/04c57/20.png 165w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/d9ecf/20.png 330w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/30d00/20.png 557w"
+            sizes="(max-width: 557px) 100vw, 557px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/30d00/20.png"
+            alt="set Production mode"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>Admin server의 이름, 포트를 바꾸려면 아래와 같이 입력한다.</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">cd('Servers/AdminServer')
 set('Name', '[new name]')
@@ -160,13 +861,79 @@ set('ListenPort', 7001)
 set('ListenAddress', 'All Local Addresses')</code></pre></div>
 <p>ListenAddress를 위의 설정대로 해주지 않으면 가능한 모든 IP를 사용하게 된다.</p>
 <p>이제 기본 적용된 도메인 이름 base_domain을 다른 이름으로 바꿔줄 것이다.</p>
-<p><img src="./images/21.PNG" alt="rename domain"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 625px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 6.0606060606060606%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAQUlEQVR42h3FQQrAIAxFwYIrmyys5Jvo/e/5Ci6GeZYWc35kJllFKKhdSLr22UQEWrrGGJi9mDtmRu/97u601vgByhMX+M1P7sMAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/11bf8a4ab510da1c548512beec4c0115/c9b55/21.webp 165w,
+/static/11bf8a4ab510da1c548512beec4c0115/f2908/21.webp 330w,
+/static/11bf8a4ab510da1c548512beec4c0115/487e2/21.webp 625w"
+              sizes="(max-width: 625px) 100vw, 625px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/11bf8a4ab510da1c548512beec4c0115/04c57/21.png 165w,
+/static/11bf8a4ab510da1c548512beec4c0115/d9ecf/21.png 330w,
+/static/11bf8a4ab510da1c548512beec4c0115/80d71/21.png 625w"
+            sizes="(max-width: 625px) 100vw, 625px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/11bf8a4ab510da1c548512beec4c0115/80d71/21.png"
+            alt="rename domain"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>설정을 마쳤으면 <code class="language-text">closeTemplate()</code>, <code class="language-text">exit()</code>으로 종료해준다.</p>
 <p>위에서 사용했던 wlst 내의 모든 명령어들을 모아 파이썬 스크립트 파일로 생성해서 한번에 설정할 수도 있다.
 생성한 스크립트 파일이 /tmp/setwl.py라면,</p>
 <p><code class="language-text">wlst.sh /tmp/setwl.py</code> 이런식으로 실행시키면 된다.</p>
 <p>편의를 위해 .bash_profile에서 환경변수를 추가한다.</p>
-<p><img src="./images/22.PNG" alt="DOMAIN_HOME"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 488px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 68.48484848484848%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABp0lEQVR42qWSW2/bMAxGKVqy7pK9pEnqpm3Wve7//70z2E1vA4Z13cMBRRL4eBHFe4OIR6S/oyKiiMi/E6OgmhApGJOuYjMibYupdsxrofg5wRCVcTR4r6RUOJ8fuF0WYvTUaohx7dZc+ZtgEkJ4C6iu/kjOCWu/MLb3ghqHSEDkxVpEhutu45U1N17z/t07fdx3jAaxCbUNK5VBOk4ag8kYk1FtqFZU0nNe6xZ/LpK3PX8QLFWQqTHWzl4musncyJ5mG7kEeq/Unulj3eJz7fjg/jxyrULJhpwEyQVp09fO5YXeDbUmWu1oXpDpFqkRqZmYAiF5fPSM47iRS8aHZz/GSCmFnPPHDm8OymEvDPOEnO/p5cIunjmGE0u45+TuOKQD827eRKy1OOc20RAjIYQ3wVaF6Asx7jDhgNQTOj5i8oXBnwluIY7rTQZC9AzDgPd+YxV1zmKdey0kbRKWJ2E5CsPNjPz4Tq8Lc39gX048lUdO5cglXzgf75i/TaScaa2RUtrGXe3qj6ND0lHQn4Ku7apuWBlwogwb9hU1nzr04f9+9Td+AfQmKOcpkr4DAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/461d1996ddfb0e6d4cefc0cd8f348386/c9b55/22.webp 165w,
+/static/461d1996ddfb0e6d4cefc0cd8f348386/f2908/22.webp 330w,
+/static/461d1996ddfb0e6d4cefc0cd8f348386/607ea/22.webp 488w"
+              sizes="(max-width: 488px) 100vw, 488px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/461d1996ddfb0e6d4cefc0cd8f348386/04c57/22.png 165w,
+/static/461d1996ddfb0e6d4cefc0cd8f348386/d9ecf/22.png 330w,
+/static/461d1996ddfb0e6d4cefc0cd8f348386/bd48c/22.png 488w"
+            sizes="(max-width: 488px) 100vw, 488px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/461d1996ddfb0e6d4cefc0cd8f348386/bd48c/22.png"
+            alt="DOMAIN_HOME"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p><code class="language-text">. .bash_profile</code>로 적용해 준다.</p>
 <hr>
 <h1>Web Console을 이용하기 위한 설정</h1>
@@ -174,14 +941,247 @@ set('ListenAddress', 'All Local Addresses')</code></pre></div>
 하지만 해당 서버를 원격 터미널을 통해 컨트롤하고 있는 상황이라면 서버 내부 포트 7001과 외부 포트를 연결시켜 주어야 7001 웹 콘솔을 볼 수 있다.</p>
 <p>(방화벽에서 포트 오픈)[<a href="https://s01va.github.io/iptables-port-forwarding/">https://s01va.github.io/iptables-port-forwarding/</a>]</p>
 <p>root로 계정을 바꾼 후 설정하였다.</p>
-<p><img src="./images/23.PNG" alt="iptables"></p>
-<p><img src="./images/20.PNG" alt="">
-<img src="./images/20.PNG" alt="">
-<img src="./images/20.PNG" alt="">
-<img src="./images/20.PNG" alt="">
-<img src="./images/20.PNG" alt="">
-<img src="./images/20.PNG" alt="">
-<img src="./images/30.PNG" alt=""></p></div><span class="style-module--Keyword--9a2c3">was</span><span class="style-module--Keyword--9a2c3">middleware</span><span class="style-module--Keyword--9a2c3">weblogic</span><span class="style-module--Keyword--9a2c3">centos</span></section><section class="style-module--Footer--d408f"><div class="style-module--AuthorSnippet--7c737"><div data-gatsby-image-wrapper="" class="gatsby-image-wrapper gatsby-image-wrapper-constrained style-module--Avatar--1e2ce"><div style="max-width:100px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg%20height=&#x27;100&#x27;%20width=&#x27;100&#x27;%20xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%20version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAADn0lEQVR42n1V60sUURS/+Scs9DkoepihreuorW5UFFggQtD2wFdu7s62FomVVEQkuFhZWWq7M7trqy6bZlkURVFR0OtDDwuM6kNIH6SHSano4ujcG7/jzKIkfTjMnXvv+c05v/M7ZxhjjLltCqvMVOjptikp9G4NMp89bPHZww6fPew0zFGVF7HgzLxbmZlcM2aCGbagPK2VebIU5pFUyZsTiu2xBofKVraI4mUXybDGHs5kSZVwFz7wRUCwJJhrdYDVbGwHmL8yMyhKljcLt00R9SW9InzskQ7zl/YKT5ZCZ7gjS6q/ZlMHgy8wKEqglq9qNcHiroyAcGUEeHfjc210eEIXQvDpKZ0M67HfCf1a00ut0hrkFemX8IH4/rVtDKnDiAcjTT/AfPaw9unVIIDE46v9vKH8Bj+wPipgWGMPZ1/ef9erN0Q11+oAQP0mp5QyOEMKiAxgU9q0qNvRw3cubiLejKhpjb0T265ybXJa9D0Z0MtWtnDQ4M5SJLctyChMkAzS4w1PNXy9buc1vmvJBeHNCQmPpBKXMKyxV7z0oji+tYvXF18XFemXNOM8RhxW5UcsqJycrQrwc7/jHd++6LzYuyZMxJtgMPMdd8FfeVorotONsyG3TbEwOVt1gId9jjYxOjzBB/p/cG9uiBwQkQmSfFqJGsgHxkET9ow7DqTshGNpaoteuzlG3Hz9NESpzQeK6PblR0RVfoSC2L+2jXtzQrpxxwn+nCC70X1LP1Z0hSo6BdCPc0Fh0F/oyEPQLFC4ycSU0CaneeDgfb1kRTMU4mRVeRFH6YpmcU6+DQ754YJOXr0hSg6zQU3ejhTGRXvdE6HUPhB3296SNiF4BIXWBGCyKCO/xvXEuMYPFXSK/4HCuWjhaXEn/IbDB3QAA73P9lhnZIN0es6/JNmM/BrntVti84L67GFK/eT2HhJ499kXGiQHDAwNEracrUqolEdSudklI8MTBJrkFIXKDQlICsIGf59fD+pU5UzylUiHZuvJ2aofEVSvjyZbD4QfLYzzA+suYy0GPvzk96J9FBnuoE0hIbQtMJKthxF0cFMHkyU1bjQ87zrzXBv+NqZPjE1yRHR4c4wj6rE/CT1+6hmAuAEWx2ABBo0vY7DOjK8Z0Dnjq2H3TSgAPatDdygMODPS9ANszviab8DKxoBFO5WltlBVoUN0lDlgPeaAXdWaBKPxNXtqG+P8n18AxI+OQpui92eN/ZRZARHYXxg9XzPbAFPyAAAAAElFTkSuQmCC" alt=""/><picture><source type="image/webp" data-srcset="/static/05712cc0881a7e09b19bf39b77fdd28a/78997/gatsby.webp 25w,/static/05712cc0881a7e09b19bf39b77fdd28a/9afd2/gatsby.webp 50w,/static/05712cc0881a7e09b19bf39b77fdd28a/e64f1/gatsby.webp 100w,/static/05712cc0881a7e09b19bf39b77fdd28a/8b00d/gatsby.webp 200w" sizes="(min-width: 100px) 100px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 100px) 100px, 100vw" decoding="async" loading="lazy" data-src="/static/05712cc0881a7e09b19bf39b77fdd28a/90cd3/gatsby.png" data-srcset="/static/05712cc0881a7e09b19bf39b77fdd28a/d06fd/gatsby.png 25w,/static/05712cc0881a7e09b19bf39b77fdd28a/5861f/gatsby.png 50w,/static/05712cc0881a7e09b19bf39b77fdd28a/90cd3/gatsby.png 100w,/static/05712cc0881a7e09b19bf39b77fdd28a/614dc/gatsby.png 200w" alt="s01va"/></picture><noscript><picture><source type="image/webp" srcSet="/static/05712cc0881a7e09b19bf39b77fdd28a/78997/gatsby.webp 25w,/static/05712cc0881a7e09b19bf39b77fdd28a/9afd2/gatsby.webp 50w,/static/05712cc0881a7e09b19bf39b77fdd28a/e64f1/gatsby.webp 100w,/static/05712cc0881a7e09b19bf39b77fdd28a/8b00d/gatsby.webp 200w" sizes="(min-width: 100px) 100px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 100px) 100px, 100vw" decoding="async" loading="lazy" src="/static/05712cc0881a7e09b19bf39b77fdd28a/90cd3/gatsby.png" srcSet="/static/05712cc0881a7e09b19bf39b77fdd28a/d06fd/gatsby.png 25w,/static/05712cc0881a7e09b19bf39b77fdd28a/5861f/gatsby.png 50w,/static/05712cc0881a7e09b19bf39b77fdd28a/90cd3/gatsby.png 100w,/static/05712cc0881a7e09b19bf39b77fdd28a/614dc/gatsby.png 200w" alt="s01va"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><div class="style-module--Description--1bbd7"><span class="style-module--WrittenBy--181a0">Written By <u>s01va</u></span><p class="style-module--Bio--2fd8d"></p></div></div></section></article></main><footer class="style-module--Footer--a57f4" style="background:var(--primary-color)"><div class="style-module--ContentWrapper--e818c"><a aria-label="home" href="/"><div class="style-module--Logo--c7351" aria-roledescription="logo" style="font-size:1.5rem;color:var(--background-color)">s01ving note</div></a><div class="style-module--Links--2e0f2"><a aria-label="Privacy" style="color:var(--background-color)" href="/privacy/">Privacy</a><a aria-label="Imprint" style="color:var(--background-color)" href="/imprint/">Imprint</a></div></div></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/in-CentOS7-WebLogic12c-Install/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 660px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 7.87878787878788%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAa0lEQVR42i3OSwrDMBADULuzMgbP10nqNAvf/5AqTLt4oI2QiqpATfE8H8wZGGNg7w0RTu6O45iIcPTese47c60VpRS8iEBEmRPzAAtjrTfc7VdaCx6B8zphbjDT/4AkMwMzQ1TzgIejtZa+zZgvLKKu8MIAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/b997f5139e36825024bf50a76cee8af7/c9b55/23.webp 165w,
+/static/b997f5139e36825024bf50a76cee8af7/f2908/23.webp 330w,
+/static/b997f5139e36825024bf50a76cee8af7/cc661/23.webp 660w,
+/static/b997f5139e36825024bf50a76cee8af7/0244e/23.webp 825w"
+              sizes="(max-width: 660px) 100vw, 660px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/b997f5139e36825024bf50a76cee8af7/04c57/23.png 165w,
+/static/b997f5139e36825024bf50a76cee8af7/d9ecf/23.png 330w,
+/static/b997f5139e36825024bf50a76cee8af7/1f083/23.png 660w,
+/static/b997f5139e36825024bf50a76cee8af7/d4c13/23.png 825w"
+            sizes="(max-width: 660px) 100vw, 660px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/b997f5139e36825024bf50a76cee8af7/1f083/23.png"
+            alt="iptables"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 557px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 6.0606060606060606%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAQ0lEQVR42h3GSQ6AIBBFQXHBkhCkh994/2s+E2tVVypZa5ESEU5mECok4e7s/RAR/6uKeg8qYWbMOTE3xhj03rlb4wPiLhi0bxCrwgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/c9b55/20.webp 165w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/f2908/20.webp 330w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/9b7c7/20.webp 557w"
+              sizes="(max-width: 557px) 100vw, 557px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/04c57/20.png 165w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/d9ecf/20.png 330w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/30d00/20.png 557w"
+            sizes="(max-width: 557px) 100vw, 557px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/30d00/20.png"
+            alt="20"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 557px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 6.0606060606060606%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAQ0lEQVR42h3GSQ6AIBBFQXHBkhCkh994/2s+E2tVVypZa5ESEU5mECok4e7s/RAR/6uKeg8qYWbMOTE3xhj03rlb4wPiLhi0bxCrwgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/c9b55/20.webp 165w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/f2908/20.webp 330w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/9b7c7/20.webp 557w"
+              sizes="(max-width: 557px) 100vw, 557px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/04c57/20.png 165w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/d9ecf/20.png 330w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/30d00/20.png 557w"
+            sizes="(max-width: 557px) 100vw, 557px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/30d00/20.png"
+            alt="20"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 557px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 6.0606060606060606%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAQ0lEQVR42h3GSQ6AIBBFQXHBkhCkh994/2s+E2tVVypZa5ESEU5mECok4e7s/RAR/6uKeg8qYWbMOTE3xhj03rlb4wPiLhi0bxCrwgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/c9b55/20.webp 165w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/f2908/20.webp 330w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/9b7c7/20.webp 557w"
+              sizes="(max-width: 557px) 100vw, 557px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/04c57/20.png 165w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/d9ecf/20.png 330w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/30d00/20.png 557w"
+            sizes="(max-width: 557px) 100vw, 557px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/30d00/20.png"
+            alt="20"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 557px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 6.0606060606060606%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAQ0lEQVR42h3GSQ6AIBBFQXHBkhCkh994/2s+E2tVVypZa5ESEU5mECok4e7s/RAR/6uKeg8qYWbMOTE3xhj03rlb4wPiLhi0bxCrwgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/c9b55/20.webp 165w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/f2908/20.webp 330w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/9b7c7/20.webp 557w"
+              sizes="(max-width: 557px) 100vw, 557px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/04c57/20.png 165w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/d9ecf/20.png 330w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/30d00/20.png 557w"
+            sizes="(max-width: 557px) 100vw, 557px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/30d00/20.png"
+            alt="20"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 557px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 6.0606060606060606%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAQ0lEQVR42h3GSQ6AIBBFQXHBkhCkh994/2s+E2tVVypZa5ESEU5mECok4e7s/RAR/6uKeg8qYWbMOTE3xhj03rlb4wPiLhi0bxCrwgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/c9b55/20.webp 165w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/f2908/20.webp 330w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/9b7c7/20.webp 557w"
+              sizes="(max-width: 557px) 100vw, 557px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/04c57/20.png 165w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/d9ecf/20.png 330w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/30d00/20.png 557w"
+            sizes="(max-width: 557px) 100vw, 557px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/30d00/20.png"
+            alt="20"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 557px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 6.0606060606060606%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAQ0lEQVR42h3GSQ6AIBBFQXHBkhCkh994/2s+E2tVVypZa5ESEU5mECok4e7s/RAR/6uKeg8qYWbMOTE3xhj03rlb4wPiLhi0bxCrwgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/c9b55/20.webp 165w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/f2908/20.webp 330w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/9b7c7/20.webp 557w"
+              sizes="(max-width: 557px) 100vw, 557px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/04c57/20.png 165w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/d9ecf/20.png 330w,
+/static/9ccbcf5d030b0575ab8d3c30d19d06a2/30d00/20.png 557w"
+            sizes="(max-width: 557px) 100vw, 557px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/9ccbcf5d030b0575ab8d3c30d19d06a2/30d00/20.png"
+            alt="20"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span>
+<img src="./images/30.png" alt=""></p></div><span class="style-module--Keyword--9a2c3">was</span><span class="style-module--Keyword--9a2c3">middleware</span><span class="style-module--Keyword--9a2c3">weblogic</span><span class="style-module--Keyword--9a2c3">centos</span></section><section class="style-module--Footer--d408f"><div class="style-module--AuthorSnippet--7c737"><div data-gatsby-image-wrapper="" class="gatsby-image-wrapper gatsby-image-wrapper-constrained style-module--Avatar--1e2ce"><div style="max-width:100px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg%20height=&#x27;100&#x27;%20width=&#x27;100&#x27;%20xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%20version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAADn0lEQVR42n1V60sUURS/+Scs9DkoepihreuorW5UFFggQtD2wFdu7s62FomVVEQkuFhZWWq7M7trqy6bZlkURVFR0OtDDwuM6kNIH6SHSano4ujcG7/jzKIkfTjMnXvv+c05v/M7ZxhjjLltCqvMVOjptikp9G4NMp89bPHZww6fPew0zFGVF7HgzLxbmZlcM2aCGbagPK2VebIU5pFUyZsTiu2xBofKVraI4mUXybDGHs5kSZVwFz7wRUCwJJhrdYDVbGwHmL8yMyhKljcLt00R9SW9InzskQ7zl/YKT5ZCZ7gjS6q/ZlMHgy8wKEqglq9qNcHiroyAcGUEeHfjc210eEIXQvDpKZ0M67HfCf1a00ut0hrkFemX8IH4/rVtDKnDiAcjTT/AfPaw9unVIIDE46v9vKH8Bj+wPipgWGMPZ1/ef9erN0Q11+oAQP0mp5QyOEMKiAxgU9q0qNvRw3cubiLejKhpjb0T265ybXJa9D0Z0MtWtnDQ4M5SJLctyChMkAzS4w1PNXy9buc1vmvJBeHNCQmPpBKXMKyxV7z0oji+tYvXF18XFemXNOM8RhxW5UcsqJycrQrwc7/jHd++6LzYuyZMxJtgMPMdd8FfeVorotONsyG3TbEwOVt1gId9jjYxOjzBB/p/cG9uiBwQkQmSfFqJGsgHxkET9ow7DqTshGNpaoteuzlG3Hz9NESpzQeK6PblR0RVfoSC2L+2jXtzQrpxxwn+nCC70X1LP1Z0hSo6BdCPc0Fh0F/oyEPQLFC4ycSU0CaneeDgfb1kRTMU4mRVeRFH6YpmcU6+DQ754YJOXr0hSg6zQU3ejhTGRXvdE6HUPhB3296SNiF4BIXWBGCyKCO/xvXEuMYPFXSK/4HCuWjhaXEn/IbDB3QAA73P9lhnZIN0es6/JNmM/BrntVti84L67GFK/eT2HhJ499kXGiQHDAwNEracrUqolEdSudklI8MTBJrkFIXKDQlICsIGf59fD+pU5UzylUiHZuvJ2aofEVSvjyZbD4QfLYzzA+suYy0GPvzk96J9FBnuoE0hIbQtMJKthxF0cFMHkyU1bjQ87zrzXBv+NqZPjE1yRHR4c4wj6rE/CT1+6hmAuAEWx2ABBo0vY7DOjK8Z0Dnjq2H3TSgAPatDdygMODPS9ANszviab8DKxoBFO5WltlBVoUN0lDlgPeaAXdWaBKPxNXtqG+P8n18AxI+OQpui92eN/ZRZARHYXxg9XzPbAFPyAAAAAElFTkSuQmCC" alt=""/><picture><source type="image/webp" data-srcset="/static/05712cc0881a7e09b19bf39b77fdd28a/78997/gatsby.webp 25w,/static/05712cc0881a7e09b19bf39b77fdd28a/9afd2/gatsby.webp 50w,/static/05712cc0881a7e09b19bf39b77fdd28a/e64f1/gatsby.webp 100w,/static/05712cc0881a7e09b19bf39b77fdd28a/8b00d/gatsby.webp 200w" sizes="(min-width: 100px) 100px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 100px) 100px, 100vw" decoding="async" loading="lazy" data-src="/static/05712cc0881a7e09b19bf39b77fdd28a/90cd3/gatsby.png" data-srcset="/static/05712cc0881a7e09b19bf39b77fdd28a/d06fd/gatsby.png 25w,/static/05712cc0881a7e09b19bf39b77fdd28a/5861f/gatsby.png 50w,/static/05712cc0881a7e09b19bf39b77fdd28a/90cd3/gatsby.png 100w,/static/05712cc0881a7e09b19bf39b77fdd28a/614dc/gatsby.png 200w" alt="s01va"/></picture><noscript><picture><source type="image/webp" srcSet="/static/05712cc0881a7e09b19bf39b77fdd28a/78997/gatsby.webp 25w,/static/05712cc0881a7e09b19bf39b77fdd28a/9afd2/gatsby.webp 50w,/static/05712cc0881a7e09b19bf39b77fdd28a/e64f1/gatsby.webp 100w,/static/05712cc0881a7e09b19bf39b77fdd28a/8b00d/gatsby.webp 200w" sizes="(min-width: 100px) 100px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 100px) 100px, 100vw" decoding="async" loading="lazy" src="/static/05712cc0881a7e09b19bf39b77fdd28a/90cd3/gatsby.png" srcSet="/static/05712cc0881a7e09b19bf39b77fdd28a/d06fd/gatsby.png 25w,/static/05712cc0881a7e09b19bf39b77fdd28a/5861f/gatsby.png 50w,/static/05712cc0881a7e09b19bf39b77fdd28a/90cd3/gatsby.png 100w,/static/05712cc0881a7e09b19bf39b77fdd28a/614dc/gatsby.png 200w" alt="s01va"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><div class="style-module--Description--1bbd7"><span class="style-module--WrittenBy--181a0">Written By <u>s01va</u></span><p class="style-module--Bio--2fd8d"></p></div></div></section></article></main><footer class="style-module--Footer--a57f4" style="background:var(--primary-color)"><div class="style-module--ContentWrapper--e818c"><a aria-label="home" href="/"><div class="style-module--Logo--c7351" aria-roledescription="logo" style="font-size:1.5rem;color:var(--background-color)">s01ving note</div></a><div class="style-module--Links--2e0f2"><a aria-label="Privacy" style="color:var(--background-color)" href="/privacy/">Privacy</a><a aria-label="Imprint" style="color:var(--background-color)" href="/imprint/">Imprint</a></div></div></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/in-CentOS7-WebLogic12c-Install/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >

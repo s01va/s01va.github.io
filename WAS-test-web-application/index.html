@@ -5,19 +5,153 @@
                 google_ad_client: "pub-1418443722497332",
                 enable_page_level_ads: true
               });
-          </script></head><body data-theme="lightTheme"><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="style-module--Layout--b3aca"><header class="style-module--Header--9993b"><div class="style-module--ContentWrapper --5d8c4" style="opacity:0"><a aria-label="home" href="/"><div class="style-module--Logo--c7351" aria-roledescription="logo" style="font-size:2rem;color:var(--primary-color">s01ving note</div></a><div class="style-module--Burger--1ab74"><div></div><div></div><div></div></div><div class="style-module--SideBarWrapper--e7152" aria-hidden="true" tabindex="-1"><nav class="style-module--SideNavigationBar--57a7b"><a class="style-module--NavLink--94101" href="/#about">About</a><a class="style-module--NavLink--94101" href="/blog/">Blog</a><a class="style-module--NavLink--94101" href="/#github">Contact</a></nav></div><div class="style-module--SideBarBackdrop--fb470"></div></div></header><main><article class="style-module--Article--a4577"><div class="style-module--Breadcrumb--15487"><a title="Back To Article Listing" href="/blog/"><span class="style-module--BackArrow--f76ce">❮</span>All Articles</a></div><section class="style-module--Header--1fafc"><span class="style-module--Category--d42a1">misc</span><h1>WAS 테스트용 웹 어플리케이션 만들기</h1><div class="style-module--Details--92676">November 19, 2019<span class="style-module--ReadingTime--45206">4 min read</span></div></section><section class="style-module--Body--9dac7"><div class="style-module--Content--a6403"><p>WAS 제품을 설치 후, 또는 Web Server 제품까지 설치하고 연동시킨 후 그 결과를 확인하기 위해 테스트용 웹 어플리케이션이 필요하다.</p>
+          </script></head><body data-theme="lightTheme"><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="style-module--Layout--b3aca"><header class="style-module--Header--9993b"><div class="style-module--ContentWrapper --5d8c4" style="opacity:0"><a aria-label="home" href="/"><div class="style-module--Logo--c7351" aria-roledescription="logo" style="font-size:2rem;color:var(--primary-color">s01ving note</div></a><div class="style-module--Burger--1ab74"><div></div><div></div><div></div></div><div class="style-module--SideBarWrapper--e7152" aria-hidden="true" tabindex="-1"><nav class="style-module--SideNavigationBar--57a7b"><a class="style-module--NavLink--94101" href="/#about">About</a><a class="style-module--NavLink--94101" href="/blog/">Blog</a><a class="style-module--NavLink--94101" href="/#github">Contact</a></nav></div><div class="style-module--SideBarBackdrop--fb470"></div></div></header><main><article class="style-module--Article--a4577"><div class="style-module--Breadcrumb--15487"><a title="Back To Article Listing" href="/blog/"><span class="style-module--BackArrow--f76ce">❮</span>All Articles</a></div><section class="style-module--Header--1fafc"><span class="style-module--Category--d42a1">misc</span><h1>WAS 테스트용 웹 어플리케이션 만들기</h1><div class="style-module--Details--92676">November 19, 2019<span class="style-module--ReadingTime--45206">4 min read</span></div></section><section class="style-module--Banner--cbdac"><div data-gatsby-image-wrapper="" class="gatsby-image-wrapper gatsby-image-wrapper-constrained"><div style="max-width:660px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg%20height=&#x27;400.3913894324853&#x27;%20width=&#x27;660&#x27;%20xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%20version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><div aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear;background-color:#282828;position:absolute;top:0;left:0;bottom:0;right:0"></div><picture><source type="image/webp" data-srcset="/static/0f9790688e40a36b16b07a21310a4a2e/75874/0.webp 128w,/static/0f9790688e40a36b16b07a21310a4a2e/f32e0/0.webp 256w,/static/0f9790688e40a36b16b07a21310a4a2e/c06db/0.webp 511w" sizes="(min-width: 511px) 511px, 100vw"/><img data-gatsby-image-ssr="" class="style-module--BannerImage--71c8d" data-main-image="" style="opacity:0" sizes="(min-width: 511px) 511px, 100vw" decoding="async" loading="lazy" data-src="/static/0f9790688e40a36b16b07a21310a4a2e/c2d9b/0.png" data-srcset="/static/0f9790688e40a36b16b07a21310a4a2e/448cf/0.png 128w,/static/0f9790688e40a36b16b07a21310a4a2e/3fd3a/0.png 256w,/static/0f9790688e40a36b16b07a21310a4a2e/c2d9b/0.png 511w" alt="Image for WAS 테스트용 웹 어플리케이션 만들기"/></picture><noscript><picture><source type="image/webp" srcSet="/static/0f9790688e40a36b16b07a21310a4a2e/75874/0.webp 128w,/static/0f9790688e40a36b16b07a21310a4a2e/f32e0/0.webp 256w,/static/0f9790688e40a36b16b07a21310a4a2e/c06db/0.webp 511w" sizes="(min-width: 511px) 511px, 100vw"/><img data-gatsby-image-ssr="" class="style-module--BannerImage--71c8d" data-main-image="" style="opacity:0" sizes="(min-width: 511px) 511px, 100vw" decoding="async" loading="lazy" src="/static/0f9790688e40a36b16b07a21310a4a2e/c2d9b/0.png" srcSet="/static/0f9790688e40a36b16b07a21310a4a2e/448cf/0.png 128w,/static/0f9790688e40a36b16b07a21310a4a2e/3fd3a/0.png 256w,/static/0f9790688e40a36b16b07a21310a4a2e/c2d9b/0.png 511w" alt="Image for WAS 테스트용 웹 어플리케이션 만들기"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div></section><section class="style-module--Body--9dac7"><div class="style-module--Content--a6403"><p>WAS 제품을 설치 후, 또는 Web Server 제품까지 설치하고 연동시킨 후 그 결과를 확인하기 위해 테스트용 웹 어플리케이션이 필요하다.</p>
 <p>IDE: Eclipse</p>
 <p>Dynamic Web Project로 생성한다.</p>
-<p><img src="./images/0.PNG" alt="Eclipse:Dynamic Web Project"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 511px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 96.36363636363636%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAA7DAAAOwwHHb6hkAAADDklEQVR42pWTa08bRxSG968gIA7ggA2VihG215c1Dthr79W7vq5t7BibWJHaRG1olKRBMXYIBbVJg2hQ2yiBP9LPlfp7Wj3VLohKVS7Oh0dzNPPOOzNnzhHKdo2SXSSbWedmOkVm4+ZnkctuIGc3WEtJKDkZodnuUN9s0bzVodFqk9cN8tolujkGBpudLoO9J7S7fYSi06TS3qLa6lBtdzEqDma1gek0yRsWOaPwXvKXZFWNP/78i3/4m53vhwhWpUbRaVCo1DzsqoNdq1Os1bHK1U9SKFcZ7j/j8KeXbPbuIjQ7XXr9O5Sd5oXZJcXqhek4aFYJtVDEKpcR3FPscgWrVKFQqnrorsC0Pwv3Aq1OFyEupTGyIuvpJOFIFFEUWV5eJhAIsri4SDAY/ChLS0v4fNepVCr8+vsbhIS0RmTlCxr1ItFolFBomWAwMJbZleG1aziOw7uzc4SMLBMOh+nd2cJxqui6iqrkMU0DWc4Qj4kkEnESidh7kZIJQqEv6fe3efvuDCGWSDI7M4OiK6RSEiuhFQKBAPPz82PhaicnJ70nXxpKzM5cp9PtkUqliEQiBAILnnhhYeGTuOmZmpr6v+EMZtlGkiQi4TB+v39sQ/eG09PTmKbJz8fHCLGkxNzsHLJpspZOs7q66onchI9j6up8Ph+GYfDjixcIYjzhTZTqNS+HMVH0SkeMRgkGAvjn5vD7P8z8jRtMTExQKpUufnldziEmkmQ1jYycJ5tXkBXVGzNyjnhSIi6lPohXdmIcw7K59+19BMW0UK0ief2y4U0LpWBfodklr7WuRqt4Edv/xbpd8vZlFBVBdyct22tyF3cxq+rImnGBqiGrOllFI6fp5HTDW3fJ6SYZRfPijKKjFWyEVnebdq/vGbm0tnqMnh+wO9hjdzBk5+kB3+zu82B4xNePh+w8esJgOGIwesb9Bw8Z7j/n6d6I/R8O+eruPYTGrS6bW7e9kzbyKu3utteTbgm8PD5h9OoNo1e/cXR6zuPDE4YHR/zy+tTDNXW1J69PeXt2zncPH/EvjkPnrZevQH4AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/0f9790688e40a36b16b07a21310a4a2e/c9b55/0.webp 165w,
+/static/0f9790688e40a36b16b07a21310a4a2e/f2908/0.webp 330w,
+/static/0f9790688e40a36b16b07a21310a4a2e/4719d/0.webp 511w"
+              sizes="(max-width: 511px) 100vw, 511px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/0f9790688e40a36b16b07a21310a4a2e/04c57/0.png 165w,
+/static/0f9790688e40a36b16b07a21310a4a2e/d9ecf/0.png 330w,
+/static/0f9790688e40a36b16b07a21310a4a2e/92e00/0.png 511w"
+            sizes="(max-width: 511px) 100vw, 511px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/0f9790688e40a36b16b07a21310a4a2e/92e00/0.png"
+            alt="Eclipse:Dynamic Web Project"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>프로젝트 이름을 설정하고 Finish</p>
-<p><img src="./images/1.PNG" alt="Eclipse:Dynamic Web Project"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 511px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 138.78787878787878%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAE7klEQVR42oWVeXMTdRjH952JY21Lm3uz2eyZ3c19lqZpeuROgcKM3CJKrzRNj7SRjgOMiECRBmfE8ZhRX4PO+CK+zvPbEFpB/OMzz/M79tl9zuV02YAkBiAHA5BEgemqHIQiiXBMjP8vLscEeK8bTocDPo8LnGFFYEWiCEdjiMTiiMQSUDQNXr8At88Ht9d3Wg7h4fJ4wYsSHn/zAH/88h2eH/XBhWIJRDJTMOIpWOkc0xUrCp+sQ9AMCLoJv6LDrxnwqyHwis6gfZ+sIaDq+POvv/HVb79j7/tfwQWNMLRkFnIkAT2VhRpPQTIsyIwwFCti62YYUsgc7FtQBmvVtPDqx59x+OIndO4/A6dZEYTjSVixOPRYGkbyHCQrAa9swqdY8Cmv5b+x93nVYneDoSgUMwbOJ0rwSzICsgqfpEOLZRE04/DIBryK+Qb5bcgoGWRGmXEDnBGOwuHlcWZkFGOTTji9PLyCiICiIaCoQ0RFg6hqthzofFCG2y/AIwTg4gWIsgoukkgimZ2CbkWgGhZEWUNQDUHWzSFKyGR79kt0iJQkSUVuegZfrKzi9p3Psd7axFS+AI5c5YMS/EGZvVGQVAiyCr+kDBEkhZ35RBtelOENSCz25VoDi5Uaqs0lRBMpcPFUBqVKFZVaHeeXL+HK9RuMq4ybA27g6o2bb1GuN1BrLqHWWMLSxWUkMllwM8V53F1dQ6u9he5BDzt7Xex2u0y+j+3dPVy5dp25e/PWbaytt5CfLYKjAEuqDlk3WLCDqm5LRYMVTyKSSP0n8XT2DZksNDMMbrFSxdOjI/T7L3Hc75+i//Lleznu27w4PsYPr16hUm+Ao14863Rj3Om2U6/qLCk2io30bgKDe1RWJMk7rriwiJ2dXXS7B9il+Ozu4f6Dh3jy9BkeP3nC+HbI0yF03u5so/flPfYMredLZXBmNI7C/ALI8PTsHGaKc5idX0RxoYS5UhmzCyf1EgpzC2xdXCwhl5/BdKHI6o9sUPty9KlyyIRimCwxmhWGaoZZgAnapzUVPbUotSph1+ybWqU1c1kJGazdRiccrPXcfMC+LL9uO+0Udtvp7I5HEOENBBmk0xmXzOagmRbcvAC3P8A2FfpSMww9HGEteYpwhHmUyxdQaTQxt1hCqVZHpd5ENJkCZ0RiSGRzyJzLI5pMs4sUy/TUNDLn3iY7nUcslcGlT66gvb2N23fuYHVtHZtbHRZPjibL6KQT4w6X/YWqzoYBxUx5J/YZ3SNXhRO9zlyOptLQrTA+HB1nRj8aO4szI2P4YGQUI2cnMeZ0Y8zhOoEb4y4PzoyOY75cxb3DQ2xsttG7d4h4Kg1O0kKw6McUMhFLpbG20UK702G93d7qMP0UWx1sbe9gZW0dq+sbODp6jq8fPWJ1mszkwFGqySDVI/UnBbe+dB41ovlu6LzaaIIGC9UnJYYkecp+AR7BTjtB0/t9TA5weP2sVZ28MJS8GARHiSBDrwuW9EmPD06f/4QhPzNCe27eD5ePZ7VL+skXuXg/uFg6h3AizbqE4pnI5NC8uIxStc6mMLlGg5TcnCtXkZuvoVBZwmz1AjLFMkq1xiBMFzBdmAUXp598NMmmzccTDkzlZ/Dg4UPcXVlFd/8A3f19bLRaOOj18NnKBi582sK1lR3cavVQvXoXm50dbLbb2D/oYfnyZfwDJsQIsKw+xo0AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/8f728582f75b3c5fe9a5619721ef4a1f/c9b55/1.webp 165w,
+/static/8f728582f75b3c5fe9a5619721ef4a1f/f2908/1.webp 330w,
+/static/8f728582f75b3c5fe9a5619721ef4a1f/4719d/1.webp 511w"
+              sizes="(max-width: 511px) 100vw, 511px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/8f728582f75b3c5fe9a5619721ef4a1f/04c57/1.png 165w,
+/static/8f728582f75b3c5fe9a5619721ef4a1f/d9ecf/1.png 330w,
+/static/8f728582f75b3c5fe9a5619721ef4a1f/92e00/1.png 511w"
+            sizes="(max-width: 511px) 100vw, 511px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/8f728582f75b3c5fe9a5619721ef4a1f/92e00/1.png"
+            alt="Eclipse:Dynamic Web Project"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>jsp파일을 WebContent 안에 새로 만들어 준다.</p>
-<p><img src="./images/2.PNG" alt="Eclipse:Dynamic Web Project"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 243px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 96.36363636363636%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAC4ElEQVR42o2Ty2+bRRTFvQGklg0SYsW2UhR/D8fP+Hu/Z+Z72E5pjAOlAiFVxU2AsGpXRIgtElv+2h+acaDFcWgXo9HM3HvmnnvO7X3xeMXL61/4/c+/2Gw2/Hi55fJyy7NvniJlhRACISqkFMi9XSlp3sRb515RpAjVUi/XvLj+iS8vNlxs1qzPn5igppY0TY2SFXWtbu8UtZIURU7TKLquNWBZltDr9/tMJ2Ncp8932yu61Zo8S2nbFikVoiqRSlFkGZUQFEVJ17YoKfD9wMQtl0sDOBwO6TmOw+npKY5l0Z1/izxbm+S8KAyVOIpompYsTSmrW3qqxvfmWJaFbdv/7hqrZzsO4/EYPwh4fnVNlmSGShTFVFVFksTkWU6WZQSBz2w2Y+55JkcDuK77n9VzbJvRaEQQRtxcn/OkjZmHuaGtVI2UElEJQ3s2naBbpKux7R3YPmjPXLoultXnZDhhIQJuXi7x/NDQOjo64vj42NDaTz5cofPmp9PZjDD2+P6ZIAx88rzA9zyCIGQwGOwlOziOexfwHzBNYzKbM/c9vl6Mifw5qm4RRgjJwLCwbunat2DOXcr6UTd6OJoiuoBNNyZJdc8kVVkZv2n7LBYL48NdXwWu45hWHRRlMpkwGo3ZfpWyKOekRYUoK3zfM23Q79Pp1NhL7/p8L2VdoQ7SSr/aLjlrMgo9bqVgNBy8par9/pS1p6Io4terJasmISlq2qYhzzO6tmPRdcznMyzLfrco+getoF6rOmapYi4el8RxjNIjV2hT56RJctAmB1XeKW3jDCY0pc/Nzyszp0pKirIgSxPSNH0/wDc+tJnO5ixlxOsfVnheyKI7oygqlGzMlFi2fa+h71Soe2I7Q8rsU/747WPC8COUekCSfIDvfYLrnpiY3XoH5d2PDv2+i+9/zqvXHxKED5DyIUo+xPc/w7IOq/o/PdwF2vYJjx4NsCxtmRP6/SG2PbxX1X3AvwGpHn2+NqoZBAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/aa38e8bee2d053b8dcc78c891688f17f/c9b55/2.webp 165w,
+/static/aa38e8bee2d053b8dcc78c891688f17f/0e3e2/2.webp 243w"
+              sizes="(max-width: 243px) 100vw, 243px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/aa38e8bee2d053b8dcc78c891688f17f/04c57/2.png 165w,
+/static/aa38e8bee2d053b8dcc78c891688f17f/8aea6/2.png 243w"
+            sizes="(max-width: 243px) 100vw, 243px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/aa38e8bee2d053b8dcc78c891688f17f/8aea6/2.png"
+            alt="Eclipse:Dynamic Web Project"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>만약 tomcat이 연결되어 있지 않으면 첫줄부터</p>
 <p>The superclass "javax.servlet.http.HttpServlet" was not found on the Java Build Path</p>
 <p>같은 오류가 뜬다. 먼저 <a href="https://tomcat.apache.org/download-80.cgi">톰캣 페이지</a>에서 톰캣을 설치한다.
 이후 이클립스에서 프로젝트 우클릭 -> Properties를 선택하고 아래 캡쳐에서 톰캣을 추가해 준다.</p>
-<p><img src="./images/3.PNG" alt="Eclipse:Dynamic Web Project"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 660px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 69.0909090909091%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAA7DAAAOwwHHb6hkAAADAUlEQVR42n2S3U9bZRzHz99iSMxa2h7a89aX067QQ184gIW2lLZjwAAJUWdivDG6GI2ZxESXGGWs5b1lDhzq6IVey0zMKKA37sJd2IRu/8XHPGdrZJp48cnznOR5Ps/39/sdqVKZolQuO+TyObJjWYZsm4SVYCDxDxe/rUGLhMAS+0ESloVt26QzGaT0kM1AwiIUjlCsTPHue+/z0Sc3qa5vsFVvsN3YddjaabCze5ftxl1Wq1usbdRZ26zz5der3K7WqG1s8tXtVSQzGsVKJOiTZcbzBeqNXb65d49ms8nBwQF7e3vs7+9Rq9VYX9+gXt/hx59WeHC4yWGzxnffb3P/4AH7397nh8MmUjQWIx6P4/P5SAwmmZ25wsiIjWEYKEoAl+sSbrcbn89LT08PqqIw93oBv+5CC8kEdAW/FsLt8zNWKCKJ+lOpJKqqMJhKU6mUGB0dRdd1/H4/siw7j6mqisfTi2maXJ1dxOM3UIMxFMNEC5l4/Sq5YgkpmUoyMjxMLGqSygxRLJVJpVOOUHBRKJJGIhGmr83jC2iOSA1GXgg1csUyUiRiOiWLNMl0BtFTTdMIBAJOX71eryPs6+ujt7fXEc7MLSArOno46mBEYsiKQaFUQYrH+xkY6Mfn9ZKxh5FfXBSirqy77ya8Mj1Lr6w40kse2enfK6+6GBodQ4pdvoxlWQSDQdK27STrirqy7l4IRQ/fevsdwrF+XhsvsPTmdZbeuM784hI3Pvz4uVAcEiWJhP8WXkQkN4JBjh7+wq+Pjjn77XeOWy1+Pjri0XGLk9MzJNGv7utC2O2Vx+P5D+KMGE6rdUK73eaPx49pnZw6nJ6dOaskpigEbpeLtD1MKBR2Lmma/jK6jqKqiCGKNJ3OU/5qtznvdDg/7/D02TP+fPIEKWya6IaBqmqMZMeZqEw5/1NusvwS+e5aKjM9t8DMwiKzC4usrN6hurbOyp2qg3T12jzjE0WHXHGS3GTpufB/GCtMkM0XyOYn+ODTL7ixfIvPPr/FzeVl/gbfuzwjQaA7aQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/7048f785f605c3b9873be329877f1833/c9b55/3.webp 165w,
+/static/7048f785f605c3b9873be329877f1833/f2908/3.webp 330w,
+/static/7048f785f605c3b9873be329877f1833/cc661/3.webp 660w,
+/static/7048f785f605c3b9873be329877f1833/a66df/3.webp 990w,
+/static/7048f785f605c3b9873be329877f1833/4ad2e/3.webp 1001w"
+              sizes="(max-width: 660px) 100vw, 660px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/7048f785f605c3b9873be329877f1833/04c57/3.png 165w,
+/static/7048f785f605c3b9873be329877f1833/d9ecf/3.png 330w,
+/static/7048f785f605c3b9873be329877f1833/1f083/3.png 660w,
+/static/7048f785f605c3b9873be329877f1833/7a3d6/3.png 990w,
+/static/7048f785f605c3b9873be329877f1833/6acbf/3.png 1001w"
+            sizes="(max-width: 660px) 100vw, 660px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/7048f785f605c3b9873be329877f1833/1f083/3.png"
+            alt="Eclipse:Dynamic Web Project"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>아래는 test.jsp 코드이다.</p>
 <div class="gatsby-highlight" data-language="jsp"><pre class="language-jsp"><code class="language-jsp">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=EUC-KR&quot;
 	pageEncoding=&quot;EUC-KR&quot;%&gt;
@@ -68,7 +202,42 @@
 	%&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre></div>
-<p><img src="./images/4.PNG" alt="test.jsp view"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 660px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47.878787878787875%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABvklEQVR42qWQTWsTURSGZyXaxCSWSFAE9xbqUpTiRhHRlQvpQvwpwYI1CV1UVLKyAbsS6UL9FypkGYjTfNSMjZm5mXsnM1OThsw8MrdYCq2I+MLDOYt77vueYyw/esyDh8vcuXufazeWuL50U9eLly6TyuSYS2c5k86cQJbTqbOcmkuTyxfIzufJFy5gLCxc4eriIsVikWq1yvr6c168fMWzUoknKys8XV2lXKlQKpePUVlb497tWxQyKfL588yfy2G83thg880m9Xod2xEMbBtHCFxX4kqF8jxGvn+ckU8Qhnz5/Imtd295/+EjtVoNAyCOIqb7+/yvJpMJhvXNwvpuIVWSSGr3RFEUHRLHMVEUE8Wx7o8ym82YTqd6pt/vYwRBwN7PPZTyNJ7naaf4hOE/kZgmsm0b46tpYpom29stGo0GzWaT3d0+UkocWyCl0r1SCulKhkIwdASO7eC6Lk7SC0EYhgcfOoMBQzFEKsXIG+l0/6ok5WHC5HZSutpdSaVX9oNAp0r65D6/B/4mIQSGZVlYvR47O1067TbtVotOp0u73aLb7dLr9ej/GOD7vl4ruflRwvCgjsdj/f4X4HiroP7jL14AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/01ff2ed4815340794720afd8a133563f/c9b55/4.webp 165w,
+/static/01ff2ed4815340794720afd8a133563f/f2908/4.webp 330w,
+/static/01ff2ed4815340794720afd8a133563f/cc661/4.webp 660w,
+/static/01ff2ed4815340794720afd8a133563f/06157/4.webp 745w"
+              sizes="(max-width: 660px) 100vw, 660px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/01ff2ed4815340794720afd8a133563f/04c57/4.png 165w,
+/static/01ff2ed4815340794720afd8a133563f/d9ecf/4.png 330w,
+/static/01ff2ed4815340794720afd8a133563f/1f083/4.png 660w,
+/static/01ff2ed4815340794720afd8a133563f/7e509/4.png 745w"
+            sizes="(max-width: 660px) 100vw, 660px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/01ff2ed4815340794720afd8a133563f/1f083/4.png"
+            alt="test.jsp view"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>아래는 보기 편하게 하기 위해서 table을 입힌 코드이다.</p>
 <div class="gatsby-highlight" data-language="jsp"><pre class="language-jsp"><code class="language-jsp">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=EUC-KR&quot;
 	pageEncoding=&quot;EUC-KR&quot;%&gt;
@@ -143,12 +312,115 @@
 	%&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre></div>
-<p><img src="./images/5.PNG" alt="test.jsp tableversion view"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 660px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 52.72727272727272%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAByElEQVR42qWS3WpTQRDHz50gqGhDsPgAbVD0roI3gkopiqLEh6oPYcGaBBufQ70JuarYikrzYQ7n7PnY3ZOczyQ/Odu0Skmh4MCP2dmBmdn/rPXiVZ1nz1+yufWUh4+e8Hhzi9qdu1RXb1Gp3lzKyoJKdZWr11e4dPmK8dduVLDub2zwul5nr92m2Wrxod3mfaPJ250d3u3u0mq1zP1ZGo0me+2PvNne5sG926zXaqyvrWF9+vKZTqfDYDAgCEN8PyAMJVIqlNJovRylNVEUIYTg+8E3Dg8P6Xa7WMgJszhBKkmapvyPFUWB5R78wB/ZeJ6HcF2m06lJzufzc/nXyng2m5lzObnlDzSxl6NCjR94BEGAUoosyynywnTNF/6EPM9PKeMsy4wfj8dYo30P3UsYDWyO+kcMh0N6/T7C80zhkmM9FTo61k1JiZKKMAiRUp7my2GsX50+wU/NRMfkRU6e5SRpwuzM0y5i5Q4s31aMg4Q0zZmzKLKk1olW51FakiRY+79HfLUd+l6AcByzHHtkm/HTJCGOY9I0udCEpaZWz3ZwQoWvNMIV5l8JT+C4rtm64zgI4RLpaKHXX8IwNJudTCamcanhH3XoB55VuwTcAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/fd141e74b431c04f3f1d689cea53387c/c9b55/5.webp 165w,
+/static/fd141e74b431c04f3f1d689cea53387c/f2908/5.webp 330w,
+/static/fd141e74b431c04f3f1d689cea53387c/cc661/5.webp 660w,
+/static/fd141e74b431c04f3f1d689cea53387c/2321d/5.webp 835w"
+              sizes="(max-width: 660px) 100vw, 660px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/fd141e74b431c04f3f1d689cea53387c/04c57/5.png 165w,
+/static/fd141e74b431c04f3f1d689cea53387c/d9ecf/5.png 330w,
+/static/fd141e74b431c04f3f1d689cea53387c/1f083/5.png 660w,
+/static/fd141e74b431c04f3f1d689cea53387c/f0685/5.png 835w"
+            sizes="(max-width: 660px) 100vw, 660px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/fd141e74b431c04f3f1d689cea53387c/1f083/5.png"
+            alt="test.jsp tableversion view"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>이제 WEB-INF에 web.xml까지 생성해주면 완성이다.
 프로젝트를 우클릭하고 아래와 같이 만들어 줄 수 있다.</p>
-<p><img src="./images/6.PNG" alt="make web.xml"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 660px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 92.72727272727273%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAIAAAAf7rriAAAACXBIWXMAAA7DAAAOwwHHb6hkAAADYElEQVR42nWTXW/bVBjH8x0QE5qapEnb4Lc0tCWUcoMEG12aNG43NAQq23hp4ypdKAINuEACJiS+ALd8Di6gUgqINSmozZJpyRI7L/ZxnDj2OT6O7bSbhOKmW4vgp7+Onpufzv88lj0JdiWzvf37b7vZbDbvsr+fz+dzf5ySy+XWbt4IBIM0TZPn8czMRlLrN1RVbcvtft8aDAaOy3CwbQTR8fFxOp32er0Mw/xbXnhlZmvjfQCAwAuiKDabTaWtIIQghL1er9Vs9nq9zc1Nr8/3H3I4zGx88G6jWW80GgDIAMi6riEXwzA0TYMIpdNp39hYmKYpgjgbD0GQa+9db9arPM/LsqwoCoTQcDFNU1VVXde425mLwQlyZjY0HTkbD0GS11hWelQReEHX9OFVEGKMdX04AyDJQOY+u3OBYKaiC8G5+bPxEASxvLwsAVB+WBZF6akMdV1VVQAAQohLpf6vNpFMsrIMeJ7XdB1j/PTBEEJJkiCEHMeNeb00wxAkeZLRwlw5CYBUF+quBSFEZ7Esi+M4v98fDocpegRFUedknue73a7ZNzHGxinIXd7tT7ZJJjy/8Fp0/tW5aHTu5Wgk8hJJjmon23JbEIRKuSKKYrfbxebIhxAOBgMus3VxKhienaEoinA5V1uW5VqtJknSydfSdP2ks67rjuNscpzP62VohqQo0i38TGZZVhTFh+VKs9WSJCBKoNNVDYwhQhAhy7bTW+lxvz8yPc3Q9DCnuHIyqSpyg69ipB871sAynT62TcM2DQujx46dymSeH/cHphk/RQYmp3x+v5txD0kQiSRbEsBu/n6+WL1fA4eVlqAY9Q6ud7CgGKJmf/Pdt5fefH0p9lZs8XIyfmVleYlNLCWWFj0kScQS7C8l5edD8OuDTraGs1W8y5vPUsOHAvi7puw/Uv6qdkqSUVb6VfWorFij2goQyw9KrTqPkd7HqG/A4ekOtmn88ONP8Vufvs19eS31xdWNO6vrn19NffXO1tejhfU0XRQlZODB0ZEz/KUHtuPYjtO3rMdPnqx//NELF54jQ5OhiUBoMvDiZDA0MT4Z8HlIkozFYnt7ezs7O7l8vlAoHBwcFAqFYrFYKhXv/XlvP5+/e/f7BLuSWL3+xmLiUix++Uo8nlxdu/nhP57SkzPq9EIUAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/4a49505da70563a50aa0127ffec1206a/c9b55/6.webp 165w,
+/static/4a49505da70563a50aa0127ffec1206a/f2908/6.webp 330w,
+/static/4a49505da70563a50aa0127ffec1206a/cc661/6.webp 660w,
+/static/4a49505da70563a50aa0127ffec1206a/8cb3e/6.webp 728w"
+              sizes="(max-width: 660px) 100vw, 660px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/4a49505da70563a50aa0127ffec1206a/04c57/6.png 165w,
+/static/4a49505da70563a50aa0127ffec1206a/d9ecf/6.png 330w,
+/static/4a49505da70563a50aa0127ffec1206a/1f083/6.png 660w,
+/static/4a49505da70563a50aa0127ffec1206a/cecac/6.png 728w"
+            sizes="(max-width: 660px) 100vw, 660px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/4a49505da70563a50aa0127ffec1206a/1f083/6.png"
+            alt="make web.xml"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>기본적으로 생성되는 web.xml이다.</p>
-<p><img src="./images/7.PNG" alt="web.xml"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 397px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.96969696969697%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACNElEQVR42m2Sy27aQBRA+YxuCtj4NcYYAjgQMLZnPH4BhjyqNKm66qKLLvr/u1NhiJRFF0ejK90596Hb+/P7F+/vP3l7/U4hFefTM0+PL+hMkacppVKkcYaWJSot0FJTyLwjlzlaaQqlu/dCL//xl2W0YlqfGdbfcHWO30hElTPQDQO9R1Sa8JgzaxVO3WA2J4zqSFidsdIKM6kw0yu9aVwilSY4vvGlecVoTkSnOevHGZMqIqjWeEeJOCn8c4Z5LOmXBf2yxDocGNRVFw/ynH5V0DMGX1k/bJiEd5hxxbB4ZhQXDJOaSVrStC/ksmKyiBlEKdZDhrtYYW8lbniH71j4wsX3rvQs2yZOUqazOaNoh6n2mFnNaKcx0opxVnMfZ8znc+7Xa/xZhH0RLlY4syX2Yo3nB3iehycEPcdx8Xwfz7ZwwyWGajH0CWur+CoPRInmdH5G5gW6bjHiPcPqqcsxswYzbfCEj/gQ2o7DeDJBuA7ONMKQBwx17ISDrGGZltT7llQqElkyTmqMpL5NUTDaKJzpHOEJPOF9CMObcImZXYQHrI2knzWsZM1+35Llmryo2OV7hpsSUx0YxRozrRk9SIR769B1PcLZHcL5PHLbVe+rIyvdsj8+onRJJnOWSUP/UlS3mEmJKQ9YUYxw7JvQE4TTKe54hrlruu4ud2Xfb7HWCfZ6hxNtux0FQYB/2bcQn7jG1x169BzXZRwEOGHUCaxNhr14uCV8+nyJb4j/8CH9ByyVZ5y/eErAAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/a3d04f1b575306439909b616eb3fd7f5/c9b55/7.webp 165w,
+/static/a3d04f1b575306439909b616eb3fd7f5/f2908/7.webp 330w,
+/static/a3d04f1b575306439909b616eb3fd7f5/014b7/7.webp 397w"
+              sizes="(max-width: 397px) 100vw, 397px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/a3d04f1b575306439909b616eb3fd7f5/04c57/7.png 165w,
+/static/a3d04f1b575306439909b616eb3fd7f5/d9ecf/7.png 330w,
+/static/a3d04f1b575306439909b616eb3fd7f5/4c04a/7.png 397w"
+            sizes="(max-width: 397px) 100vw, 397px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/a3d04f1b575306439909b616eb3fd7f5/4c04a/7.png"
+            alt="web.xml"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
 <p>이를 webtest에 알맞게 수정해준다.</p>
 <div class="gatsby-highlight" data-language="xml"><pre class="language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-app</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://java.sun.com/xml/ns/javaee<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd<span class="token punctuation">"</span></span> <span class="token attr-name">version</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
