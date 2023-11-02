@@ -126,7 +126,7 @@ command_list <span class="token operator">=</span> <span class="token punctuatio
 <p>1까지는 성공적이었으나 2 과정 중에서 문제가 생기는 것으로 파악되었다.</p>
 <p>위의 문제를 해결하기 위해 <a href="https://github.com/jasonish/py-idstools/blob/master/idstools/scripts/rulecat.py">rulecat.py</a>를 뜯어보았다.</p>
 <p>다음은 문제가 되는 ModifyRuleFilter.parse()를 관찰하기 위해 가져온 class이다.</p>
-<p><em>(rulecat.py line 218 확인)</em></p>
+<p><a href="https://github.com/jasonish/py-idstools/blob/master/idstools/scripts/rulecat.py#L218"><em>rulecat.py line 218 확인</em></a></p>
 <div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">ModifyRuleFilter</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token triple-quoted-string string">"""Filter to modify an idstools rule object.
 
@@ -218,7 +218,7 @@ command_list <span class="token operator">=</span> <span class="token punctuatio
 <span class="token punctuation">...</span></code></pre></div>
 <p>이전 과정에서 <code class="language-text">re.escape(str_raw.replace('"', '\\"'))</code>로 escape 처리한 이후 줄바꿈 취급되는 곳이 있는지 확인해야 했다. 그렇다면, so-rule modify 명령어를 통해 manager sls파일에 쓰기를 진행하는 곳을 찾아야 했다. 다시, rulecat.py를 실행하기 전인 so-rule를 분석해야 한다.</p>
 <p>분석 결과... string 처리 중에는 개행으로 대체되는 곳이 없었고, manager sls 파일에 유일하게 쓰기를 하는 부분은 이곳이었다.</p>
-<p><em>(so-rule line 108 참고)</em></p>
+<p><a href="https://github.com/Security-Onion-Solutions/securityonion/blob/3839e5240127ac3c7b7659b2a270337f859dbf5a/salt/common/tools/sbin/so-rule#L108"><em>so-rule line 108 참고</em></a></p>
 <div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">write_pillar</span><span class="token punctuation">(</span>pillar<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> content<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
   <span class="token keyword">try</span><span class="token punctuation">:</span>
     sids <span class="token operator">=</span> content<span class="token punctuation">[</span><span class="token string">'idstools'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'sids'</span><span class="token punctuation">]</span>
